@@ -14,12 +14,20 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
 	mix.sass('app.scss');
 
+	mix.styles( [
+				'./node_modules/admin-lte/bootstrap/css/bootstrap.min.css',
+				'./node_modules/admin-lte/dist/css/AdminLTE.min.css',
+				'./node_modules/admin-lte/dist/css/skins/skin-blue.min.css'
+				], 
+				'public/css/libs.css');
 	
-	mix.styles([
-			"./node_modules/admin-lte/dist/css/AdminLTE.min.css",
-			"./node_modules/admin-lte/dist/css/skins/skin-blue.min.css"
-		], 'public/css/libs.css');
-	
+
+	mix.scripts([
+				'./node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js',
+				'./node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
+				'./node_modules/admin-lte/dist/js/app.min.js'
+				],
+				'public/js/libs.js');
 
 	mix.browserSync({
 		files: [

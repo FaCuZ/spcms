@@ -1,19 +1,22 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 Route::get('/', function () {
     return view('main');
 });
+/*
+Route::group(['as' => 'admin::'], function () {
+    Route::get('dashboard', ['as' => 'dashboard', function () {
+        // Route named "admin::dashboard"
+    }]);
+});
+*/
 
+Route::get('/admin', 		 ['middleware' => 'auth', 'uses' => 'AdminController@showInicio'  ]);
+Route::get('/admin/textos',  ['middleware' => 'auth', 'uses' => 'AdminController@showTextos'  ]);
+Route::get('/admin/imagenes',['middleware' => 'auth', 'uses' => 'AdminController@showImagenes']);
+Route::get('/admin/emails',  ['middleware' => 'auth', 'uses' => 'AdminController@showEmails'  ]);
+Route::get('/admin/ayuda', 	 ['middleware' => 'auth', 'uses' => 'AdminController@showAyuda'	  ]);
 
-Route::get('admin', 'AdminController@show');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
