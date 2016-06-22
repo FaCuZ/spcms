@@ -1,0 +1,1 @@
+Para continuar debe contactarse con el administrador

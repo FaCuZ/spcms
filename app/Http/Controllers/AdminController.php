@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\User;
+
+use Auth;
 
 class AdminController extends Controller
 {
@@ -26,6 +29,10 @@ class AdminController extends Controller
 
 	public function showAyuda(){
 		return view('admin.ayuda');
+	}
+
+	public function showAlerta(){
+		return view('errors.sinrole');
 	}
 
 }
