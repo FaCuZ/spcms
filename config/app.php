@@ -155,6 +155,11 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        /*
+         * Vendor Service Providers...
+         */
+        Laralib\L5scaffold\GeneratorsServiceProvider::class,
 
     ],
 
