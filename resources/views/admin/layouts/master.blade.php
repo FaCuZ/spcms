@@ -32,20 +32,29 @@
 
 		  	<div class="content-wrapper">
 			
-				@yield('content')
+				<section class="content-header">
+
+					@yield('header')
+
+    			</section>
+
+			    <section class="content">
+
+					@yield('content')
+
+				</section>
 
 		  	</div>
 
-		  	<footer class="main-footer">
+			<footer class="main-footer">
 			
 				@include('admin.layouts.footer')
 
-		 	</footer>
+			</footer>
 
 		</div>
-		<!-- ./wrapper -->
 
-	<script src="{{ URL::asset('js/libs.js') }}"></script>
+		<script src="{{ URL::asset('js/libs.js') }}"></script>
 
 	</body>
 </html>

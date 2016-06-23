@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Text;
 use Illuminate\Http\Request;
 
+use Auth;
+
 class TextController extends Controller {
 
 	/**
@@ -17,7 +19,9 @@ class TextController extends Controller {
 	{
 		$texts = Text::orderBy('id', 'desc')->paginate(10);
 
-		return view('texts.index', compact('texts'));
+		$rol = Auth::user()->role;
+
+		return view('admin.texts.index', compact(['texts','rol']));
 	}
 
 	/**
@@ -27,7 +31,11 @@ class TextController extends Controller {
 	 */
 	public function create()
 	{
-		return view('texts.create');
+		if(Auth::user()->role != "admin"){
+			return redirect()->route('admin.textos.index');
+		} else {
+			return view('admin.texts.create');			
+		}
 	}
 
 	/**
@@ -45,7 +53,7 @@ class TextController extends Controller {
 
 		$text->save();
 
-		return redirect()->route('texts.index')->with('message', 'Item created successfully.');
+		return redirect()->route('admin.textos.index')->with('message', 'Creacion exitosa');
 	}
 
 	/**
@@ -58,7 +66,9 @@ class TextController extends Controller {
 	{
 		$text = Text::findOrFail($id);
 
-		return view('texts.show', compact('text'));
+		$rol = Auth::user()->role;
+
+		return view('admin.texts.show', compact(['text','rol']));
 	}
 
 	/**
@@ -71,7 +81,9 @@ class TextController extends Controller {
 	{
 		$text = Text::findOrFail($id);
 
-		return view('texts.edit', compact('text'));
+		$rol = Auth::user()->role;
+
+		return view('admin.texts.edit', compact(['text','rol']));
 	}
 
 	/**
@@ -90,7 +102,7 @@ class TextController extends Controller {
 
 		$text->save();
 
-		return redirect()->route('texts.index')->with('message', 'Item updated successfully.');
+		return redirect()->route('admin.textos.index')->with('message', 'Actualizacion exitosa.');
 	}
 
 	/**
@@ -104,7 +116,7 @@ class TextController extends Controller {
 		$text = Text::findOrFail($id);
 		$text->delete();
 
-		return redirect()->route('texts.index')->with('message', 'Item deleted successfully.');
+		return redirect()->route('admin.textos.index')->with('message', 'Borrado exitoso.');
 	}
 
 }

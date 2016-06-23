@@ -1,5 +1,5 @@
 <!-- Logo -->
-<a href="{{ URL::route('admin::inicio') }}" class="logo">
+<a href="{{ URL::route('admin.inicio') }}" class="logo">
 	<!-- mini logo for sidebar mini 50x50 pixels -->
 	<span class="logo-mini"><b>A</b>dm</span>
 	<!-- logo for regular state and mobile devices -->
@@ -16,6 +16,7 @@
 	<div class="navbar-custom-menu">
 		<ul class="nav navbar-nav">
 
+			{{--
 			<!-- Notifications Menu -->
 			<li class="dropdown notifications-menu">
 				<!-- Menu toggle button -->
@@ -39,12 +40,11 @@
 					<li class="footer"><a href="#">View all</a></li>
 				</ul>
 			</li>
+			--}}
 
-			{{--
 			<li>
 				<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
 			</li>
-			--}}
 		</ul>
 	</div>
 </nav>

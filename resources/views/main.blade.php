@@ -39,6 +39,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Pagina Principal</div>
+                <a href="./admin">Admin</a>
             </div>
         </div>
     </body>
