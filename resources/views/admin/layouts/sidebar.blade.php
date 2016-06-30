@@ -9,7 +9,7 @@
 		<i class="fa fa-file-text-o"></i> <span>Textos</span></a>
 	</li>
 
-	<li @yield('a-imagenes')><a href="{{ URL::route('admin.imagenes') }}">
+	<li @yield('a-imagenes')><a href="{{ URL::route('admin.imagenes.index') }}">
 		<i class="fa fa-image"></i> <span>Imagenes</span></a>
 	</li>
 

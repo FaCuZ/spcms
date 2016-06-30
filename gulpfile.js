@@ -29,6 +29,7 @@ elixir(function(mix) {
 				],
 				'public/js/libs.js');
 
+
 	mix.browserSync({
 		files: [
 			   'app/**/*',

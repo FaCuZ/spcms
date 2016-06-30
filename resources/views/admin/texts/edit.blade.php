@@ -33,7 +33,6 @@
 						</div>
 					@else
 						<input type="hidden" id="title-field" name="title" value="{{ $text->title }}"/>
-
 					@endif
 
 					<div class="form-group @if($errors->has('body')) has-error @endif">

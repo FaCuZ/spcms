@@ -21,17 +21,12 @@
 			<div class="box-body no-padding">
 				<table class="table table-striped">
 					<tbody>
-						<tr>
-							<th>Elemento</th>
-							<th>Texto</th>
-							<th></th>
-						</tr>
 
 						@foreach($texts as $text)
 							<tr>
 								<td><strong>{{$text->title}}</strong></td>
 								<td>{{$text->body}}</td>
-								<td class="text-right">
+								<td class="text-right nowrap">
 									<a class="btn btn-xs btn-warning" href="{{ route('admin.textos.edit', $text->id) }}"><i class="fa fa-edit"></i> Editar</a>
 									@if($rol=="admin")
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.textos.show', $text->id) }}"><i class="fa fa-eye"></i> Ver</a>
@@ -49,7 +44,10 @@
 				</table>
 			</div><!-- /.box-body -->
 		@else
-			<h3 class="text-center alert alert-info">Vacio!</h3>
+			<p class="text-center">Sin Elementos</p>
+			@if($rol=="admin")
+				<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.textos.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
+			@endif
 		@endif
 	</div><!-- /.box -->
 
