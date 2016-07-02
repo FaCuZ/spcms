@@ -16,6 +16,10 @@ class CreateImagesTable extends Migration {
             $table->increments('id');
             $table->string('title');
             $table->text('description');
+
+			$table->integer('gallery_id')->unsigned();
+			$table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
+
             $table->timestamps();
         });
 	}

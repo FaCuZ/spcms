@@ -13,11 +13,15 @@ class CreateGalleriesTable extends Migration {
 	public function up()
 	{
 		Schema::create('galleries', function(Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->text('description');
-            $table->timestamps();
-        });
+			$table->increments('id');
+			$table->string('title');
+			$table->text('description');
+
+			$table->integer('album_id')->unsigned();
+			$table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
+
+			$table->timestamps();
+		});
 	}
 
 	/**

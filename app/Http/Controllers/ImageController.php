@@ -4,6 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Image;
+
+use App\Gallery;
 use Illuminate\Http\Request;
 
 use Auth;
@@ -29,9 +31,13 @@ class ImageController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		return view('admin.images.create');
+		$gallery_id = $request->input('gallery');
+ 		$gallery = Gallery::findOrFail($gallery_id);
+
+		return view('admin.images.create', compact('gallery'));
+
 	}
 
 	/**
@@ -46,6 +52,7 @@ class ImageController extends Controller {
 
 		$image->title = $request->input("title");
         $image->description = $request->input("description");
+        $image->gallery_id = $request->input("gallery_id");
 
 		$image->save();
 

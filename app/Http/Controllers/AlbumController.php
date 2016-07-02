@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Album;
 use Illuminate\Http\Request;
 
+use Auth;
+
 class AlbumController extends Controller {
 
 	/**
@@ -17,7 +19,9 @@ class AlbumController extends Controller {
 	{
 		$albums = Album::orderBy('id', 'desc')->paginate(10);
 
-		return view('albums.index', compact('albums'));
+		$rol = Auth::user()->role;
+
+		return view('admin.albums.index', compact(['albums','rol']));
 	}
 
 	/**
@@ -27,7 +31,7 @@ class AlbumController extends Controller {
 	 */
 	public function create()
 	{
-		return view('albums.create');
+		return view('admin.albums.create');
 	}
 
 	/**
@@ -57,7 +61,9 @@ class AlbumController extends Controller {
 	{
 		$album = Album::findOrFail($id);
 
-		return view('albums.show', compact('album'));
+		$rol = Auth::user()->role;
+
+		return view('admin.albums.show', compact(['album','rol']));
 	}
 
 	/**
@@ -70,7 +76,9 @@ class AlbumController extends Controller {
 	{
 		$album = Album::findOrFail($id);
 
-		return view('albums.edit', compact('album'));
+		$rol = Auth::user()->role;
+		
+		return view('admin.albums.edit', compact(['album','rol']));
 	}
 
 	/**

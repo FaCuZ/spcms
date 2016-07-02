@@ -4,7 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Gallery;
+use App\Album;
 use Illuminate\Http\Request;
+
+use Auth;
 
 class GalleryController extends Controller {
 
@@ -17,17 +20,24 @@ class GalleryController extends Controller {
 	{
 		$galleries = Gallery::orderBy('id', 'desc')->paginate(10);
 
-		return view('galleries.index', compact('galleries'));
+		$rol = Auth::user()->role;
+
+		return view('admin.galleries.index', compact(['galleries','rol']));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
 	 *
+	 * @param  int  $album_id
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		return view('galleries.create');
+
+ 		$album_id = $request->input('album');
+ 		$album = Album::findOrFail($album_id);
+
+		return view('admin.galleries.create', compact('album'));
 	}
 
 	/**
@@ -42,10 +52,11 @@ class GalleryController extends Controller {
 
 		$gallery->title = $request->input("title");
         $gallery->description = $request->input("description");
+        $gallery->album_id = $request->input("album_id");
 
 		$gallery->save();
 
-		return redirect()->route('admin.galleries.index')->with('message', 'Item created successfully.');
+		return redirect()->route('admin.galerias.index')->with('message', 'Item created successfully.');
 	}
 
 	/**
@@ -58,7 +69,9 @@ class GalleryController extends Controller {
 	{
 		$gallery = Gallery::findOrFail($id);
 
-		return view('galleries.show', compact('gallery'));
+		$rol = Auth::user()->role;
+
+		return view('admin.galleries.show', compact(['gallery','rol']));
 	}
 
 	/**
@@ -71,7 +84,9 @@ class GalleryController extends Controller {
 	{
 		$gallery = Gallery::findOrFail($id);
 
-		return view('galleries.edit', compact('gallery'));
+		$rol = Auth::user()->role;
+		
+		return view('admin.galleries.edit', compact(['gallery','rol']));
 	}
 
 	/**
@@ -90,7 +105,7 @@ class GalleryController extends Controller {
 
 		$gallery->save();
 
-		return redirect()->route('admin.galleries.index')->with('message', 'Item updated successfully.');
+		return redirect()->route('admin.galerias.index')->with('message', 'Item updated successfully.');
 	}
 
 	/**
@@ -104,7 +119,7 @@ class GalleryController extends Controller {
 		$gallery = Gallery::findOrFail($id);
 		$gallery->delete();
 
-		return redirect()->route('admin.galleries.index')->with('message', 'Item deleted successfully.');
+		return redirect()->route('admin.galerias.index')->with('message', 'Item deleted successfully.');
 	}
 
 }

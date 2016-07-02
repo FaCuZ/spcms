@@ -10,14 +10,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'sinrol'] ], functio
 	//Route::get('imagenes',['as' => 'admin.imagenes','uses' => 'AdminController@showImagenes']);
 
 	Route::get('emails',  ['as' => 'admin.emails',  'uses' => 'AdminController@showEmails'  ]);
-	Route::get('ayuda',   ['as' => 'admin.ayuda',   'uses' => 'AdminController@showAyuda'	  ]);
+	Route::get('ayuda',   ['as' => 'admin.ayuda',   'uses' => 'AdminController@showAyuda'	]);
 	
 	Route::resource("textos","TextController"); 
 	Route::resource("imagenes","ImageController");
 	
 
 	Route::resource("albums","AlbumController"); 
-	Route::resource("galleries","GalleryController");
+
+	//Route::get('galerias/create/{album_id}', ['as' => 'admin.galerias.create', 'uses' => 'GalleryController@create']);
+	Route::resource("galerias","GalleryController");
 });
 
 
