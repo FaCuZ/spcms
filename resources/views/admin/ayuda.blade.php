@@ -3,16 +3,48 @@
 @section('a-ayuda', 'class="active"')
 
 @section('header')
-	<h1>Ayuda <small>Optional description</small></h1>
-  	<ol class="breadcrumb">
-		<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-		<li class="active">Here</li>
-  	</ol>
+	<h1>Ayuda <small>Solicitud</small></h1>
 @endsection
+
 
 @section('content')
 
-		BlaAAA
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Formulario de solicitud</h3>
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body">
+			<form role="form">
+				<div class="form-group">
+					<label>Asunto:</label>
+					<select class="form-control">
+						<option>Soporte tecnico</option>
+						<option>Sugerencia</option>
+						<option>Emails</option>
+						<option>Agregar contenido</option>
+						<option>Otros</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label>Mensaje:</label>
+					<textarea class="form-control" rows="4" placeholder="¿En que lo puedo ayudar?"></textarea>
+				</div>
+
+
+				<div class="form-group">
+					<label>Responder a:</label>
+					<input class="form-control" placeholder="Email" type="text">
+				</div>
+				<div class="pull-right">
+
+					<a class="btn btn-default" href="{{ route('admin.inicio') }}">Cancelar</a>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
 
 @endsection
-		

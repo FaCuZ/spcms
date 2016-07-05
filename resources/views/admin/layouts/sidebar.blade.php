@@ -10,7 +10,7 @@
 	</li>
 
 	<li @yield('a-imagenes')><a href="{{ URL::route('admin.imagenes.index') }}">
-		<i class="fa fa-image"></i> <span>Imagenes</span></a>
+		<i class="fa fa-image"></i> <span>Imágenes</span></a>
 	</li>
 
 	<li @yield('a-emails')>  <a href="{{ URL::route('admin.emails') }}">

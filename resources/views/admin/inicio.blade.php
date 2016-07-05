@@ -3,18 +3,23 @@
 @section('a-inicio', 'class="active"')
 
 @section('header')
-  	<h1>Inicio	<small>Optional description</small></h1>
-	<ol class="breadcrumb">
-		<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-		<li class="active">Here</li>
-	</ol>
+<h1>Web<small>Sistema de administracion</small></h1>
 @endsection
+
 
 @section('content')
 
 
-	blebleble
+<div class="jumbotron">
+	<h1>Bienvenido</h1>
+	<p class="jumbotron-text">Desde este sistema de administración podrá modifica la pagina a tu gusto, tanto los textos como las imágenes. Recuerde que para ingresar nuevos textos a la pagina deberá contactar al administrador.</p>
+	<p>
+		<a class="btn btn-default btn-lg" href="{{ URL::route('admin.textos.index') }}" role="button"><i class="fa fa-file-text-o"></i> <span>Textos</span></a>
+		<a class="btn btn-default btn-lg" href="{{ URL::route('admin.imagenes.index') }}" role="button"><i class="fa fa-image"></i> <span>Imágenes</span></a>
+	</p>
+</div>
+
+
 
 
 @endsection
-		

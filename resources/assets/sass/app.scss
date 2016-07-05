@@ -3,3 +3,23 @@
 .nowrap {
     white-space: nowrap;
 }
+
+.jumbotron {
+	background-color: white;
+	padding: 3%;
+	border-radius: 20px;
+	text-align: center;
+	border: 1px solid #eaeaea;
+
+	.jumbotron-text{
+		color: grey;
+	}
+}
+
+
+.email-btns {
+	a {
+		margin: 10px;
+		width: 300px;	
+	}
+}
