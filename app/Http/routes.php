@@ -1,11 +1,21 @@
 <?php
 
 Route::get('/', function () {
-    return view('main');
+	return view('main');
 });
 
+
+Route::get('imgs', function()
+{
+//	$img = Image::make('images/foo.jpg');
+	$img = Image::canvas(800, 600, '#ccc');
+
+	return $img->response('jpg');
+});
+
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'sinrol'] ], function () {
-    Route::get('/', 	  ['as' => 'admin.inicio',  'uses' => 'AdminController@showInicio'  ]);
+	Route::get('/', 	  ['as' => 'admin.inicio',  'uses' => 'AdminController@showInicio'  ]);
 
 	//Route::get('imagenes',['as' => 'admin.imagenes','uses' => 'AdminController@showImagenes']);
 

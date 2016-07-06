@@ -56,7 +56,7 @@ class GalleryController extends Controller {
 
 		$gallery->save();
 
-		return redirect()->route('admin.galerias.index')->with('message', 'Item created successfully.');
+		return redirect()->route('admin.imagenes.index')->with('message', 'Item created successfully.');
 	}
 
 	/**
@@ -105,7 +105,7 @@ class GalleryController extends Controller {
 
 		$gallery->save();
 
-		return redirect()->route('admin.galerias.index')->with('message', 'Item updated successfully.');
+		return redirect()->route('admin.imagenes.index')->with('message', 'Item updated successfully.');
 	}
 
 	/**
@@ -119,7 +119,7 @@ class GalleryController extends Controller {
 		$gallery = Gallery::findOrFail($id);
 		$gallery->delete();
 
-		return redirect()->route('admin.galerias.index')->with('message', 'Item deleted successfully.');
+		return redirect()->route('admin.imagenes.index')->with('message', 'Item deleted successfully.');
 	}
 
 }

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-	protected $fillable = [ 'title', 'description', 'gallery_id' ];
+	protected $fillable = [ 'title', 'description', 'file', 'gallery_id' ];
 
     public function gallery(){
-		return $this->belongsTo('Gallery');
+		return $this->belongsTo('App\Gallery');
 	}
 }

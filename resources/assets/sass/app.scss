@@ -1,7 +1,7 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 .nowrap {
-    white-space: nowrap;
+	white-space: nowrap;
 }
 
 .jumbotron {
@@ -23,3 +23,31 @@
 		width: 300px;	
 	}
 }
+
+.nav-tabs-custom {
+	li{
+		border: 1px solid #e4e4e4 !important;
+		background-color: #f5f5f5;
+		border-radius: 4px; 
+		margin-top: 10px;
+
+		&:hover{
+			background-color: #e7e7e7 !important;
+			a {
+				color: black !important;
+			}
+		}
+
+	}
+
+	.new {
+		border-style: dashed !important;
+		background-color: transparent !important;
+	}
+
+	.nav-tabs {
+		padding-bottom: 10px;
+	}
+}
+	
+

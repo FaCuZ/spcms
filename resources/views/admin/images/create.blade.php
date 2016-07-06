@@ -29,6 +29,17 @@
 							<span class="help-block">{{ $errors->first("title") }}</span>
 						@endif
 					</div>
+
+					<div class="form-group @if($errors->has('file')) has-error @endif">
+						<label for="file-field">Imagen</label>
+						{{-- <input type="text" id="title-field" name="title" class="form-control" value="{{ old("title") }}"/> --}}
+						<input type="file" id="file-field" name="file" value="{{ old("file") }}">
+						@if($errors->has("file"))
+							<span class="help-block">{{ $errors->first("file") }}</span>
+						@endif
+					</div>
+
+
 					<div class="form-group @if($errors->has('description')) has-error @endif">
 						<label for="description-field">Descripcion</label>
 						<textarea class="form-control" id="description-field" rows="15" name="description">{{ old("description") }}</textarea>

@@ -9,10 +9,10 @@ class Gallery extends Model
 	protected $fillable = [ 'title', 'description', 'album_id' ];
 
 	public function album(){
-		return $this->belongsTo('Album');
+		return $this->belongsTo('App\Album');
 	}
 
 	public function imagenes(){
-		return $this->hasMany('Image');
+		return $this->hasMany('App\Image');
 	}
 }

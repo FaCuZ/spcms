@@ -8,7 +8,8 @@ class Album extends Model
 {
 	protected $fillable = [ 'title' ];
 
-	public function gallerias(){
-		return $this->hasMany('Gallery');
+	public function galerias(){
+		return $this->hasMany('App\Gallery');
+		//return $this->hasMany('App\Gallery', 'album_id');
 	}
 }

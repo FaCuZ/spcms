@@ -4,8 +4,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Image;
-
+use App\Album;
 use App\Gallery;
+
 use Illuminate\Http\Request;
 
 use Auth;
@@ -19,11 +20,13 @@ class ImageController extends Controller {
 	 */
 	public function index()
 	{
+		$albums = Album::all();
+
 		$images = Image::orderBy('id', 'desc')->paginate(10);
 
 		$rol = Auth::user()->role;
 
-		return view('admin.images.index', compact(['images','rol']));
+		return view('admin.images.index', compact(['images','albums','rol']));
 	}
 
 	/**
