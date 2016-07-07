@@ -1,41 +1,27 @@
 <?php
 
-Route::get('/', function () {
-	return view('main');
-});
-
-
-Route::get('imgs', function()
-{
-//	$img = Image::make('images/foo.jpg');
-	$img = Image::canvas(800, 600, '#ccc');
-
-	return $img->response('jpg');
-});
-
-
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'sinrol'] ], function () {
 	Route::get('/', 	  ['as' => 'admin.inicio',  'uses' => 'AdminController@showInicio'  ]);
-
-	//Route::get('imagenes',['as' => 'admin.imagenes','uses' => 'AdminController@showImagenes']);
 
 	Route::get('emails',  ['as' => 'admin.emails',  'uses' => 'AdminController@showEmails'  ]);
 	Route::get('ayuda',   ['as' => 'admin.ayuda',   'uses' => 'AdminController@showAyuda'	]);
 	
 	Route::resource("textos","TextController"); 
 	Route::resource("imagenes","ImageController");
+
+	Route::get('images',  ['as' => 'admin.imagenes.lista',  'uses' => 'ImageController@lista'  ]);
 	
 
 	Route::resource("albums","AlbumController"); 
 
-	//Route::get('galerias/create/{album_id}', ['as' => 'admin.galerias.create', 'uses' => 'GalleryController@create']);
 	Route::resource("galerias","GalleryController");
 });
-
 
 Route::auth();
 
 
-Route::get('/alerta', ['as' => 'alerta', 'uses' => 'AdminController@showAlerta']);
+Route::get('/', function () {
+	return view('main');
+});
 
-Route::get('/home', 'HomeController@index');
+Route::get('/alerta', ['as' => 'alerta', 'uses' => 'AdminController@showAlerta']);

@@ -15,20 +15,13 @@ class AdminController extends Controller
 		return view('admin.inicio');
 	}
 
-	public function showTextos(){
-		return view('admin.textos');
-	}
-	
-	public function showImagenes(){
-		return view('admin.imagenes');
-	}
-
 	public function showEmails(){
 		return view('admin.emails');
 	}
 
 	public function showAyuda(){
-		return view('admin.ayuda');
+		$email = Auth::user()->email;
+		return view('admin.ayuda', compact('email'));
 	}
 
 	public function showAlerta(){

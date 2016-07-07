@@ -9,7 +9,7 @@
 @section('content')
 	@include('error')
 
-	<div class="box">
+	<div class="box box-solid">
 		<div class="box-header">
 			<h3 class="box-title">Nueva Galeria</h3>
 		</div>

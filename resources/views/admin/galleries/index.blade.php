@@ -8,7 +8,7 @@
 
 @section('content')
 
-	<div class="box">
+	<div class="box box-solid">
 		@if($galleries->count())
 			<div class="box-header">
 				<h3 class="box-title">Galerias de la web</h3>

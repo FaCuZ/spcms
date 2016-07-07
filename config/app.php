@@ -211,7 +211,7 @@ return [
 		/*
 		 * Vendor Aliases...
 		 */
-		'Image' => Intervention\Image\Facades\Image::class
+		'ImageI' => Intervention\Image\Facades\Image::class
 
 		],
 

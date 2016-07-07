@@ -18,6 +18,7 @@
 
 
 .email-btns {
+	text-align: center;
 	a {
 		margin: 10px;
 		width: 300px;	
@@ -25,6 +26,8 @@
 }
 
 .nav-tabs-custom {
+	box-shadow: none;
+
 	li{
 		border: 1px solid #e4e4e4 !important;
 		background-color: #f5f5f5;
@@ -47,7 +50,40 @@
 
 	.nav-tabs {
 		padding-bottom: 10px;
+		border: none;
+
+	}
+
+	.tab-content{
+		border-bottom: 1px solid #efefef;
 	}
 }
 	
 
+.image_container {
+    float: left;
+	margin: 5px 10px 5px 0px;
+	width: 155px;
+	height: 155px;
+	border: 1px solid #e4e4e4;
+}
+.new_image{
+	@extend .image_container;
+	text-align: center;
+	border-style: dashed !important;
+	background-color: transparent !important;
+	border-radius: 4px; 
+
+
+	a {	
+		float: left;
+		padding: 52px 62px;
+		vertical-align: middle;
+		color: grey !important;
+		font-size: 35px;
+	}
+}
+
+.after-box {
+    clear: left;
+}

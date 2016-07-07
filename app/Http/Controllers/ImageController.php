@@ -10,11 +10,12 @@ use App\Gallery;
 use Illuminate\Http\Request;
 
 use Auth;
+use ImageI;
 
 class ImageController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * Display a listing nesting resources.
 	 *
 	 * @return Response
 	 */
@@ -30,6 +31,22 @@ class ImageController extends Controller {
 	}
 
 	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function lista()
+	{
+		$albums = Album::all();
+
+		$images = Image::orderBy('id', 'desc')->paginate(10);
+
+		$rol = Auth::user()->role;
+
+		return view('admin.images.list', compact(['images','albums','rol']));
+	}
+
+	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
@@ -37,7 +54,7 @@ class ImageController extends Controller {
 	public function create(Request $request)
 	{
 		$gallery_id = $request->input('gallery');
- 		$gallery = Gallery::findOrFail($gallery_id);
+		$gallery = Gallery::findOrFail($gallery_id);
 
 		return view('admin.images.create', compact('gallery'));
 
@@ -51,13 +68,35 @@ class ImageController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		if (!$request->hasFile('file')) {
+			return redirect()->route('admin.imagenes.create')->withErrors('error', 'Elija un archivo');
+		}
+
 		$image = new Image();
 
 		$image->title = $request->input("title");
-        $image->description = $request->input("description");
-        $image->gallery_id = $request->input("gallery_id");
+		$image->description = $request->input("description");        
+		$image->gallery_id = $request->input("gallery_id");
+
+
+		$file = $request->file;		
+		$imageFile = ImageI::make($request->file);
+
+  		$path = 'images/uploads/';
+		$name = time()."-".preg_replace("/[^A-Za-z0-9-_\.]/", "", $image->title);
+		$extension = $file->getClientOriginalExtension();
+
+  		$image->file = $path.$name.".".$extension;
+ 
+	   	$imageFile->save($image->file);
+		
+		$imageFile->fit(155,155);
+
+		$image->thumb = $path.$name."-thumb.".$extension;
+		$imageFile->save($image->thumb);
 
 		$image->save();
+
 
 		return redirect()->route('admin.imagenes.index')->with('message', 'Item created successfully.');
 	}
@@ -104,7 +143,7 @@ class ImageController extends Controller {
 		$image = Image::findOrFail($id);
 
 		$image->title = $request->input("title");
-        $image->description = $request->input("description");
+		$image->description = $request->input("description");
 
 		$image->save();
 

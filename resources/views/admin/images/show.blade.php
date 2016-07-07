@@ -9,7 +9,7 @@
 @section('content')
 
 
-	<div class="box">
+	<div class="box box-solid">
 
 		<div class="box-body">
 

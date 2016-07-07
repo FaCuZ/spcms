@@ -14,9 +14,9 @@
 			<h3 class="box-title">Nueva Imagen</h3>
 		</div>
 
-		<div class="box-body no-padding">
+		<div class="box-body box-solid no-padding">
 
-			<form action="{{ route('admin.imagenes.store') }}" method="POST">
+			<form action="{{ route('admin.imagenes.store') }}" method="POST" enctype="multipart/form-data">
 				<div class="modal-body">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
