@@ -17,6 +17,7 @@ elixir(function(mix) {
 	mix.styles( [
 				'./node_modules/admin-lte/bootstrap/css/bootstrap.min.css',
 				'./node_modules/admin-lte/dist/css/AdminLTE.min.css',
+				'./node_modules/admin-lte/plugins/iCheck/square/blue.css',
 				'./node_modules/admin-lte/dist/css/skins/skin-blue.min.css'
 				], 
 				'public/css/libs.css');
@@ -25,6 +26,7 @@ elixir(function(mix) {
 	mix.scripts([
 				'./node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js',
 				'./node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
+				'./node_modules/admin-lte/plugins/iCheck/icheck.min.js',
 				'./node_modules/admin-lte/dist/js/app.min.js'
 				],
 				'public/js/libs.js');
