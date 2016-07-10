@@ -1,12 +1,13 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-
+.register-box-body,
 .login-box-body{
 	border-radius: 10px;
 	padding: 20px 30px;
 	box-shadow: 1px 1px #c0c0c0;
 }
 
+.register-box-msg,
 .login-box-msg{
 	border-bottom: 1px dotted #e1e1e1;
 	padding-bottom: 8px;
