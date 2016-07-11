@@ -4,7 +4,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="{{ url('/') }}"><b>Administrador</b></a>
+			<a href="{{ url('/') }}"><b>Administrador</b>Web</a>
 		</div>
 		
 		<div class="login-box-body">
@@ -13,7 +13,7 @@
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
 				{{ csrf_field() }}
 
-				<div class="form-group has-feedback">
+				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
 					<input id="email" type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}">
 					<span class="fa fa-envelope form-control-feedback"></span>
 				</div>
@@ -24,7 +24,7 @@
 					</span>
 				@endif
 
-				<div class="form-group has-feedback">
+				<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
 					<input id="password" type="password" class="form-control" placeholder="Password" name="password">
 
 					<span class="fa fa-lock form-control-feedback"></span>
@@ -51,8 +51,8 @@
 			</form>
 
 			<div class="login-box-links">
-				<a href="{{ url('/register') }}">Olvide mi contraseña</a><br>
-				<a href="{{ url('/password/reset') }}" class="text-center">Registrar nueva cuenta</a>
+				<a href="{{ url('/password/reset') }}">Olvide mi contraseña</a><br>
+				<a href="{{ url('/register') }}" class="text-center">Registrar nueva cuenta</a>
 			</div>
 
 		</div>
