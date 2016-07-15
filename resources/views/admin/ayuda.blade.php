@@ -18,10 +18,11 @@
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
-					<form role="form">
+					<form role="form" action="{{ route('admin.send') }}" method="POST">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="form-group">
 							<label>Asunto:</label>
-							<select class="form-control">
+							<select name="asunto" class="form-control">
 								<option>Soporte tecnico</option>
 								<option>Sugerencia</option>
 								<option>Emails</option>
@@ -32,13 +33,13 @@
 
 						<div class="form-group">
 							<label>Mensaje:</label>
-							<textarea class="form-control" rows="4" placeholder="¿En que lo puedo ayudar?"></textarea>
+							<textarea name="mensaje" class="form-control" rows="4" placeholder="¿En que lo puedo ayudar?"></textarea>
 						</div>
 
 
 						<div class="form-group">
 							<label>Responder a:</label>
-							<input class="form-control" placeholder="Email" type="text" value="{{ $email }}">
+							<input name="email" class="form-control" placeholder="Email" type="text" value="{{ $email }}">
 						</div>
 						<div class="pull-right">
 

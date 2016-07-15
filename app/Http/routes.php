@@ -6,6 +6,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'sinrol'] ], functio
 	Route::get('emails',  ['as' => 'admin.emails',  'uses' => 'AdminController@showEmails'  ]);
 	Route::get('ayuda',   ['as' => 'admin.ayuda',   'uses' => 'AdminController@showAyuda'	]);
 	
+	Route::post('send',   ['as' => 'admin.send',   'uses' => 'AdminController@sendMail'	]);
+	
 	Route::resource("textos","TextController"); 
 	Route::resource("imagenes","ImageController");
 
