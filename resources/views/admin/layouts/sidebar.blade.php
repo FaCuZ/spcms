@@ -18,6 +18,6 @@
 	</li>
 	
 	<li @yield('a-ayuda')>   <a href="{{ URL::route('admin.ayuda') }}">
-		<i class="fa fa-info-circle"></i> <span>Ayuda</span></a>
+		<i class="fa fa-info-circle"></i> <span>Soporte</span></a>
 	</li>
 </ul>

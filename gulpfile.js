@@ -19,28 +19,32 @@ elixir(function(mix) {
 				'./node_modules/admin-lte/dist/css/AdminLTE.min.css',
 				'./node_modules/admin-lte/plugins/iCheck/square/blue.css',
 				'./node_modules/admin-lte/dist/css/skins/skin-blue.min.css'
-				], 
-				'public/css/libs.css');
+				
+				], 'public/css/libs.css'
+	);
 	
 
 	mix.scripts([
 				'./node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js',
 				'./node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
 				'./node_modules/admin-lte/plugins/iCheck/icheck.min.js',
-				'./node_modules/admin-lte/dist/js/app.min.js'
-				],
-				'public/js/libs.js');
+				'./node_modules/admin-lte/dist/js/app.min.js',
+				'./resources/assets/app.js'
+				
+				], 'public/js/libs.js'
+	);
 
 
 	mix.browserSync({
 		files: [
 			   'app/**/*',
 			   'public/**/*',
-			   'resources/views/**/*'
-		   ],
-		   proxy: 'localhost/spcms/public/',
-		   browser: '/opt/firefox_dev/firefox',
-		   ws: true,
+			   'resources/views/**/*'	   
+			   
+			   ],
+			   proxy: 'localhost/spcms/public/',
+			   browser: '/opt/firefox_dev/firefox',
+			   ws: true,
 	});
 
 

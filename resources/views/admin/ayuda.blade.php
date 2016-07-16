@@ -3,7 +3,7 @@
 @section('a-ayuda', 'class="active"')
 
 @section('header')
-	<h1>Ayuda <small>Solicitud</small></h1>
+	<h1>Soporte <small>Solicitud</small></h1>
 @endsection
 
 
@@ -18,15 +18,16 @@
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
-					<form role="form" action="{{ route('admin.send') }}" method="POST">
+					<form role="form" action="{{ route('admin.sendSoporte') }}" method="POST">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="form-group">
 							<label>Asunto:</label>
 							<select name="asunto" class="form-control">
 								<option>Soporte tecnico</option>
+								<option>Agregar contenido</option>
 								<option>Sugerencia</option>
 								<option>Emails</option>
-								<option>Agregar contenido</option>
+								<option>Ayuda</option>
 								<option>Otros</option>
 							</select>
 						</div>

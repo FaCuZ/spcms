@@ -1,8 +1,8 @@
 <html>
 <head></head>
 <body>
-<h1>{{$asunto}}</h1>
-<p>{{$mensaje}}</p>
-<p>Responder a: <a href="mailto:{{$email}}" target="_top">{{$email}}</a></p>
+	<h3>{{$asunto}}</h3>
+	<p>{{$mensaje}}</p>
+	<p>{!!$responder!!}</p>
 </body>
 </html>

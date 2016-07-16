@@ -28,18 +28,19 @@ class AdminController extends Controller
 		return view('errors.sinrole');
 	}
 
-	public function sendMail(Request $request)
+	public function sendMailSoporte(Request $request)
 	{
 
 		$asunto = $request->input('asunto');
 		$mensaje = $request->input('mensaje');
 		$email = $request->input('email');
+		$responder = "Responder a: <a href='mailto:".$email."' target='_top'>".$email."</a>";
 
 
-		Mail::send('admin.email', ['asunto' => $asunto, 'mensaje' => $mensaje, 'email' => $email], function ($message) use ($asunto,$email)
+		Mail::send('admin.email', ['asunto' => $asunto, 'mensaje' => $mensaje, 'email' => $email, 'responder' => $responder], function ($message) use ($asunto,$email)
 		{
-			$message->from('web@indis.com.ar', 'Web');
-			$message->to('fzaldo@gmail.com');			
+			$message->from(env('CONTACT_FROM'), env('CONTACT_FROM_NAME'));
+			$message->to(env('CONTACT_TO'));			
 			$message->subject("[". env('CLIENT_NAME') ."] ". $asunto);
 			$message->replyTo($email, $name = null);
 		});
@@ -49,5 +50,25 @@ class AdminController extends Controller
 		//return response()->json(['message' => 'Request completed']);
 	}
 
+
+	public function sendMailEmail(Request $request)
+	{
+
+		$asunto = $request->input('asunto');
+		$mensaje = $request->input('mensaje');
+		$email = $request->input('email');
+		dd($asunto);
+
+		Mail::send('admin.email', ['asunto' => $asunto, 'mensaje' => $mensaje, 'email' => $email], function ($message) use ($asunto)
+		{
+			$message->from('web@indis.com.ar', 'Web');
+			$message->to('fzaldo@gmail.com');			
+			$message->subject("[". env('CLIENT_NAME') ."] ". $asunto);
+		});
+
+		return redirect()->route('admin.inicio')->with('message', 'Mensaje enviado!');
+
+		//return response()->json(['message' => 'Request completed']);
+	}
 
 }
