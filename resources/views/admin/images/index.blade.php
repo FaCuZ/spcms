@@ -53,7 +53,7 @@
 									<div class="tab-pane" id="tab_{{ $galeria->id }}">
 										@foreach($galeria->imagenes as $image)
 											<span class="image_container">
-												<img src="{{ URL::asset($image->thumb) }}">
+												<a href="{{ route('admin.imagenes.show', $image->id) }}"><img src="{{ URL::asset($image->thumb) }}"></a>
 											</span>
 
 													{{-- 

@@ -53,7 +53,7 @@ class TextController extends Controller {
 
 		$text->save();
 
-		return redirect()->route('admin.textos.index')->with('message', 'Creacion exitosa');
+		return redirect()->route('admin.textos.index')->withErrors(['good' => 'Texto creado correctamente.']);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class TextController extends Controller {
 
 		$text->save();
 
-		return redirect()->route('admin.textos.index')->with('message', 'Actualizacion exitosa.');
+		return redirect()->route('admin.textos.index')->withErrors(['good' => 'Texto actualizado correctamente.']);
 	}
 
 	/**
@@ -116,7 +116,7 @@ class TextController extends Controller {
 		$text = Text::findOrFail($id);
 		$text->delete();
 
-		return redirect()->route('admin.textos.index')->with('message', 'Borrado exitoso.');
+		return redirect()->route('admin.textos.index')->withErrors(['good' => 'Texto borrado correctamente.']);
 	}
 
 }

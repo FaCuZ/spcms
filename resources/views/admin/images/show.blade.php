@@ -12,24 +12,25 @@
 	<div class="box box-solid">
 
 		<div class="box-body">
+			<p><strong>Nombre: </strong>[{{$image->id}}] {{$image->title}}</p>			
+			<p><strong>Archivo: </strong><a href="{{ URL::asset($image->file) }}">{{$image->file}}</a></p>			
+			<p><strong>Descripcion: </strong>{{$image->description}}</p>
 
-			<p><strong>Id: </strong> {{$image->id}}</p>           
-			<p><strong>Titulo: </strong>{{$image->title}}</p>
-
-			<strong>Cuerpo: </strong>
-			<p>{{$image->description}}</p>
-
+			<p><img src="{{ URL::asset($image->file) }}"></p>
+			
 
 			<a class="btn btn-default pull-left" href="{{ route('admin.imagenes.index') }}">Cancelar</a>
-
-			<form action="{{ route('admin.imagenes.destroy', $image->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Esta seguro que quiere borrarlo?')) { return true } else {return false };">
-				<input type="hidden" name="_method" value="DELETE">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<div class="pull-right">
-					<a class="btn btn-warning btn-group" role="group" href="{{ route('admin.imagenes.edit', $image->id) }}"><i class="fa fa-edit"></i> Editar</a>
-					<button type="submit" class="btn btn-danger">Borrar <i class="fa fa-trash"></i></button>
-				</div>
-			</form>
+			<p>
+				
+				<form action="{{ route('admin.imagenes.destroy', $image->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Esta seguro que quiere borrarlo?')) { return true } else {return false };">
+					<input type="hidden" name="_method" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<div class="pull-right">
+						<a class="btn btn-warning btn-group" role="group" href="{{ route('admin.imagenes.edit', $image->id) }}"><i class="fa fa-edit"></i> Editar</a>
+						<button type="submit" class="btn btn-danger">Borrar <i class="fa fa-trash"></i></button>
+					</div>
+				</form>
+			</p>
 
 		</div>
 	</div>

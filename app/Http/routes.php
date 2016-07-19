@@ -22,9 +22,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'sinrol'] ], functio
 
 Route::auth();
 
-
+/*
 Route::get('/', function () {
 	return view('main');
 });
+*/
+Route::get('/', ['as' => 'main', 'uses' => 'MainController@index']);
 
 Route::get('/alerta', ['as' => 'alerta', 'uses' => 'AdminController@showAlerta']);

@@ -1,3 +1,11 @@
+.content-info {
+  /*position: absolute;
+    min-width: 450px;
+    right: 20px;
+    top: 70px;*/
+  position: relative;
+  padding: 15px 15px 0 15px; }
+
 .register-box-body,
 .login-box-body {
   border-radius: 10px;

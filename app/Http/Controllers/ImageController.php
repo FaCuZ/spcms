@@ -98,7 +98,7 @@ class ImageController extends Controller {
 		$image->save();
 
 
-		return redirect()->route('admin.imagenes.index')->with('message', 'Item created successfully.');
+		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Imagen creada correctamente.']);
 	}
 
 	/**
@@ -145,9 +145,28 @@ class ImageController extends Controller {
 		$image->title = $request->input("title");
 		$image->description = $request->input("description");
 
+		if ($request->hasFile('file')) {
+			$file = $request->file;
+			$imageFile = ImageI::make($request->file);
+
+	  		$path = 'images/uploads/';
+			$name = time()."-".preg_replace("/[^A-Za-z0-9-_\.]/", "", $image->title);
+			$extension = $file->getClientOriginalExtension();
+
+	  		$image->file = $path.$name.".".$extension;
+	 
+		   	$imageFile->save($image->file);
+			
+			$imageFile->fit(155,155);
+
+			$image->thumb = $path.$name."-thumb.".$extension;
+			$imageFile->save($image->thumb);
+		}
+
+
 		$image->save();
 
-		return redirect()->route('admin.imagenes.index')->with('message', 'Item updated successfully.');
+		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Imagen actualizada correctamente.']);
 	}
 
 	/**
@@ -161,7 +180,7 @@ class ImageController extends Controller {
 		$image = Image::findOrFail($id);
 		$image->delete();
 
-		return redirect()->route('admin.imagenes.index')->with('message', 'Item deleted successfully.');
+		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Imagen borrada correctamente.']);
 	}
 
 }

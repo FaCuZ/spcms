@@ -2,7 +2,9 @@
 <head></head>
 <body>
 	<h3>{{$asunto}}</h3>
-	<p>{{$mensaje}}</p>
-	<p>{!!$responder!!}</p>
+	<div style="padding: 10px;">		
+		<p>{!!$mensaje!!}</p>
+		<p>{!!$responder!!}</p>
+	</div>
 </body>
 </html>

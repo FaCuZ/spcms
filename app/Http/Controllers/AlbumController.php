@@ -48,7 +48,7 @@ class AlbumController extends Controller {
 
 		$album->save();
 
-		return redirect()->route('admin.imagenes.index')->with('message', 'Item created successfully.');
+		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Album creado correctamente.']);
 	}
 
 	/**
@@ -96,7 +96,7 @@ class AlbumController extends Controller {
 
 		$album->save();
 
-		return redirect()->route('admin.imagenes.index')->with('message', 'Item updated successfully.');
+		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Album actualizado correctamente.']);
 	}
 
 	/**
@@ -110,7 +110,7 @@ class AlbumController extends Controller {
 		$album = Album::findOrFail($id);
 		$album->delete();
 
-		return redirect()->route('admin.imagenes.index')->with('message', 'Item deleted successfully.');
+		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Album borrado correctamente.']);
 	}
 
 }

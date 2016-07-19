@@ -32,13 +32,21 @@
 
 		  	<div class="content-wrapper">
 			
+				<section class="content-info">
+					
+					@include('admin.layouts.alerts')
+
+				</section>
+				
 				<section class="content-header">
 
 					@yield('header')
 
     			</section>
 
+
 			    <section class="content">
+			    
 
 					@yield('content')
 

@@ -48,14 +48,9 @@
 					<div class="modal-body">
 
 
-						<div class="form-group fl-nueva fl-borrar">
+						<div class="form-group fl-cambio fl-nueva fl-borrar">
 							<label>Email:</label>
 							<input name="email" class="form-control" type="email">
-						</div>
-
-						<div class="form-group fl-cambio">
-							<label>Nueva contraseña:</label>
-							<input name="new_password" class="form-control" type="password">
 						</div>
 
 						<div class="form-group fl-cambio fl-nueva fl-borrar">
@@ -63,6 +58,10 @@
 							<input name="password" class="form-control" type="password">
 						</div>
 
+						<div class="form-group fl-cambio">
+							<label>Nueva contraseña:</label>
+							<input name="new_password" class="form-control" type="password">
+						</div>
 
 						<div class="form-group">
 							<label>Comentarios:</label>
