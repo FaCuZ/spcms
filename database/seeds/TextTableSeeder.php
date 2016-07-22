@@ -9,7 +9,7 @@ class TextTableSeeder extends Seeder {
 
 		DB::table('texts')->insert([
 			'title' => 'Informacion',
-			'body' => 'En Construccion',
+			'body' => 'En mantenimiento, vuelva mas tarde.',
 		]);
 
 		if (App::environment('local'))

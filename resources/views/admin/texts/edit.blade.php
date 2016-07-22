@@ -16,12 +16,10 @@
 		@endif
 
 	</h1>
-
-
 @endsection
 
 @section('content')
-	@include('error')
+	@include('errors.error')
 	
 	<div class="box">
 		<div class="box-header">

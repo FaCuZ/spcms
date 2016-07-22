@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 
-use Auth, Mail;
+use Auth, Mail, App;
 
 class AdminController extends Controller
 {
 	public function showInicio(){
-		return view('admin.inicio');
+		$down = App::isDownForMaintenance();
+
+		return view('admin.inicio', compact('down'));
 	}
 
 	public function showEmails(){

@@ -6,48 +6,34 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-
 use App\Text, App\Album, App\Image;
+
+use Artisan;
 
 class MainController extends Controller
 {
 
     public function index()
 	{
-
-		return view('offline');
-
-		$textos = Text::Texto("test");
-		dd($textos);
-
-		/*
-		$textos = Text::Textos();
-		dd($textos->get("test")->show);
-		*/
-
-
-
-
-		$albums = Album::all()->keyBy('title');
-
-		//dd($albums->get('estructura')->galerias->keyBy('title')->get('Logos')->imagenes->keyBy('title')->get('principal')->file);
-
-		//$imagenesBase = Image::where("title", "=", "Base")->get()->keyBy('title');	
-		$imagenesBase = $albums->get('Base')->galerias->keyBy('title');
-		// $images = Image::all()->keyBy('title');		
-
-		dd($imagenesBase->get('Logos')->imagenes->keyBy('title'));
-
-		return view('offline', compact(['textos', 'imagenesBase', 'albums']));
+		return view('index');
 	}
 
-	public function edicion(){
+	public function edicion()
+	{
+		return view('index');
+	}
 
-		$textos = Text::all()->keyBy('title');
-		$albums = Album::all()->keyBy('title');
+	public function up()
+	{
+		Artisan::call('up');
 
-		$imagenesBase = Image::where("gallery_id", "=", "1")->get()->keyBy('title');		
+		return redirect()->route('admin.inicio')->withErrors(['good' => 'La pagina ahora es visible al publico.']);
+	}
 
-		return view('pagina', compact(['textos', 'albums', 'imagenesBase']));
+	public function down()
+	{
+		Artisan::call('down');
+
+		return redirect()->route('admin.inicio')->withErrors(['alert' => 'La pagina entro en modo mantenimiento. Nadie podra verla hasta que se active de nuevo.']);
 	}
 }

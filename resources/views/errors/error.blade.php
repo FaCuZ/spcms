@@ -1,9 +1,9 @@
 @if (count($errors) > 0)
     <div class="alert alert-danger">
-        <p>There were some problems with your input.</p>
+        <p>Hay un problema con tus datos.</p>
         <ul>
             @foreach ($errors->all() as $error)
-                <li><i class="glyphicon glyphicon-remove"></i> {{ $error }}</li>
+                <li><i class="fa fa-remove"></i> {{ $error }}</li>
             @endforeach
         </ul>
     </div>

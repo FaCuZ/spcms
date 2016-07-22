@@ -1,19 +1,24 @@
+@inject('textos','App\Text')
+@inject('albumes','App\Album')
+@inject('imagenes','App\Image')
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ $textos->get('titulo')->body or 'TITULO'}}</title>	
+		<title>{{ $textos->texto("titulo") }}</title>	
 	</head>
 
 	<body>
 		{{-- EJEMPLOS: --}}	
 				
 		{{-- TEXTO --}}
-		<div>{{ $textos->get('texto')->body  or 'TEXTO'}}</div>
+		<div>{{ $textos->texto("Largo") }}</div>
 		
 		{{-- IMAGEN --}}
-		<img src="{{ URL::asset('')}}/{{ $imagenesBase->get('imagen')->file  or 'images/no-image.jpg'}}" />
+		<img src="{{ $imagenes->imagen("logo")->url }}" />
 
 		{{-- GALERIA --}}
+		{{-- 
 		<ul class="nav nav-tabs">
 			@foreach($album->galerias as $galeria)
 				<li><a href="#tab_{{ $galeria->id }}" data-toggle="tab">{{ $galeria->title }}</a></li>
@@ -37,6 +42,7 @@
 			</div>
 			@endforeach
 		</div>
+		 --}}
 
 	</body>
 </html>

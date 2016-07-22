@@ -31,11 +31,7 @@ class TextController extends Controller {
 	 */
 	public function create()
 	{
-		if(Auth::user()->role != "admin"){
-			return redirect()->route('admin.textos.index');
-		} else {
-			return view('admin.texts.create');			
-		}
+		return view('admin.texts.create');			
 	}
 
 	/**

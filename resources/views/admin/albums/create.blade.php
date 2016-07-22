@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-	@include('error')
+	@include('errors.error')
 
 	<div class="box box-solid">
 		<div class="box-header">

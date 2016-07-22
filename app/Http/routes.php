@@ -24,4 +24,7 @@ Route::auth();
 
 Route::get('/', ['as' => 'main', 'uses' => 'MainController@index']);
 
-Route::get('/alerta', ['as' => 'alerta', 'uses' => 'AdminController@showAlerta']);
+Route::get('alerta', ['as' => 'alerta', 'uses' => 'AdminController@showAlerta']);
+
+Route::get('up',	['as' => 'up',	'uses' => 'MainController@up'	]);
+Route::get('down',	['as' => 'down','uses' => 'MainController@down' ]);
