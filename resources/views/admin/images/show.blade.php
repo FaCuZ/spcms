@@ -5,7 +5,7 @@
 @section('header')
 	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Imagen <small>{{ $image->title }}</small>
 		<div class="pull-right">
-			<form action="{{ route('admin.imagenes.destroy', $image->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Esta seguro que quiere borrarlo?')) { return true } else {return false };">
+			<form action="{{ route('admin.imagenes.destroy', $image->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
 				<input type="hidden" name="_method" value="DELETE">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="pull-right">

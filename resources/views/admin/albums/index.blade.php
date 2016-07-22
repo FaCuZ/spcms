@@ -30,7 +30,7 @@
 									<a class="btn btn-xs btn-success" href="{{ route('admin.galerias.create', ['album' => $album->id]) }}"><i class="fa fa-plus"></i> Nueva Galeria</a>
 									@if($rol=="admin")
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.albums.show', $album->id) }}"><i class="fa fa-eye"></i> Ver</a>
-										<form action="{{ route('admin.albums.destroy', $album->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Esta seguro que quiere borrarlo?')) { return true } else {return false };">
+										<form action="{{ route('admin.albums.destroy', $album->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
 											<input type="hidden" name="_method" value="DELETE">
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
 											<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>

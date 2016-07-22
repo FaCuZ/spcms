@@ -26,7 +26,7 @@
 									<a class="btn btn-xs btn-warning" href="{{ route('admin.textos.edit', $text->id) }}"><i class="fa fa-edit"></i> Editar</a>
 									@if($rol=="admin")
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.textos.show', $text->id) }}"><i class="fa fa-eye"></i> Ver</a>
-										<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Esta seguro que quiere borrarlo?')) { return true } else {return false };">
+										<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
 											<input type="hidden" name="_method" value="DELETE">
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
 											<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>

@@ -34,3 +34,13 @@ $(function(){
 
 
 });
+
+function confirmarBorrado(){
+	var msj = '¿Está seguro que deseas borrarlo?';	
+	
+	if(confirm(msj)) 
+		return true;
+	else 
+		return false;
+
+}

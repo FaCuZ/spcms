@@ -3,7 +3,7 @@
 @section('a-imagenes', 'class="active"')
 
 @section('header')
-	<h1>Galleria <small>Edicion</small></h1>
+	<h1>Galeria <small>Edicion</small></h1>
 @endsection
 
 @section('content')
