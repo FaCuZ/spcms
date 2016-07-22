@@ -12,7 +12,11 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-	mix.sass('app.scss');
+	/*
+	 *	Sistema de administracion
+	 */
+
+	mix.sass('admin.scss');
 
 	mix.styles( [
 				'./node_modules/admin-lte/bootstrap/css/bootstrap.min.css',
@@ -20,7 +24,7 @@ elixir(function(mix) {
 				'./node_modules/admin-lte/plugins/iCheck/square/blue.css',
 				'./node_modules/admin-lte/dist/css/skins/skin-blue.min.css'
 				
-				], 'public/css/libs.css'
+				], 'public/css/admin-libs.css'
 	);
 	
 
@@ -29,9 +33,9 @@ elixir(function(mix) {
 				'./node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
 				'./node_modules/admin-lte/plugins/iCheck/icheck.min.js',
 				'./node_modules/admin-lte/dist/js/app.min.js',
-				'./resources/assets/app.js'
+				'./resources/assets/js/admin.js'
 				
-				], 'public/js/libs.js'
+				], 'public/js/admin-libs.js'
 	);
 
 
@@ -47,5 +51,30 @@ elixir(function(mix) {
 			   ws: true,
 	});
 
+
+	/*
+	 *	Pagina Principal
+	 */
+	mix.sass('admin.scss');
+
+	mix.styles( [
+				'./node_modules/admin-lte/bootstrap/css/bootstrap.min.css'				
+				], 'public/css/main-libs.css'
+	);
+	
+
+	mix.scripts([
+				'./node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js',
+				'./node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
+				'./resources/assets/js/main.js'
+				
+				], 'public/js/main-libs.js'
+	);
+
+	/*
+	 *	Pagina Offline
+	 */
+
+	mix.sass('offline.scss');
 
 });

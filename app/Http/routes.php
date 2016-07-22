@@ -13,20 +13,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'sinrol'] ], functio
 	Route::resource("imagenes","ImageController");
 
 	Route::get('images',  ['as' => 'admin.imagenes.lista',  'uses' => 'ImageController@lista'  ]);
-	
 
 	Route::resource("albums","AlbumController"); 
-
 	Route::resource("galerias","GalleryController");
+	
+	Route::get('edicion', ['as' => 'edicion', 'uses' => 'MainController@edicion']);
 });
 
 Route::auth();
 
-/*
-Route::get('/', function () {
-	return view('main');
-});
-*/
 Route::get('/', ['as' => 'main', 'uses' => 'MainController@index']);
 
 Route::get('/alerta', ['as' => 'alerta', 'uses' => 'AdminController@showAlerta']);

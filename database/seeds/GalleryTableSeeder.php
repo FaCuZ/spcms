@@ -7,9 +7,22 @@ use Laracasts\TestDummy\Factory as TestDummy;
 
 class GalleryTableSeeder extends Seeder {
 
-    public function run()
-    {
-        // TestDummy::times(20)->create('App\Post');
-    }
+	public function run()
+	{
+		DB::table('galleries')->insert([
+			'title' => 'Logos',
+			'album_id' => 1, 
+		]);	
+		
+		DB::table('galleries')->insert([
+			'title' => 'Fondos',
+			'album_id' => 1, 
+		]);
+
+		DB::table('galleries')->insert([
+			'title' => 'Error',
+			'album_id' => 1, 
+		]);
+	}
 
 }

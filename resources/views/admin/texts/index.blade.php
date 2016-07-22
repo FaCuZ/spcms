@@ -3,28 +3,24 @@
 @section('a-textos', 'class="active"')
 
 @section('header')
-		<h1>Textos <small>Lista</small></h1>
+		<h1>Textos <small>Lista</small>
+			<div class="pull-right">
+				<a class="btn btn-xs btn-success pull-right" href="{{ route('admin.textos.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
+			</div>
+		</h1>
 @endsection
 
 @section('content')
 
 	<div class="box">
 		@if($texts->count())
-			<div class="box-header">
-				<h3 class="box-title">Textos de la web</h3>
-				@if($rol=="admin")
-					<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.textos.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
-				@endif
-			</div>
-
-			<!-- /.box-header -->
 			<div class="box-body no-padding">
 				<table class="table table-striped">
 					<tbody>
 
 						@foreach($texts as $text)
 							<tr>
-								<td><strong>{{$text->title}}</strong></td>
+								<td class="nowrap"><strong>{{$text->title}}</strong></td>
 								<td>{{$text->body}}</td>
 								<td class="text-right nowrap">
 									<a class="btn btn-xs btn-warning" href="{{ route('admin.textos.edit', $text->id) }}"><i class="fa fa-edit"></i> Editar</a>
@@ -42,14 +38,14 @@
 
 					</tbody>
 				</table>
-			</div><!-- /.box-body -->
+			</div>
 		@else
 			<p class="text-center">Sin Elementos</p>
 			@if($rol=="admin")
 				<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.textos.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
 			@endif
 		@endif
-	</div><!-- /.box -->
+	</div>
 
 @endsection
 		

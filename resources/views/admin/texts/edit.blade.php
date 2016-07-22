@@ -3,7 +3,21 @@
 @section('a-textos', 'class="active"')
 
 @section('header')
-	<h1>Textos <small>Edicion</small></h1>
+	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Textos <small>Edicion</small>
+									
+		@if($rol=="admin")
+			<div class="pull-right">
+				<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Esta seguro que quiere borrarlo?')) { return true } else {return false };">
+					<input type="hidden" name="_method" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
+				</form>
+			</div>
+		@endif
+
+	</h1>
+
+
 @endsection
 
 @section('content')
