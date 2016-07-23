@@ -161,6 +161,7 @@ return [
 		 */
 		Laralib\L5scaffold\GeneratorsServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
+		Barryvdh\Debugbar\ServiceProvider::class,
 
 	],
 
@@ -211,7 +212,8 @@ return [
 		/*
 		 * Vendor Aliases...
 		 */
-		'ImageI' => Intervention\Image\Facades\Image::class
+		'ImageI' => Intervention\Image\Facades\Image::class,
+		'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
 		],
 

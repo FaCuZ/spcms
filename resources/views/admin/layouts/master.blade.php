@@ -13,7 +13,6 @@
 	<body class="hold-transition skin-blue sidebar-mini">
 		<div class="wrapper">
 
-			<!-- Main Header -->
 			<header class="main-header">
 
 				@include('admin.layouts.header')
@@ -24,16 +23,16 @@
 
 				<section class="sidebar">
 
-					@include('admin.layouts.sidebar')
-					
+					@include('admin.layouts.sidebar')	
+
 				</section>
 
 			</aside>
 
 		  	<div class="content-wrapper">
 			
-				<section class="content-info">
-					
+				<section class="content-info">		
+
 					@include('admin.layouts.alerts')
 
 				</section>
@@ -44,9 +43,7 @@
 
     			</section>
 
-
 			    <section class="content">
-			    
 
 					@yield('content')
 
@@ -55,7 +52,7 @@
 		  	</div>
 
 			<footer class="main-footer">
-			
+
 				@include('admin.layouts.footer')
 
 			</footer>

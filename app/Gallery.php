@@ -15,4 +15,15 @@ class Gallery extends Model
 	public function imagenes(){
 		return $this->hasMany('App\Image');
 	}
+
+
+	public function scopeGaleria($query, $value)
+	{
+		$galeria = $query->get()->keyBy('title')->get($value);
+
+		if(!$galeria) return 'null';
+
+		return $galeria;
+	}
+
 }

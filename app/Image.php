@@ -34,14 +34,11 @@ class Image extends Model
 
 	public function scopeImagen($query, $value)
 	{
-
 		$imagen = $query->get()->keyBy('title')->get($value);
 
 		if(!$imagen) $imagen = $query->get()->keyBy('title')->get('Sin imagen');
 
 		return $imagen;
 	}
-
-
 
 }

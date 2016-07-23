@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Text, App\Album, App\Image;
-
 use Artisan;
 
 class MainController extends Controller
