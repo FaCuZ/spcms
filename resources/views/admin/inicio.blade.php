@@ -26,9 +26,9 @@
 	<p class="text-center">
 		
 		@if($down)
-			<a class="btn btn-success btn-lg" href="{{ URL::route('up') }}" role="button"><i class="fa fa-check"></i> <span>Activar pagina web</span></a>
+			<a class="btn btn-success btn-lg" href="{{ URL::route('admin.up') }}" role="button"><i class="fa fa-check"></i> <span>Activar pagina web</span></a>
 		@else
-			<a class="btn btn-danger btn-lg" href="{{ URL::route('down') }}" role="button"><i class="fa fa-power-off"></i> <span>Modo de mantenimiento</span></a>
+			<a class="btn btn-danger btn-lg" href="{{ URL::route('admin.down') }}" role="button"><i class="fa fa-power-off"></i> <span>Modo de mantenimiento</span></a>
 		@endif
 	</p>
 

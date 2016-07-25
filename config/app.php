@@ -162,6 +162,7 @@ return [
 		Laralib\L5scaffold\GeneratorsServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
 		Barryvdh\Debugbar\ServiceProvider::class,
+    	Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
 
 	],
 
@@ -214,6 +215,7 @@ return [
 		 */
 		'ImageI' => Intervention\Image\Facades\Image::class,
 		'Debugbar' => Barryvdh\Debugbar\Facade::class,
+		'GitVersionHelper' => Tremby\LaravelGitVersion\GitVersionHelper::class,
 
 		],
 

@@ -50,13 +50,13 @@
 				</section>
 
 		  	</div>
-
+{{-- 
 			<footer class="main-footer">
 
 				@include('admin.layouts.footer')
 
 			</footer>
-
+ --}}
 		</div>
 
 		<script src="{{ URL::asset('js/admin-libs.js') }}"></script>

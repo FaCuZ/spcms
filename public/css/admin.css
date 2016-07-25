@@ -6,6 +6,12 @@
   position: relative;
   padding: 15px 15px 0 15px; }
 
+.app-version {
+  color: #535353;
+  bottom: 5px;
+  position: absolute;
+  left: 5px; }
+
 .register-box-body,
 .login-box-body {
   border-radius: 10px;

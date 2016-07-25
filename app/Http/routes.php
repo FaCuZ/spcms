@@ -18,6 +18,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'sinrol'] ], functio
 	Route::resource("galerias","GalleryController");
 	
 	Route::get('edicion', ['as' => 'edicion', 'uses' => 'MainController@edicion']);
+
+	Route::get('up',	['as' => 'admin.up',	'uses' => 'MainController@up'	]);
+	Route::get('down',	['as' => 'admin.down','uses' => 'MainController@down' ]);
 });
 
 Route::auth();
@@ -26,5 +29,3 @@ Route::get('/', ['as' => 'main', 'uses' => 'MainController@index']);
 
 Route::get('alerta', ['as' => 'alerta', 'uses' => 'AdminController@showAlerta']);
 
-Route::get('up',	['as' => 'up',	'uses' => 'MainController@up'	]);
-Route::get('down',	['as' => 'down','uses' => 'MainController@down' ]);

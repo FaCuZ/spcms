@@ -21,3 +21,7 @@
 		<i class="fa fa-info-circle"></i> <span>Soporte</span></a>
 	</li>
 </ul>
+
+<div class="app-version">
+	{{ GitVersionHelper::getVersion() }}
+</div>

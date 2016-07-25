@@ -13,7 +13,7 @@ class CheckForMaintenanceMode extends Original
 {
 
 	protected $excludedNames = [];
-	protected $except = ['admin','admin/*', 'login', 'logout', 'password/reset', 'register', 'alerta', 'up', 'down'];
+	protected $except = ['admin','admin/*', 'login', 'logout', 'password/reset', 'register', 'alerta', '_debugbar', '_debugbar/*'];
 	protected $excludedIPs = [];
 
 	protected function shouldPassThrough($request)
