@@ -3,17 +3,13 @@
 @section('a-imagenes', 'class="active"')
 
 @section('header')
-	<h1>Imagen <small>Nueva</small></h1>
+	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Imagen <small>Nueva</small></h1>
 @endsection
 
 @section('content')
 	@include('errors.error')
 
 	<div class="box">
-		<div class="box-header">
-			<h3 class="box-title">Nueva Imagen</h3>
-		</div>
-
 		<div class="box-body box-solid no-padding">
 
 			<form action="{{ route('admin.imagenes.store') }}" method="POST" enctype="multipart/form-data">

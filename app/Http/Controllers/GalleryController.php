@@ -18,7 +18,7 @@ class GalleryController extends Controller {
 	 */
 	public function index()
 	{
-		$galleries = Gallery::orderBy('id', 'desc')->paginate(10);
+		$galleries = Gallery::all();
 
 		$rol = Auth::user()->role;
 

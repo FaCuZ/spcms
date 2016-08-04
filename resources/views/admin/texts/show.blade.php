@@ -23,8 +23,9 @@
 	<div class="box">
 		<div class="box-body">
 			
-			<p><strong>Id:</strong> {{$text->id}}</p>			
-			<p><strong>Titulo:</strong>{{$text->title}}</p>
+			<p><strong>Id:</strong> {{ $text->id }}</p>			
+			<p><strong>Titulo:</strong> {{ $text->title }}</p>
+			<p><strong>Categoria:</strong> {{ $text_category->title }}</p>
 
 			<strong>Cuerpo:</strong>
 			<p>{{$text->body}}</p>

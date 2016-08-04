@@ -2,9 +2,9 @@
 
 .content-info {
 	/*position: absolute;
-    min-width: 450px;
-    right: 20px;
-    top: 70px;*/
+	min-width: 450px;
+	right: 20px;
+	top: 70px;*/
 	position: relative;
 	padding: 15px 15px 0 15px;
 }
@@ -51,6 +51,31 @@
 	}
 }
 
+.btns-opciones {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background-color: #efefef;
+	padding: 7px;
+}
+
+.btns-nuevo-texto {
+	position: absolute;
+	top: 25px;
+	right: 15px;
+}
+
+thead h3{
+	margin-top: 10px;
+}
+
+tbody{
+	border: 1px solid #dedede;
+}
+
+.btns-padre{
+	position: relative;	
+}
 
 .email-btns {
 	text-align: center;

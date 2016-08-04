@@ -3,21 +3,21 @@
 @section('a-imagenes', 'class="active"')
 
 @section('header')
-	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Galeria <small>Nueva</small></h1>
+	<h1>
+		<a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Categoria 
+		<small>Nueva</small>
+	</h1>
 @endsection
 
 @section('content')
 	@include('errors.error')
 
 	<div class="box box-solid">
-
 		<div class="box-body no-padding">
 
-			<form action="{{ route('admin.galerias.store') }}" method="POST">
+			<form action="{{ route('admin.textos.categorias.store') }}" method="POST">
 				<div class="modal-body">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-					<input type="hidden" name="album_id" value="{{ $album->id }}">
 
 					<div class="form-group @if($errors->has('title')) has-error @endif">
 						<label for="title-field">Nombre</label>
@@ -26,17 +26,10 @@
 							<span class="help-block">{{ $errors->first("title") }}</span>
 						@endif
 					</div>
-					<div class="form-group @if($errors->has('description')) has-error @endif">
-						<label for="description-field">Descripcion</label>
-						<textarea class="form-control" id="description-field" rows="15" name="description">{{ old("description") }}</textarea>
-						@if($errors->has("description"))
-							<span class="help-block">{{ $errors->first("description") }}</span>
-						@endif
-					</div>
 				</div>
 
 				<div class="modal-footer">
-					<a class="btn btn-default" href="{{ route('admin.galerias.index') }}">Cancelar</a>
+					<a class="btn btn-default" href="{{ route('admin.textos.categorias.index') }}">Cancelar</a>
 					<button type="submit" class="btn btn-primary">Crear</button>
 				</div>
 			</form>

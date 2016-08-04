@@ -12,7 +12,7 @@ $(function(){
 		$('.fl-nueva, .fl-borrar, .fl-cambio').hide();
 		$('.fl-'+accion).show();
 
-	 	$('#emailModal').modal('show');
+		$('#emailModal').modal('show');
 	});
 	
 	$(document).on("click", ".galeria_item", function () {
@@ -31,6 +31,20 @@ $(function(){
 			$(this).find('i').addClass('fa-folder-open-o');
 		}
 	});
+
+
+	$(document).on("mouseenter", ".table td", function(){
+		$(this).parent().find('.btns-opciones').removeClass("hidden");
+	}).on("mouseleave", ".table td", function(){
+		$(this).parent().find('.btns-opciones').addClass("hidden");
+	});
+
+	$(document).on("mouseenter", ".table", function(){
+		$(this).find('.btns-nuevo-texto').removeClass("hidden");
+	}).on("mouseleave", ".table", function(){
+		$(this).find('.btns-nuevo-texto').addClass("hidden");
+	});
+
 
 
 });

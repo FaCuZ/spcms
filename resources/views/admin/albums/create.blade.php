@@ -3,16 +3,13 @@
 @section('a-imagenes', 'class="active"')
 
 @section('header')
-	<h1>Album <small>Nuevo</small></h1>
+	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Album <small>Nuevo</small></h1>
 @endsection
 
 @section('content')
 	@include('errors.error')
 
 	<div class="box box-solid">
-		<div class="box-header">
-			<h3 class="box-title">Nueva Album</h3>
-		</div>
 
 		<div class="box-body no-padding">
 

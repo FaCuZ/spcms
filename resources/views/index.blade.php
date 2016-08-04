@@ -1,4 +1,5 @@
 @inject('textos','App\Text')
+@inject('categorias','App\TextCategory')
 @inject('albumes','App\Album')
 @inject('imagenes','App\Image')
 
@@ -26,6 +27,10 @@
 				
 		{{-- TEXTO --}}
 		<div>{{ $textos->texto("Largo") }}</div>		
+
+		{{-- CATEGORIAS --}}
+		<div>{{ $categorias->texto("Diseño","Largo") }}</div>		
+
 
 		{{-- GALERIA --}}
 		@if(($album = $albumes->album('Diseño')) !== 'null')

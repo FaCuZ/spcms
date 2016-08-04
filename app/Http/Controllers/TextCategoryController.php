@@ -3,12 +3,13 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Album;
+use App\TextCategory;
+use App\Text;
 use Illuminate\Http\Request;
 
 use Auth;
 
-class AlbumController extends Controller {
+class TextCategoryController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -17,11 +18,11 @@ class AlbumController extends Controller {
 	 */
 	public function index()
 	{
-		$albums = Album::all();
+		$text_categories = TextCategory::all();
 
 		$rol = Auth::user()->role;
 
-		return view('admin.albums.index', compact(['albums','rol']));
+		return view('admin.textcategories.index', compact(['text_categories','rol']));
 	}
 
 	/**
@@ -31,7 +32,7 @@ class AlbumController extends Controller {
 	 */
 	public function create()
 	{
-		return view('admin.albums.create');
+		return view('admin.textcategories.create');
 	}
 
 	/**
@@ -42,13 +43,13 @@ class AlbumController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$album = new Album();
+		$text_category = new TextCategory();
 
-		$album->title = $request->input("title");
+		$text_category->title = $request->input("title");
 
-		$album->save();
+		$text_category->save();
 
-		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Album creado correctamente.']);
+		return redirect()->route('admin.textos.index')->withErrors(['good' => 'Categoria creada correctamente.']);
 	}
 
 	/**
@@ -59,11 +60,11 @@ class AlbumController extends Controller {
 	 */
 	public function show($id)
 	{
-		$album = Album::findOrFail($id);
+		$text_category = TextCategory::findOrFail($id);
 
 		$rol = Auth::user()->role;
 
-		return view('admin.albums.show', compact(['album','rol']));
+		return view('admin.textcategories.show', compact(['text_category','rol']));
 	}
 
 	/**
@@ -74,11 +75,11 @@ class AlbumController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$album = Album::findOrFail($id);
+		$text_category = TextCategory::findOrFail($id);
 
 		$rol = Auth::user()->role;
-		
-		return view('admin.albums.edit', compact(['album','rol']));
+
+		return view('admin.textcategories.edit', compact(['text_category','rol']));
 	}
 
 	/**
@@ -90,13 +91,13 @@ class AlbumController extends Controller {
 	 */
 	public function update(Request $request, $id)
 	{
-		$album = Album::findOrFail($id);
+		$text_category = TextCategory::findOrFail($id);
 
-		$album->title = $request->input("title");
+		$text_category->title = $request->input("title");
 
-		$album->save();
+		$text_category->save();
 
-		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Album actualizado correctamente.']);
+		return redirect()->route('admin.textos.index')->withErrors(['good' => 'Caregoria actualizada correctamente.']);
 	}
 
 	/**
@@ -107,10 +108,10 @@ class AlbumController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$album = Album::findOrFail($id);
-		$album->delete();
+		$text_category = TextCategory::findOrFail($id);
+		$text_category->delete();
 
-		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Album borrado correctamente.']);
+		return redirect()->route('admin.textos.index')->withErrors(['good' => 'Categoria borrada correctamente.']);
 	}
 
 }

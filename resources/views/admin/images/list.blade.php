@@ -3,7 +3,7 @@
 @section('a-imagenes', 'class="active"')
 
 @section('header')
-		<h1>Imagenes <small>Lista</small>
+		<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Imagenes <small>Lista</small>
 
 			@if($rol=="admin")
 				<div class="pull-right">

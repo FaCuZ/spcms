@@ -3,21 +3,22 @@
 @section('a-imagenes', 'class="active"')
 
 @section('header')
-	<h1>Albumes <small>Lista</small></h1>
+	<h1>
+		<a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Albumes 
+		<small>Lista</small>
+
+		@if($rol=="admin")
+			<div class="pull-right">
+				<a class="btn btn-xs btn-success" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo album</a>
+			</div>
+		@endif
+	</h1>
 @endsection
 
 @section('content')
 
 	<div class="box box-solid">
 		@if($albums->count())
-			<div class="box-header">
-				<h3 class="box-title">Albumes de la web</h3>
-				@if($rol=="admin")
-					<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
-				@endif
-			</div>
-
-			<!-- /.box-header -->
 			<div class="box-body no-padding">
 				<table class="table table-striped">
 					<tbody>
@@ -44,11 +45,11 @@
 				</table>
 			</div>
 		@else
-			<p class="text-center">Sin Elementos</p>
+			<p class="text-center">Sin albumes</p>
 			@if($rol=="admin")
 				<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
 			@endif
 		@endif
-	</div><!-- /.box -->
+	</div>
 
 @endsection

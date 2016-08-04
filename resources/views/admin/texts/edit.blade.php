@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.master')
 
 @section('a-textos', 'class="active"')
@@ -46,6 +47,21 @@
 					@else
 						<input type="hidden" id="title-field" name="title" value="{{ $text->title }}"/>
 					@endif
+
+					<div class="form-group @if($errors->has('text_category_id')) has-error @endif">
+						<label for="body-field">Categoria</label>
+						<div>		
+						    @if ($text_categories->count())
+								<select name="text_category_id">
+	        						@foreach($text_categories as $categoria)					
+		            					<option value="{{ $categoria->id }}" {{ $selected == $categoria->id ? 'selected="selected"' : '' }}>{{ $categoria->title }}</option>   
+									@endforeach
+								</select> 
+							@endif
+								
+						</div>
+						
+					</div>
 
 					<div class="form-group @if($errors->has('body')) has-error @endif">
 						<label for="body-field">Body</label>

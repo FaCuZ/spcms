@@ -9,6 +9,11 @@ class Text extends Model
 	protected $fillable = [	'title', 'body'	];
 
 
+	public function categoria(){
+		return $this->belongsTo('App\TextCategory','text_category_id');
+	}
+
+
 	public function scopeTextos($query)
 	{
 		return $query->get()->keyBy('title');

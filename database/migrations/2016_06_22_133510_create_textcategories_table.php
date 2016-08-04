@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTextsTable extends Migration {
+class CreateTextCategoriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,9 @@ class CreateTextsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('texts', function(Blueprint $table) {
+		Schema::create('text_categories', function(Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('body');
-
-			$table->integer('text_category_id')->unsigned();
-			$table->foreign('text_category_id')->references('id')->on('text_categories')->onDelete('cascade');
-
             $table->timestamps();
         });
 	}
@@ -31,7 +26,7 @@ class CreateTextsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('texts');
+		Schema::drop('text_categories');
 	}
 
 }

@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Text;
+use App\Text, App\TextCategory;
 use Illuminate\Http\Request;
 
 use Auth;
@@ -17,11 +17,13 @@ class TextController extends Controller {
 	 */
 	public function index()
 	{
-		$texts = Text::orderBy('id', 'desc')->paginate(10);
+		$data['texts'] = Text::all();
 
-		$rol = Auth::user()->role;
+		$data['text_categories'] = TextCategory::all();
 
-		return view('admin.texts.index', compact(['texts','rol']));
+		$data['rol'] = Auth::user()->role;
+
+		return view('admin.texts.index', $data);
 	}
 
 	/**
@@ -29,9 +31,14 @@ class TextController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		return view('admin.texts.create');			
+
+		$data['selected'] = $request->input('selected');
+
+		$data['text_categories'] = TextCategory::all();
+
+		return view('admin.texts.create', $data);
 	}
 
 	/**
@@ -46,6 +53,7 @@ class TextController extends Controller {
 
 		$text->title = $request->input("title");
         $text->body = $request->input("body");
+        $text->text_category_id = $request->input("text_category_id");
 
 		$text->save();
 
@@ -60,11 +68,12 @@ class TextController extends Controller {
 	 */
 	public function show($id)
 	{
-		$text = Text::findOrFail($id);
+		$data['text'] = Text::findOrFail($id);
+		$data['text_category'] = TextCategory::find($data['text']->text_category_id);
 
-		$rol = Auth::user()->role;
+		$data['rol'] = Auth::user()->role;
 
-		return view('admin.texts.show', compact(['text','rol']));
+		return view('admin.texts.show', $data);
 	}
 
 	/**
@@ -75,11 +84,15 @@ class TextController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$text = Text::findOrFail($id);
+		$data['text'] = Text::findOrFail($id);
+		
+		$data['selected'] = $data['text']->text_category_id;
 
-		$rol = Auth::user()->role;
+		$data['text_categories'] = TextCategory::all();
 
-		return view('admin.texts.edit', compact(['text','rol']));
+		$data['rol'] = Auth::user()->role;
+
+		return view('admin.texts.edit', $data);
 	}
 
 	/**
@@ -95,6 +108,7 @@ class TextController extends Controller {
 
 		$text->title = $request->input("title");
         $text->body = $request->input("body");
+        $text->text_category_id = $request->input("text_category_id");
 
 		$text->save();
 

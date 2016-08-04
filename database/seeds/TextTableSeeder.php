@@ -10,6 +10,7 @@ class TextTableSeeder extends Seeder {
 		DB::table('texts')->insert([
 			'title' => 'Informacion',
 			'body' => 'En mantenimiento, vuelva mas tarde.',
+			'text_category_id' => 1,
 		]);
 
 		if (App::environment('local'))
@@ -17,11 +18,13 @@ class TextTableSeeder extends Seeder {
 			DB::table('texts')->insert([
 				'title' => 'Corto',
 				'body' => 'Ejemplo de texto.',
+				'text_category_id' => 1,
 			]);
 			
 			DB::table('texts')->insert([
 				'title' => 'Largo',
 				'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus fugit ex commodi itaque laudantium soluta assumenda animi harum sed enim ducimus officiis provident ratione delectus rem dicta, culpa ipsam explicabo?',
+				'text_category_id' => 1,
 			]);
 			
 			DB::table('texts')->insert([
@@ -31,6 +34,7 @@ class TextTableSeeder extends Seeder {
 				<div>Deserunt dolore perferendis, eius quasi, quae nobis esse, ratione id, vero quia nemo aliquid eos sapiente neque ad? Eum deleniti officiis illo nesciunt doloremque consectetur officia voluptate aspernatur nemo temporibus.</div>
 				<div>Dolore, recusandae veritatis nisi facilis labore, culpa dolorem asperiores adipisci ea enim, dicta ex non eos modi voluptate facere repudiandae, neque. Quidem temporibus ut vitae accusamus unde. Vero, modi, amet.</div>
 				<div>Laborum totam, vitae, eos est quia deleniti provident facilis unde assumenda cum ratione harum ut saepe voluptatibus. Rem consequuntur libero officiis ea quam inventore, nobis quidem, eos porro quaerat, aliquam!</div>',
+				'text_category_id' => 1,
 			]);
 			
 		}

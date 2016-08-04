@@ -23,7 +23,7 @@ class ImageController extends Controller {
 	{
 		$albums = Album::all();
 
-		$images = Image::orderBy('id', 'desc')->paginate(10);
+		$images = Image::all();
 
 		$rol = Auth::user()->role;
 
@@ -39,7 +39,7 @@ class ImageController extends Controller {
 	{
 		$albums = Album::all();
 
-		$images = Image::orderBy('id', 'desc')->paginate(10);
+		$images = Image::all();
 
 		$rol = Auth::user()->role;
 
