@@ -22,13 +22,17 @@ class TextCategory extends Model
 		return $categoria;
 	}
 
-	public function scopeTexto($query, $categoria, $texto)
+	public function scopeTexto($query, $cat_value, $txt_value)
 	{
 		// Blade: {{ $categorias->texto('Diseño', 'Logos') }}
 		
-		$texto = $query->categoria($categoria)->textos->keyBy('title')->get($texto);
+		$categoria = $query->categoria($cat_value);
 
-		if(!$texto)	return strtoupper($value);
+		if($categoria === "null") return strtoupper($cat_value."?-".$txt_value);
+
+		$texto = $categoria->textos->keyBy('title')->get($txt_value);
+
+		if(!$texto) return strtoupper($cat_value."-".$txt_value."?");
 
 		return $texto->body;
 	}

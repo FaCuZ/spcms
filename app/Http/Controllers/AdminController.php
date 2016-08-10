@@ -14,7 +14,9 @@ class AdminController extends Controller
 	public function showInicio(){
 		$down = App::isDownForMaintenance();
 
-		return view('admin.inicio', compact('down'));
+		$rol = Auth::user()->role;
+
+		return view('admin.inicio', compact(['down', 'rol']));
 	}
 
 	public function showEmails(){
