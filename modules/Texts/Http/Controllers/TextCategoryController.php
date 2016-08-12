@@ -21,9 +21,7 @@ class TextCategoryController extends Controller {
 	{
 		$text_categories = TextCategory::all();
 
-		$rol = Auth::user()->role;
-
-		return view('texts::categories.index', compact(['text_categories','rol']));
+		return view('texts::categories.index', compact('text_categories'));
 	}
 
 	/**
@@ -63,9 +61,7 @@ class TextCategoryController extends Controller {
 	{
 		$text_category = TextCategory::findOrFail($id);
 
-		$rol = Auth::user()->role;
-
-		return view('texts::categories.show', compact(['text_category','rol']));
+		return view('texts::categories.show', compact('text_category'));
 	}
 
 	/**
@@ -78,9 +74,7 @@ class TextCategoryController extends Controller {
 	{
 		$text_category = TextCategory::findOrFail($id);
 
-		$rol = Auth::user()->role;
-
-		return view('texts::categories.edit', compact(['text_category','rol']));
+		return view('texts::categories.edit', compact('text_category'));
 	}
 
 	/**

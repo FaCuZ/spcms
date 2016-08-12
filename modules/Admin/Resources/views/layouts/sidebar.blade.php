@@ -20,6 +20,15 @@
 	<li @yield('a-ayuda')>   <a href="{{ URL::route('admin.ayuda') }}">
 		<i class="fa fa-info-circle"></i> <span>Soporte</span></a>
 	</li>
+
+	@if(Auth::user()->role=="admin")
+		<li class="header">ADMINISTRADOR</li>
+
+		<li @yield('a-historial')>   <a href="{{ URL::route('admin.historial') }}">
+			<i class="fa fa-history"></i> <span>Historial</span></a>
+		</li>
+	@endif
+
 </ul>
 
 <div class="app-version">

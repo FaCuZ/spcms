@@ -16,7 +16,7 @@
 				<div class="box-header with-border">
 					<h3 class="box-title">Formulario de solicitud</h3>
 				</div>
-				<!-- /.box-header -->
+
 				<div class="box-body">
 					<form role="form" action="{{ route('admin.sendSoporte') }}" method="POST">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">

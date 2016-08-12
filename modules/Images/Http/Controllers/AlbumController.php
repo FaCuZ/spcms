@@ -20,9 +20,7 @@ class AlbumController extends Controller {
 	{
 		$albums = Album::all();
 
-		$rol = Auth::user()->role;
-
-		return view('images::albums.index', compact(['albums','rol']));
+		return view('images::albums.index', compact('albums'));
 	}
 
 	/**
@@ -62,9 +60,7 @@ class AlbumController extends Controller {
 	{
 		$album = Album::findOrFail($id);
 
-		$rol = Auth::user()->role;
-
-		return view('images::albums.show', compact(['album','rol']));
+		return view('images::albums.show', compact('album'));
 	}
 
 	/**
@@ -77,9 +73,7 @@ class AlbumController extends Controller {
 	{
 		$album = Album::findOrFail($id);
 
-		$rol = Auth::user()->role;
-		
-		return view('images::albums.edit', compact(['album','rol']));
+		return view('images::albums.edit', compact('album'));
 	}
 
 	/**

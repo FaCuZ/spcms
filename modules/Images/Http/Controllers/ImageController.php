@@ -25,9 +25,7 @@ class ImageController extends Controller {
 
 		$images = Image::all();
 
-		$rol = Auth::user()->role;
-
-		return view('images::images.index', compact(['images','albums','rol']));
+		return view('images::images.index', compact(['images','albums']));
 	}
 
 	/**
@@ -41,9 +39,7 @@ class ImageController extends Controller {
 
 		$images = Image::all();
 
-		$rol = Auth::user()->role;
-
-		return view('images::images.list', compact(['images','albums','rol']));
+		return view('images::images.list', compact(['images','albums']));
 	}
 
 	/**
@@ -111,9 +107,7 @@ class ImageController extends Controller {
 	{
 		$image = Image::findOrFail($id);
 
-		$rol = Auth::user()->role;
-
-		return view('images::images.show', compact(['image','rol']));
+		return view('images::images.show', compact('image'));
 	}
 
 	/**
@@ -126,9 +120,7 @@ class ImageController extends Controller {
 	{
 		$image = Image::findOrFail($id);
 		
-		$rol = Auth::user()->role;
-
-		return view('images::images.edit', compact(['image','rol']));
+		return view('images::images.edit', compact('image'));
 	}
 
 	/**
@@ -162,7 +154,6 @@ class ImageController extends Controller {
 			$image->thumb = $path.$name."-thumb.".$extension;
 			$imageFile->save($image->thumb);
 		}
-
 
 		$image->save();
 

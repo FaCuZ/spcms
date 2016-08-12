@@ -23,8 +23,6 @@ class TextController extends Controller {
 
 		$data['text_categories'] = TextCategory::all();
 
-		$data['rol'] = Auth::user()->role;
-
 		return view('texts::index', $data);
 	}
 
@@ -73,8 +71,6 @@ class TextController extends Controller {
 		$data['text'] = Text::findOrFail($id);
 		$data['text_category'] = TextCategory::find($data['text']->text_category_id);
 
-		$data['rol'] = Auth::user()->role;
-
 		return view('texts::show', $data);
 	}
 
@@ -91,8 +87,6 @@ class TextController extends Controller {
 		$data['selected'] = $data['text']->text_category_id;
 
 		$data['text_categories'] = TextCategory::all();
-
-		$data['rol'] = Auth::user()->role;
 
 		return view('texts::edit', $data);
 	}

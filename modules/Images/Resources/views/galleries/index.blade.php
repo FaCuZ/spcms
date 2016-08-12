@@ -7,7 +7,6 @@
 		<a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Galerias 
 		<small>Lista</small>
 
-
 		<div class="pull-right">
 			<a class="btn btn-xs btn-success" href="{{ route('admin.galerias.create') }}"><i class="fa fa-plus"></i> Nueva galeria</a>
 		</div>
@@ -31,7 +30,7 @@
 									<a class="btn btn-xs btn-warning" href="{{ route('admin.galerias.edit', $gallery->id) }}"><i class="fa fa-edit"></i> Editar</a>
 									<a class="btn btn-xs btn-success" href="{{ route('admin.imagenes.create', ['gallery' => $gallery->id]) }}"><i class="fa fa-plus"></i> Agregar Imagen</a>
 									
-									@if($rol=="admin")
+									@if(Auth::user()->role=="admin")
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.galerias.show', $gallery->id) }}"><i class="fa fa-eye"></i> Ver</a>
 									@endif
 

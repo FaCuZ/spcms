@@ -6,11 +6,11 @@
 		<h1>Imagenes <small>Lista</small>
 
 			<div class="pull-right">
-				@if($rol=="admin")
+				@if(Auth::user()->role=="admin")
 					<a class="btn btn-xs btn-success" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo album</a>
 				@endif
 				
-				<a class="btn btn-xs btn-warning" href="{{ route('admin.galerias.index') }}"><i class="fa fa-edit"></i> Editar galerias</a>
+				<a class="btn btn-xs btn-primary" href="{{ route('admin.galerias.index') }}"><i class="fa fa-edit"></i> Listar galerias</a>
 			</div>
 		</h1>
 @endsection
@@ -27,7 +27,7 @@
 						<div class="nav-tabs-custom">
 
 							<h4><strong>{{ $album->title }}</strong>
-								@if($rol=="admin")
+								@if(Auth::user()->role=="admin")
 									<div class="pull-right">
 										<a class="btn btn-xs btn-warning" href="{{ route('admin.albums.edit', $album->id) }}"><i class="fa fa-edit"></i> Editar</a>
 										<a class="btn btn-xs btn-success" href="{{ route('admin.albums.index', ['album' => $album->id]) }}"><i class="fa fa-list"></i> Listar</a>
@@ -81,8 +81,6 @@
 			<p class="text-center">No hay albumes creados</p>
 		@endif
 
-
 	</div>
-
 
 @endsection

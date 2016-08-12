@@ -1,13 +1,12 @@
 @extends('admin::layouts.master')
 
-@section('a-imagenes', 'class="active"')
+@section('a-textos', 'class="active"')
 
 @section('header')
-    <h1>Album <small>{{ $text_category->title }}</small></h1>
+    <h1>Categoria <small>{{ $text_category->title }}</small></h1>
 @endsection
 
 @section('content')
-
 
     <div class="box box-solid">
 

@@ -21,9 +21,7 @@ class GalleryController extends Controller {
 	{
 		$galleries = Gallery::all();
 
-		$rol = Auth::user()->role;
-
-		return view('images::galleries.index', compact(['galleries','rol']));
+		return view('images::galleries.index', compact('galleries'));
 	}
 
 	/**

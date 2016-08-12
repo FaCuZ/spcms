@@ -5,8 +5,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','auth', 'sinrol'], 'na
 	Route::get('/', 	  ['as' => 'admin.inicio',  'uses' => 'AdminController@showInicio'  ]);
 
 	Route::get('edicion', ['as' => 'edicion', 'uses' => 'AdminController@edicion']);
-	Route::get('up',	['as' => 'admin.up',	'uses' => 'AdminController@up'	]);
-	Route::get('down',	['as' => 'admin.down','uses' => 'AdminController@down' ]);
+	Route::get('up',	  ['as' => 'admin.up',	'uses' => 'AdminController@up'	]);
+	Route::get('down',	  ['as' => 'admin.down','uses' => 'AdminController@down' ]);
 
 	Route::get('emails',  ['as' => 'admin.emails',  'uses' => 'AdminController@showEmails'  ]);
 	Route::get('ayuda',   ['as' => 'admin.ayuda',   'uses' => 'AdminController@showAyuda'	]);
@@ -14,4 +14,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','auth', 'sinrol'], 'na
 	Route::post('sendSoporte',	['as' => 'admin.sendSoporte', 'uses' => 'AdminController@sendMailSoporte'	]);
 	Route::post('sendEmail',	['as' => 'admin.sendEmail',   'uses' => 'AdminController@sendMailEmail'		]);
 	
+	// Solo Administrador 
+	Route::get('historial', ['as' => 'admin.historial',   'uses' => 'AdminController@showHistorial']);
 });

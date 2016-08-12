@@ -20,7 +20,6 @@
 
 @section('content')
 
-
 	<div class="box box-solid">
 
 		<div class="box-body">
@@ -32,6 +31,5 @@
 
 		</div>
 	</div>
-
 
 @endsection

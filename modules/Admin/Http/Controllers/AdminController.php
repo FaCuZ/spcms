@@ -14,9 +14,7 @@ class AdminController extends Controller
 	public function showInicio(){
 		$down = App::isDownForMaintenance();
 
-		$rol = Auth::user()->role;
-
-		return view('admin::inicio', compact(['down', 'rol']));
+		return view('admin::inicio', compact('down'));
 	}
 
 	public function showEmails(){
@@ -24,8 +22,20 @@ class AdminController extends Controller
 	}
 
 	public function showAyuda(){
+		
 		$email = Auth::user()->email;
+
 		return view('admin::ayuda', compact('email'));
+	}
+
+	public function showHistorial(){
+
+		if(Auth::user()->role=='admin'){
+			return view('admin::historial');
+		} else {
+			return redirect()->route('admin.inicio');
+		}
+
 	}
 
 	public function edicion()

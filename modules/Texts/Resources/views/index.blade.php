@@ -3,72 +3,66 @@
 @section('a-textos', 'class="active"')
 
 @section('header')
-		<h1>Textos <small>Lista</small>
-			<div class="pull-right">
-				<a class="btn btn-xs btn-success" href="{{ route('admin.textos.create') }}"><i class="fa fa-align-left"></i> Agregar texto</a>
+	<h1>Textos <small>Lista</small>
+		<div class="pull-right">
+			<a class="btn btn-xs btn-success" href="{{ route('admin.textos.create') }}"><i class="fa fa-align-left"></i> Agregar texto</a>
 
-				<a class="btn btn-xs btn-primary" href="{{ route('admin.textos.categorias.create') }}"><i class="fa fa-plus"></i> Nueva categoria</a>
-			</div>
-		</h1>
+			<a class="btn btn-xs btn-primary" href="{{ route('admin.textos.categorias.create') }}"><i class="fa fa-plus"></i> Nueva categoria</a>
+		</div>
+	</h1>
 @endsection
 
 @section('content')
 
 	<div class="box">
-		
 
 		@if($text_categories->count())			
 			<div class="box-body">
 
-						@foreach($text_categories as $category)
+				@foreach($text_categories as $category)
 
-							<table class="table table-striped">
-								<thead><tr><th colspan="2" class="btns-padre">
-										<h3> {{ $category->title }}:
-											<div class="pull-right btns-nuevo-texto hidden">
-												<a class="btn btn-xs btn-success pull-right" href="{{ route('admin.textos.create', ['selected' => $category->id]) }}"><i class="fa fa-plus"></i> Agregar texto</a>
-											</div>
-										</h3>
-								</th></tr></thead>
+					<table class="table table-striped">
+						<thead><tr><th colspan="2" class="btns-padre">
+								<h3> {{ $category->title }}:
+									<div class="pull-right btns-nuevo-texto hidden">
+										<a class="btn btn-xs btn-success pull-right" href="{{ route('admin.textos.create', ['selected' => $category->id]) }}"><i class="fa fa-plus"></i> Agregar texto</a>
+									</div>
+								</h3>
+						</th></tr></thead>
 
-								<tbody>
-									@if($category->textos->count())		
-											@foreach($category->textos as $text)
-												<tr>
-													<td class="nowrap"><strong>{{$text->title}}</strong></td>
-													<td class="btns-padre">{{$text->body}}
-														<div class="nowrap btns-opciones hidden">
-															<a class="btn btn-xs btn-warning" href="{{ route('admin.textos.edit', $text->id) }}"><i class="fa fa-edit"></i> Editar</a>
-															@if($rol=="admin")
-															<a class="btn btn-xs btn-primary" href="{{ route('admin.textos.show', $text->id) }}"><i class="fa fa-eye"></i> Ver</a>
-															<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
-																<input type="hidden" name="_method" value="DELETE">
-																<input type="hidden" name="_token" value="{{ csrf_token() }}">
-																<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
-															</form>
-															@endif
-														</div>
-													</td>
-												</tr>
-											@endforeach
+						<tbody>
+							@if($category->textos->count())		
+									@foreach($category->textos as $text)
+										<tr>
+											<td class="nowrap"><strong>{{$text->title}}</strong></td>
+											<td class="btns-padre">{{$text->body}}
+												<div class="nowrap btns-opciones hidden">
+													<a class="btn btn-xs btn-warning" href="{{ route('admin.textos.edit', $text->id) }}"><i class="fa fa-edit"></i> Editar</a>
+													<a class="btn btn-xs btn-primary" href="{{ route('admin.textos.show', $text->id) }}"><i class="fa fa-eye"></i> Ver</a>
+													<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
+														<input type="hidden" name="_method" value="DELETE">
+														<input type="hidden" name="_token" value="{{ csrf_token() }}">
+														<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
+													</form>
+												</div>
+											</td>
+										</tr>
+									@endforeach
 
-									@else
-										<tr><th colspan="2" class="text-center">
-											vacio
-										</th></tr>
-									@endif
-								</tbody>
-							</table>
+							@else
+								<tr><th colspan="2" class="text-center">
+									vacio
+								</th></tr>
+							@endif
+						</tbody>
+					</table>
 
-						@endforeach
-
+				@endforeach
 
 			</div>
 		@else
 			<p class="text-center">Sin Elementos</p>
-			@if($rol=="admin")
-				<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.textos.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
-			@endif
+			<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.textos.create') }}"><i class="fa fa-plus"></i> Nuevo Texto</a>
 		@endif
 
 	</div>

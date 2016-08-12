@@ -19,11 +19,10 @@
 			<form action="{{ route('admin.textos.categorias.update', $text_category->id) }}" method="POST">
 				<div class="modal-body">
 
-
 					<input type="hidden" name="_method" value="PUT">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					@if($rol=="admin")
+					@if(Auth::user()->role=="admin")
 						<div class="form-group @if($errors->has('title')) has-error @endif">
 							<label for="title-field">Nombre</label>
 							<input type="text" id="title-field" name="title" class="form-control" value="{{ $text_category->title }}"/>

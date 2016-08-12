@@ -23,7 +23,7 @@
 		  	<input type="hidden" name="_method" value="PUT">
 		  	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-		  	@if($rol=="admin")
+			@if(Auth::user()->role=="admin")
 				<div class="form-group @if($errors->has('title')) has-error @endif">
 					<label for="title-field">Nombre</label>
 					<input type="text" id="title-field" name="title" class="form-control" value="{{ $gallery->title }}"/>
@@ -36,11 +36,11 @@
 			@endif
 
 			<div class="form-group @if($errors->has('description')) has-error @endif">
-			  <label for="description-field">Descripcion</label>
-			  <textarea class="form-control" id="description-field" rows="15" style="resize: vertical;" name="description">{{ $gallery->description }}</textarea>
-			  @if($errors->has("description"))
-			  	<span class="help-block">{{ $errors->first("description") }}</span>
-			  @endif
+				<label for="description-field">Descripcion</label>
+				<textarea class="form-control" id="description-field" rows="15" style="resize: vertical;" name="description">{{ $gallery->description }}</textarea>
+				@if($errors->has("description"))
+					<span class="help-block">{{ $errors->first("description") }}</span>
+				@endif
 			</div>
 
 		  </div>
