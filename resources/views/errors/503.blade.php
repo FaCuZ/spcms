@@ -1,6 +1,7 @@
-@inject('textos','App\Text')
-@inject('albumes','App\Album')
-@inject('imagenes','App\Image')
+@inject('textos',    'Modules\Texts\Models\Text')
+@inject('categorias','Modules\Texts\Models\TextCategory')
+@inject('albumes',   'Modules\Images\Models\Album')
+@inject('imagenes',  'Modules\Images\Models\Image')
 
 <!DOCTYPE html>
 <html>

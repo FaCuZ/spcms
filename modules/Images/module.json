@@ -1,0 +1,15 @@
+{
+    "name": "Images",
+    "alias": "images",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Images\\Providers\\ImagesServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('admin::layouts.master')
 
 @section('a-textos', 'class="active"')
 

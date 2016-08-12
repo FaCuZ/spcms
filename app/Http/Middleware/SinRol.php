@@ -7,24 +7,23 @@ use Illuminate\Support\Facades\Auth;
 
 class SinRol
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-    {
+	/**
+	 * Handle an incoming request.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \Closure  $next
+	 * @return mixed
+	 */
+	public function handle($request, Closure $next)
+	{
+		if(Auth::User()->role == 'none'){
+			if ($request->ajax() || $request->wantsJson()) {
+				return response('Unauthorized.', 401);
+			} else {
+				return redirect()->guest('alerta');
+			}
+		}
 
-        if(Auth::User()->role == 'none'){
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('alerta');
-            }
-        }
-
-        return $next($request);
-    }
+		return $next($request);
+	}
 }

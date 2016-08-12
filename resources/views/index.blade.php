@@ -1,7 +1,7 @@
-@inject('textos','App\Text')
-@inject('categorias','App\TextCategory')
-@inject('albumes','App\Album')
-@inject('imagenes','App\Image')
+@inject('textos',	 'Modules\Texts\Models\Text')
+@inject('categorias','Modules\Texts\Models\TextCategory')
+@inject('albumes',	 'Modules\Images\Models\Album')
+@inject('imagenes',	 'Modules\Images\Models\Image')
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-		@include('admin.layouts.styles')
+		@include('layouts.styles')
 
 	</head>
 
