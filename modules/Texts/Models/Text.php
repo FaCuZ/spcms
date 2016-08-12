@@ -1,6 +1,5 @@
-<?php
+<?php namespace Modules\Texts\Models;
 
-namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +9,7 @@ class Text extends Model
 
 
 	public function categoria(){
-		return $this->belongsTo('App\TextCategory','text_category_id');
+		return $this->belongsTo('Modules\Texts\Models\TextCategory','text_category_id');
 	}
 
 

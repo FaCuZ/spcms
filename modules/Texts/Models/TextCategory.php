@@ -1,6 +1,4 @@
-<?php
-
-namespace App;
+<?php namespace Modules\Texts\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +8,7 @@ class TextCategory extends Model
 
 	public function textos()
 	{
-		return $this->hasMany('App\Text');
+		return $this->hasMany('Modules\Texts\Models\Text');
 	}
 
 	public function scopeCategoria($query, $value)

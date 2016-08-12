@@ -1,9 +1,11 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Modules\Texts\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Text, App\TextCategory;
+use Modules\Texts\Models\TextCategory;
+use Modules\Texts\Models\Text;
+
 use Illuminate\Http\Request;
 
 use Auth;
@@ -23,7 +25,7 @@ class TextController extends Controller {
 
 		$data['rol'] = Auth::user()->role;
 
-		return view('admin.texts.index', $data);
+		return view('texts::index', $data);
 	}
 
 	/**
@@ -38,7 +40,7 @@ class TextController extends Controller {
 
 		$data['text_categories'] = TextCategory::all();
 
-		return view('admin.texts.create', $data);
+		return view('texts::create', $data);
 	}
 
 	/**
@@ -73,7 +75,7 @@ class TextController extends Controller {
 
 		$data['rol'] = Auth::user()->role;
 
-		return view('admin.texts.show', $data);
+		return view('texts::show', $data);
 	}
 
 	/**
@@ -92,7 +94,7 @@ class TextController extends Controller {
 
 		$data['rol'] = Auth::user()->role;
 
-		return view('admin.texts.edit', $data);
+		return view('texts::edit', $data);
 	}
 
 	/**

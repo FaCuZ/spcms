@@ -9,8 +9,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'sinrol'] ], functio
 	Route::post('sendSoporte',	['as' => 'admin.sendSoporte', 'uses' => 'AdminController@sendMailSoporte'	]);
 	Route::post('sendEmail',	['as' => 'admin.sendEmail',   'uses' => 'AdminController@sendMailEmail'		]);
 	
-	Route::resource("textos/categorias","TextCategoryController");
-	Route::resource("textos","TextController"); 
+	//Route::resource("textos/categorias","TextCategoryController");
+	//Route::resource("textos","TextController"); 
 
 	Route::resource("imagenes","ImageController");
 

@@ -163,6 +163,7 @@ return [
 		Intervention\Image\ImageServiceProvider::class,
 		Barryvdh\Debugbar\ServiceProvider::class,
     	Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
+    	Nwidart\Modules\LaravelModulesServiceProvider::class,
 
 	],
 
@@ -216,6 +217,7 @@ return [
 		'ImageI' => Intervention\Image\Facades\Image::class,
 		'Debugbar' => Barryvdh\Debugbar\Facade::class,
 		'GitVersionHelper' => Tremby\LaravelGitVersion\GitVersionHelper::class,
+		'Module' => Nwidart\Modules\Facades\Module::class,
 
 		],
 
