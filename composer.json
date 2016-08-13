@@ -10,7 +10,8 @@
         "intervention/image": "^2.3",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "tremby/laravel-git-version": "^1.1",
-        "nwidart/laravel-modules": "^0.10.0"
+        "nwidart/laravel-modules": "^0.10.0",
+        "venturecraft/revisionable": "1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -9,6 +9,10 @@ use App\User;
 
 use Auth, Mail, App, Artisan;
 
+
+use Modules\Texts\Models\Text;
+use Modules\Texts\Models\TextCategory;
+
 class AdminController extends Controller
 {
 	public function showInicio(){
@@ -30,8 +34,16 @@ class AdminController extends Controller
 
 	public function showHistorial(){
 
+
+		$data['texts'] = Text::all();
+		$data['text_categories'] = TextCategory::all();
+
+
+		//$data['texts']->revisionHistory;
+
+
 		if(Auth::user()->role=='admin'){
-			return view('admin::historial');
+			return view('admin::historial', $data);
 		} else {
 			return redirect()->route('admin.inicio');
 		}

@@ -64,7 +64,7 @@
 					</div>
 
 					<div class="form-group @if($errors->has('body')) has-error @endif">
-						<label for="body-field">Body</label>
+						<label for="body-field">Texto</label>
 						<textarea class="form-control" id="body-field" rows="15" style="resize: vertical;" name="body">{{ $text->body }}</textarea>
 							@if($errors->has("body"))
 								<span class="help-block">{{ $errors->first("body") }}</span>

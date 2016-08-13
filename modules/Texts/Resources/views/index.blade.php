@@ -23,11 +23,11 @@
 
 					<table class="table table-striped">
 						<thead><tr><th colspan="2" class="btns-padre">
-								<h3> {{ $category->title }}:
+								<h4><strong>{{ $category->title }}:</strong>
 									<div class="pull-right btns-nuevo-texto hidden">
 										<a class="btn btn-xs btn-success pull-right" href="{{ route('admin.textos.create', ['selected' => $category->id]) }}"><i class="fa fa-plus"></i> Agregar texto</a>
 									</div>
-								</h3>
+								</h4>
 						</th></tr></thead>
 
 						<tbody>

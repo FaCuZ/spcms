@@ -1,11 +1,15 @@
 <?php namespace Modules\Texts\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
-class Text extends Model
+use \Venturecraft\Revisionable\Revisionable;
+
+class Text extends Revisionable
 {
 	protected $fillable = [	'title', 'body'	];
+		
+	protected $revisionEnabled = true;
+	protected $historyLimit = 500; 
 
 
 	public function categoria(){
@@ -26,5 +30,10 @@ class Text extends Model
 
 		return $texto->body;
 	}
+
+	/*public static function boot()
+	{
+		parent::boot();
+	}*/
 
 }
