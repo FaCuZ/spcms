@@ -21,6 +21,7 @@ class CreateTextsTable extends Migration {
 			$table->foreign('text_category_id')->references('id')->on('text_categories')->onDelete('cascade');
 
             $table->timestamps();
+            $table->softDeletes();
         });
 	}
 

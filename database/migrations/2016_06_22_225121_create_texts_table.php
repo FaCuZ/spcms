@@ -14,6 +14,7 @@ class CreateTextsTable extends Migration {
 	{
 		Schema::create('texts', function(Blueprint $table) {
             $table->increments('id');
+            
             $table->string('title');
             $table->text('body');
 
@@ -21,6 +22,7 @@ class CreateTextsTable extends Migration {
 			$table->foreign('text_category_id')->references('id')->on('text_categories')->onDelete('cascade');
 
             $table->timestamps();
+            $table->softDeletes();
         });
 	}
 

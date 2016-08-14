@@ -34,12 +34,19 @@ class AdminController extends Controller
 
 	public function showHistorial(){
 
-
 		$data['texts'] = Text::all();
 		$data['text_categories'] = TextCategory::all();
 
+		$data['history'] = [];
 
-		//$data['texts']->revisionHistory;
+		foreach (Text::all() as $key => $value)
+			if(!empty($value->revisionHistory->toArray()))
+				array_push($data['history'], $value->revisionHistory->toArray());
+
+
+		foreach (TextCategory::all() as $key => $value)
+			if(!empty($value->revisionHistory->toArray()))
+				array_push($data['history'], $value->revisionHistory->toArray());
 
 
 		if(Auth::user()->role=='admin'){

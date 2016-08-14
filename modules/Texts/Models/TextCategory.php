@@ -1,10 +1,20 @@
 <?php namespace Modules\Texts\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TextCategory extends Model
+use \Venturecraft\Revisionable\Revisionable;
+
+class TextCategory extends Revisionable
 {
+    use SoftDeletes;
+	
 	protected $fillable = [ 'title' ];
+    protected $dates = ['deleted_at'];
+
+	protected $revisionEnabled = true;
+	protected $revisionCleanup = true;
+	protected $historyLimit = 500; 
 
 	public function textos()
 	{

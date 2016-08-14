@@ -1,16 +1,20 @@
 <?php namespace Modules\Texts\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 use \Venturecraft\Revisionable\Revisionable;
 
 class Text extends Revisionable
 {
+    use SoftDeletes;
+	
 	protected $fillable = [	'title', 'body'	];
-		
-	protected $revisionEnabled = true;
-	protected $historyLimit = 500; 
+    protected $dates = ['deleted_at'];
 
+	protected $revisionEnabled = true;
+	protected $revisionCleanup = true;
+	protected $historyLimit = 500; 
 
 	public function categoria(){
 		return $this->belongsTo('Modules\Texts\Models\TextCategory','text_category_id');
@@ -31,9 +35,10 @@ class Text extends Revisionable
 		return $texto->body;
 	}
 
-	/*public static function boot()
+
+	public function identifiableName()
 	{
-		parent::boot();
-	}*/
+		return $this->title."BLE";
+	}
 
 }

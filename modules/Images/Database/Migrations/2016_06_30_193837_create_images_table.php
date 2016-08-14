@@ -23,6 +23,7 @@ class CreateImagesTable extends Migration {
 			$table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
 
             $table->timestamps();
+            $table->softDeletes();
         });
 	}
 
