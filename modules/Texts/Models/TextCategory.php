@@ -16,6 +16,8 @@ class TextCategory extends Revisionable
 	protected $revisionCleanup = true;
 	protected $historyLimit = 500; 
 
+	protected $revisionFormattedFieldNames = [ 'title' => 'Titulo' ];
+
 	public function textos()
 	{
 		return $this->hasMany('Modules\Texts\Models\Text');
@@ -43,5 +45,10 @@ class TextCategory extends Revisionable
 		if(!$texto) return strtoupper($cat_value."-".$txt_value."?");
 
 		return $texto->body;
+	}
+
+	public function identifiableName()
+	{
+		return $this->title;
 	}
 }

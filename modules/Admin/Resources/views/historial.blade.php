@@ -22,6 +22,7 @@
 					</tr>
 					<tr>
 						<th>Usuario</th>
+						<th>Modelo</th>
 						<th>Campo</th>
 						<th>Valor</th>
 						<th>Nuevo Valor</th>
@@ -30,11 +31,10 @@
 				</thead>
 
 				<tbody>
-					{{ dd($history) }}
 					@foreach($history as $data)
-					{{-- dd($data->toArray()) --}}
 						<tr>
 							<td>{{ $data->userResponsible()->name }}</td>
+							<td>{{ $data->revisionable_type }}</td>
 							<td>{{ $data->fieldName() }}</td>
 							<td><code>{{ $data->oldValue() }}</code></td>
 							<td><code>{{ $data->newValue() }}</code></td>
@@ -43,9 +43,10 @@
 					@endforeach
 				</tbody>
 			</table>
+			{{ $history->links() }}
 		@else
 			<p class="text-center">Sin Datos</p>
-		@endif
+		@endif		
 	</div>
 
 @endsection

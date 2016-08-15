@@ -16,6 +16,8 @@ class Album extends Revisionable
 	protected $revisionCleanup = true;
 	protected $historyLimit = 500; 
 
+	protected $revisionFormattedFieldNames = [ 'title' => 'Titulo' ];
+
 	public function galerias()
 	{
 		return $this->hasMany('Modules\Images\Models\Gallery');

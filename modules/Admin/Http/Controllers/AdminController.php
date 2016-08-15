@@ -9,9 +9,10 @@ use App\User;
 
 use Auth, Mail, App, Artisan;
 
-
 use Modules\Texts\Models\Text;
 use Modules\Texts\Models\TextCategory;
+
+use Venturecraft\Revisionable\Revision;
 
 class AdminController extends Controller
 {
@@ -34,27 +35,9 @@ class AdminController extends Controller
 
 	public function showHistorial(){
 
-		$data['texts'] = Text::all();
-		$data['text_categories'] = TextCategory::all();
+		$data['history'] = Revision::with('revisionable')->orderBy('id', 'desc')->paginate(10);
 
-		$data['history'] = [];
-
-		foreach (Text::all() as $key => $value)
-			if(!empty($value->revisionHistory->toArray()))
-				array_push($data['history'], $value->revisionHistory->toArray());
-
-
-		foreach (TextCategory::all() as $key => $value)
-			if(!empty($value->revisionHistory->toArray()))
-				array_push($data['history'], $value->revisionHistory->toArray());
-
-
-		if(Auth::user()->role=='admin'){
-			return view('admin::historial', $data);
-		} else {
-			return redirect()->route('admin.inicio');
-		}
-
+		return view('admin::historial', $data);
 	}
 
 	public function edicion()

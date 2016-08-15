@@ -14,6 +14,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','auth', 'sinrol'], 'na
 	Route::post('sendSoporte',	['as' => 'admin.sendSoporte', 'uses' => 'AdminController@sendMailSoporte'	]);
 	Route::post('sendEmail',	['as' => 'admin.sendEmail',   'uses' => 'AdminController@sendMailEmail'		]);
 	
-	// Solo Administrador 
-	Route::get('historial', ['as' => 'admin.historial',   'uses' => 'AdminController@showHistorial']);
+	Route::group(['middleware' => 'roladmin'], function () {
+		Route::get('historial', ['as' => 'admin.historial',   'uses' => 'AdminController@showHistorial']);
+	});
 });

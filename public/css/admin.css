@@ -52,6 +52,9 @@
   top: 25px;
   right: 15px; }
 
+.pagination {
+  margin: 0px 15px 15px 15px; }
+
 thead h3 {
   margin-top: 10px; }
 

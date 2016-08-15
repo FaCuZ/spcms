@@ -16,6 +16,14 @@ class Text extends Revisionable
 	protected $revisionCleanup = true;
 	protected $historyLimit = 500; 
 
+	protected $revisionFormattedFieldNames = [
+		'title' => 'Titulo',
+		'body' => 'Texto',
+		'text_category_id' => 'Categoria'
+
+	];
+
+
 	public function categoria(){
 		return $this->belongsTo('Modules\Texts\Models\TextCategory','text_category_id');
 	}
@@ -38,7 +46,7 @@ class Text extends Revisionable
 
 	public function identifiableName()
 	{
-		return $this->title."BLE";
+		return $this->title;
 	}
 
 }

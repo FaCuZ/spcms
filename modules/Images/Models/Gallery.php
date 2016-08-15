@@ -16,6 +16,11 @@ class Gallery extends Revisionable
 	protected $revisionCleanup = true;
 	protected $historyLimit = 500; 
 
+	protected $revisionFormattedFieldNames = [
+		'title' => 'Titulo',
+		'description' => 'Descripcion'
+	];
+
 	public function album(){
 		return $this->belongsTo('Modules\Images\Models\Album');
 	}

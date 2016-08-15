@@ -16,6 +16,13 @@ class Image extends Revisionable
 	protected $revisionCleanup = true;
 	protected $historyLimit = 500; 
 
+	protected $dontKeepRevisionOf = [ 'thumb' ];
+	protected $revisionFormattedFieldNames = [
+		'title' => 'Titulo',
+		'description' => 'Descripcion',
+		'file' => 'Archivo'
+	];
+
 
 	public function galeria(){
 		return $this->belongsTo('Modules\Images\Models\Gallery');
