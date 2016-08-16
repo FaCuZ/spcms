@@ -15,7 +15,7 @@
     <body>
         <div class="centrar">
             <img src="{{ $imagenes->imagen("logo")->url }}" />
-            <div class="informacion">{{ $textos->texto("Informacion") }}</div>
+            <div class="informacion">{{ $textos->texto("mantenimiento") }}</div>
         </div>
     </body>
 

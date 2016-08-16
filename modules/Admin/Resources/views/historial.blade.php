@@ -13,7 +13,7 @@
 
 	<div class="box">
 		@if($history)
-			<table class="table table-striped">
+			<table class="table table-striped table-historial">
 				<thead>
 					<tr>
 						<th>Usuario</th>
@@ -27,12 +27,11 @@
 
 				<tbody>
 					@foreach($history as $data)
-						<tr>
+						<tr onclick="window.location='{{ urlModelo($data) }}'">
 							<td>{{ $data->userResponsible()->name }}</td>
-							<td>{{ limpiarModelo($data->revisionable_type) }}</td>
+							<td>{{ getModelo($data->revisionable_type) }}</td>
 							<td>{{ $data->fieldName() }}</td>
 							<td>
-								<a href="{{ urlModelo('model', 'id') }}">
 								<code>
 									@if($data->fieldName() == 'Borrado')
 										{{ $data->revisionable_id }}
@@ -40,7 +39,6 @@
 										{{ $data->oldValue() }}
 									@endif	
 								</code>
-								</a>
 							</td>
 							<td><code>{{ $data->newValue() }}</code></td>
 							<td class="nowrap">{{ $data->created_at->diffForHumans() }}</td>

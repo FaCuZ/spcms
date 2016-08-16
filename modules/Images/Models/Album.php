@@ -7,20 +7,28 @@ use \Venturecraft\Revisionable\Revisionable;
 
 class Album extends Revisionable
 {
-    use SoftDeletes;
+	use SoftDeletes;
 	
 	protected $fillable = [ 'title' ];
-    protected $dates = ['deleted_at'];
+	protected $dates = ['deleted_at'];
 
 	protected $revisionEnabled = true;
 	protected $revisionCleanup = true;
 	protected $historyLimit = 500; 
 
-	protected $revisionFormattedFieldNames = [ 'title' => 'Titulo' ];
+	protected $revisionFormattedFieldNames = [ 
+		'title' => 'Titulo',
+		'deleted_at' => 'Borrado' 
+	];
 
 	public function galerias()
 	{
 		return $this->hasMany('Modules\Images\Models\Gallery');
+	}
+
+	public function setTitleAttribute($value)
+	{
+		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
 	}
 
 	public function scopeAlbum($query, $value)

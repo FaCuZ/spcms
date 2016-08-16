@@ -10,17 +10,17 @@ class GalleryTableSeeder extends Seeder {
 	public function run()
 	{
 		DB::table('galleries')->insert([
-			'title' => 'Logos',
+			'title' => 'logos',
 			'album_id' => 1, 
 		]);	
 		
 		DB::table('galleries')->insert([
-			'title' => 'Fondos',
+			'title' => 'fondos',
 			'album_id' => 1, 
 		]);
 
 		DB::table('galleries')->insert([
-			'title' => 'Error',
+			'title' => 'error',
 			'album_id' => 1, 
 		]);
 	}

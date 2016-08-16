@@ -21,6 +21,14 @@
 			<div class="box-body no-padding">
 				<table class="table table-striped">
 					<tbody>
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Descripcion</th>
+								<th>Album</th>
+								<th></th>
+							</tr>
+						</thead>
 						@foreach($galleries as $gallery)
 							<tr>
 								<td><strong>{{$gallery->title}}</strong></td>

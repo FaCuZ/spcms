@@ -7,15 +7,15 @@ class AlbumTableSeeder extends Seeder {
 	public function run()
 	{
 		DB::table('albums')->insert([
-			'title' => 'Diseño',
+			'title' => 'diseño',
 		]);
 
 		DB::table('albums')->insert([
-			'title' => 'Galería',
+			'title' => 'galería',
 		]);
 
 		DB::table('albums')->insert([
-			'title' => 'Ocultas',
+			'title' => 'ocultas',
 		]);
 	}
 

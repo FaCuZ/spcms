@@ -7,10 +7,10 @@ use \Venturecraft\Revisionable\Revisionable;
 
 class Text extends Revisionable
 {
-    use SoftDeletes;
+	use SoftDeletes;
 	
 	protected $fillable = [	'title', 'body'	];
-    protected $dates = ['deleted_at'];
+	protected $dates = ['deleted_at'];
 
 	protected $revisionEnabled = true;
 	protected $revisionCleanup = true;
@@ -44,6 +44,11 @@ class Text extends Revisionable
 		return $texto->body;
 	}
 
+
+	public function setTitleAttribute($value)
+	{
+		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
+	}
 
 	public function identifiableName()
 	{

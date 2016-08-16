@@ -16,7 +16,10 @@ class TextCategory extends Revisionable
 	protected $revisionCleanup = true;
 	protected $historyLimit = 500; 
 
-	protected $revisionFormattedFieldNames = [ 'title' => 'Titulo' ];
+	protected $revisionFormattedFieldNames = [ 
+		'title' => 'Titulo',
+		'deleted_at' => 'Borrado'
+	];
 
 	public function textos()
 	{
@@ -45,6 +48,11 @@ class TextCategory extends Revisionable
 		if(!$texto) return strtoupper($cat_value."-".$txt_value."?");
 
 		return $texto->body;
+	}
+
+	public function setTitleAttribute($value)
+	{
+		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
 	}
 
 	public function identifiableName()

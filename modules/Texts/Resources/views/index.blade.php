@@ -7,7 +7,8 @@
 		<div class="pull-right">
 			<a class="btn btn-xs btn-success" href="{{ route('admin.textos.create') }}"><i class="fa fa-align-left"></i> Agregar texto</a>
 
-			<a class="btn btn-xs btn-primary" href="{{ route('admin.textos.categorias.create') }}"><i class="fa fa-plus"></i> Nueva categoria</a>
+			<a class="btn btn-xs btn-success" href="{{ route('admin.textos.categorias.create') }}"><i class="fa fa-plus"></i> Nueva categoria</a>
+			<a class="btn btn-xs btn-primary" href="{{ route('admin.textos.categorias.index') }}"><i class="fa fa-list"></i> Listar categorias</a>
 		</div>
 	</h1>
 @endsection

@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'admin', 'middleware' => ['web','auth', 'sinrol'], 'namespace' => 'Modules\Admin\Http\Controllers'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modules\Admin\Http\Controllers'], function () {
 	
 	Route::get('/', 	  ['as' => 'admin.inicio',  'uses' => 'AdminController@showInicio'  ]);
 

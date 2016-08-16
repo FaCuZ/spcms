@@ -26,14 +26,14 @@
 		<img src="{{ $imagenes->imagen("logo")->url }}" />
 				
 		{{-- TEXTO --}}
-		<div>{{ $textos->texto("Largo") }}</div>		
+		<div>{{ $textos->texto("largo") }}</div>		
 
 		{{-- CATEGORIAS --}}
-		<div>{{ $categorias->texto("Diseño","Largo") }}</div>		
+		<div>{{ $categorias->texto("diseño","largo") }}</div>		
 
 
 		{{-- GALERIA --}}
-		@if(($album = $albumes->album('Diseño')) !== 'null')
+		@if(($album = $albumes->album('diseño')) !== 'null')
 			<ul class="nav nav-tabs">
 				@foreach($album->galerias as $galeria)
 					<li><a href="#tab_{{ $galeria->id }}" data-toggle="tab">{{ $galeria->title }}</a></li>

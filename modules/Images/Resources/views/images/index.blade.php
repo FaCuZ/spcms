@@ -8,6 +8,7 @@
 			<div class="pull-right">
 				@if(Auth::user()->role=="admin")
 					<a class="btn btn-xs btn-success" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo album</a>
+					<a class="btn btn-xs btn-primary" href="{{ route('admin.albums.index') }}"><i class="fa fa-list"></i> Listar Albumes</a>
 				@endif
 				
 				<a class="btn btn-xs btn-primary" href="{{ route('admin.galerias.index') }}"><i class="fa fa-edit"></i> Listar galerias</a>
@@ -26,11 +27,10 @@
 
 						<div class="nav-tabs-custom">
 
-							<h4><strong>{{ $album->title }}</strong>
+							<h4><strong>{{ ucfirst($album->title) }}</strong>
 								@if(Auth::user()->role=="admin")
 									<div class="pull-right">
 										<a class="btn btn-xs btn-warning" href="{{ route('admin.albums.edit', $album->id) }}"><i class="fa fa-edit"></i> Editar</a>
-										<a class="btn btn-xs btn-success" href="{{ route('admin.albums.index', ['album' => $album->id]) }}"><i class="fa fa-list"></i> Listar</a>
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.albums.show', $album->id) }}"><i class="fa fa-eye"></i> Ver</a>
 										<form action="{{ route('admin.albums.destroy', $album->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
 											<input type="hidden" name="_method" value="DELETE">
@@ -44,7 +44,7 @@
 
 							<ul class="nav nav-tabs">
 								@foreach($album->galerias as $galeria)
-									<li class="galeria_item"><a href="#tab_{{ $galeria->id }}" data-toggle="tab"><i class="fa fa-folder-o"></i> {{ $galeria->title }}</a></li>
+									<li class="galeria_item"><a href="#tab_{{ $galeria->id }}" data-toggle="tab"><i class="fa fa-folder-o"></i> {{ ucfirst($galeria->title) }}</a></li>
 								@endforeach
 
 								<li class="new"><a href="{{ route('admin.galerias.create', ['album' => $album->id]) }}"><i class="fa fa-plus"></i></a></li>

@@ -20,7 +20,8 @@ class Image extends Revisionable
 	protected $revisionFormattedFieldNames = [
 		'title' => 'Titulo',
 		'description' => 'Descripcion',
-		'file' => 'Archivo'
+		'file' => 'Archivo',
+		'deleted_at' => 'Borrado'
 	];
 
 
@@ -38,6 +39,10 @@ class Image extends Revisionable
 		return asset($this->thumb);
 	}
 
+	public function setTitleAttribute($value)
+	{
+		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
+	}
 
 	public function scopeTodas($query, $album, $galeria)
 	{
@@ -55,3 +60,4 @@ class Image extends Revisionable
 	}
 
 }
+

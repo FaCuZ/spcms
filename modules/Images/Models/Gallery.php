@@ -18,7 +18,8 @@ class Gallery extends Revisionable
 
 	protected $revisionFormattedFieldNames = [
 		'title' => 'Titulo',
-		'description' => 'Descripcion'
+		'description' => 'Descripcion',
+		'deleted_at' => 'Borrado'
 	];
 
 	public function album(){
@@ -29,6 +30,11 @@ class Gallery extends Revisionable
 		return $this->hasMany('Modules\Images\Models\Image');
 	}
 
+
+	public function setTitleAttribute($value)
+	{
+		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
+	}
 
 	public function scopeGaleria($query, $value)
 	{

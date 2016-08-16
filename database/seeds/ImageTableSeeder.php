@@ -18,7 +18,7 @@ class ImageTableSeeder extends Seeder {
 		]);
 
 		DB::table('images')->insert([
-			'title' => 'Sin imagen',
+			'title' => 'sin imagen',
 			'description' => 'Imagen que muestra al no encontrar una imagen.',
 			'file' => 'images/sin-imagen.jpg',
 			'thumb' => 'images/sin-imagen-thumb.jpg',

@@ -7,11 +7,11 @@ class TextCategoryTableSeeder extends Seeder {
     public function run()
     {
         DB::table('text_categories')->insert([
-			'title' => 'Diseño',
+			'title' => 'diseño',
 		]);
 
 		DB::table('text_categories')->insert([
-			'title' => 'Ocultos',
+			'title' => 'ocultos',
 		]);
     }
 
