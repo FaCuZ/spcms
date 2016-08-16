@@ -19,7 +19,8 @@ class Text extends Revisionable
 	protected $revisionFormattedFieldNames = [
 		'title' => 'Titulo',
 		'body' => 'Texto',
-		'text_category_id' => 'Categoria'
+		'text_category_id' => 'Categoria',
+		'deleted_at' => 'Borrado'
 
 	];
 

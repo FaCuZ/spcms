@@ -16,16 +16,11 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th colspan="5">
-							<h4><strong>Textos:</strong></h4>
-						</th>
-					</tr>
-					<tr>
 						<th>Usuario</th>
 						<th>Modelo</th>
 						<th>Campo</th>
 						<th>Valor</th>
-						<th>Nuevo Valor</th>
+						<th>Cambio</th>
 						<th>Tiempo</th>
 					</tr>
 				</thead>
@@ -34,9 +29,19 @@
 					@foreach($history as $data)
 						<tr>
 							<td>{{ $data->userResponsible()->name }}</td>
-							<td>{{ $data->revisionable_type }}</td>
+							<td>{{ limpiarModelo($data->revisionable_type) }}</td>
 							<td>{{ $data->fieldName() }}</td>
-							<td><code>{{ $data->oldValue() }}</code></td>
+							<td>
+								<a href="{{ urlModelo('model', 'id') }}">
+								<code>
+									@if($data->fieldName() == 'Borrado')
+										{{ $data->revisionable_id }}
+									@else
+										{{ $data->oldValue() }}
+									@endif	
+								</code>
+								</a>
+							</td>
 							<td><code>{{ $data->newValue() }}</code></td>
 							<td class="nowrap">{{ $data->created_at->diffForHumans() }}</td>
 						</tr>
