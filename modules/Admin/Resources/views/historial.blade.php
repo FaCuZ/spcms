@@ -12,7 +12,7 @@
 @section('content')
 
 	<div class="box">
-		@if($history)
+		@if(!empty($history))
 			<table class="table table-striped table-historial">
 				<thead>
 					<tr>
@@ -34,7 +34,7 @@
 							<td>
 								<code>
 									@if($data->fieldName() == 'Borrado')
-										{{ $data->revisionable_id }}
+										[{{ $data->revisionable_id }}]
 									@else
 										{{ $data->oldValue() }}
 									@endif	

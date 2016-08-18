@@ -37,7 +37,7 @@ class Text extends Revisionable
 
 	public function scopeTexto($query, $value)
 	{
-		$texto = $query->get()->keyBy('title')->get($value);
+		$texto = $query->get()->keyBy('title')->get(strtolower($value));
 
 		if(!$texto)	return strtoupper($value);
 

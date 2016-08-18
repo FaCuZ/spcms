@@ -24,6 +24,9 @@
 		{{-- EJEMPLOS: --}}	
 		{{-- IMAGEN --}}
 		<img src="{{ $imagenes->imagen("logo")->url }}" />
+
+		{{-- IMAGEN NO ENCONTRADA--}}
+		<img src="{{ $imagenes->imagen("no encontra")->url }}" />
 				
 		{{-- TEXTO --}}
 		<div>{{ $textos->texto("largo") }}</div>		

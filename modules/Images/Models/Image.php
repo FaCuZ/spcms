@@ -52,9 +52,9 @@ class Image extends Revisionable
 
 	public function scopeImagen($query, $value)
 	{
-		$imagen = $query->get()->keyBy('title')->get($value);
+		$imagen = $query->get()->keyBy('title')->get(strtolower($value));
 
-		if(!$imagen) $imagen = $query->get()->keyBy('title')->get('Sin imagen');
+		if(!$imagen) $imagen = $query->get()->keyBy('title')->get('sin imagen');
 
 		return $imagen;
 	}

@@ -28,7 +28,7 @@ class TextCategory extends Revisionable
 
 	public function scopeCategoria($query, $value)
 	{
-		$categoria = $query->get()->keyBy('title')->get($value);
+		$categoria = $query->get()->keyBy('title')->get(strtolower($value));
 
 		if(!$categoria) return 'null';
 
@@ -39,7 +39,7 @@ class TextCategory extends Revisionable
 	{
 		// Blade: {{ $categorias->texto('Diseño', 'Logos') }}
 		
-		$categoria = $query->categoria($cat_value);
+		$categoria = $query->categoria(strtolower($cat_value));
 
 		if($categoria === "null") return strtoupper($cat_value."?-".$txt_value);
 

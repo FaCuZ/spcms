@@ -24,7 +24,7 @@
 
 					<table class="table table-striped">
 						<thead><tr><th colspan="2" class="btns-padre">
-								<h4><strong>{{ $category->title }}:</strong>
+								<h4><strong>{{ ucfirst($category->title) }}:</strong>
 									<div class="pull-right btns-nuevo-texto hidden">
 										<a class="btn btn-xs btn-success pull-right" href="{{ route('admin.textos.create', ['selected' => $category->id]) }}"><i class="fa fa-plus"></i> Agregar texto</a>
 									</div>
@@ -35,7 +35,7 @@
 							@if($category->textos->count())		
 									@foreach($category->textos as $text)
 										<tr>
-											<td class="nowrap"><strong>{{$text->title}}</strong></td>
+											<td class="nowrap"><strong>{{ ucfirst($text->title) }}</strong></td>
 											<td class="btns-padre">{{$text->body}}
 												<div class="nowrap btns-opciones hidden">
 													<a class="btn btn-xs btn-warning" href="{{ route('admin.textos.edit', $text->id) }}"><i class="fa fa-edit"></i> Editar</a>

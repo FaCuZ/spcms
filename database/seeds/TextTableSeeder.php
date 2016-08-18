@@ -28,7 +28,7 @@ class TextTableSeeder extends Seeder {
 			]);
 			
 			DB::table('texts')->insert([
-				'title' => 'muy Largo',
+				'title' => 'muy largo',
 				'body' => '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, tempore debitis! Magnam molestias ipsum, quibusdam, incidunt, atque quasi nihil delectus dolorum a quisquam id reiciendis temporibus architecto omnis, ipsa. Itaque.</div>
 				<div>Ipsum repellendus eos vero commodi sint, consequatur temporibus ut dicta delectus officiis laboriosam repudiandae, beatae magni quaerat, placeat perspiciatis dolore rem soluta cum similique corporis reprehenderit tempore porro deleniti. Praesentium.</div>
 				<div>Deserunt dolore perferendis, eius quasi, quae nobis esse, ratione id, vero quia nemo aliquid eos sapiente neque ad? Eum deleniti officiis illo nesciunt doloremque consectetur officia voluptate aspernatur nemo temporibus.</div>

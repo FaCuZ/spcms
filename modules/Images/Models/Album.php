@@ -33,7 +33,7 @@ class Album extends Revisionable
 
 	public function scopeAlbum($query, $value)
 	{
-		$album = $query->get()->keyBy('title')->get($value);
+		$album = $query->get()->keyBy('title')->get(strtolower($value));
 
 		if(!$album) return 'null';
 
@@ -44,7 +44,7 @@ class Album extends Revisionable
 	{
 		// Blade: {{ $albumes->galeria('Diseño', 'Logos') }}
 		
-		$galeria = $query->album($album)->galerias->keyBy('title')->get($galeria);
+		$galeria = $query->album(strtolower($album))->galerias->keyBy('title')->get(strtolower($galeria));
 
 		if(!$galeria) return 'null';
 

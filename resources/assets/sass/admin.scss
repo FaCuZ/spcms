@@ -73,6 +73,11 @@
 	td {
 		cursor: pointer;
 	}
+	tbody tr{
+		&:hover{
+			background-color: #eae8f5 !important;
+		}
+	}
 }
 
 thead h3{

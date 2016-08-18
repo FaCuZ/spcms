@@ -38,7 +38,7 @@ class Gallery extends Revisionable
 
 	public function scopeGaleria($query, $value)
 	{
-		$galeria = $query->get()->keyBy('title')->get($value);
+		$galeria = $query->get()->keyBy('title')->get(strtolower($value));
 
 		if(!$galeria) return 'null';
 
