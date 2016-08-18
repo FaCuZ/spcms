@@ -23,7 +23,7 @@
 
 		{{-- EJEMPLOS: --}}	
 		{{-- IMAGEN --}}
-		<img src="{{ $imagenes->imagen("logo")->url }}" />
+		<img src="{{$albumes->imagen("diseño", "logos", "logo")->url }}" />
 
 		{{-- IMAGEN NO ENCONTRADA--}}
 		<img src="{{ $imagenes->imagen("no encontra")->url }}" />

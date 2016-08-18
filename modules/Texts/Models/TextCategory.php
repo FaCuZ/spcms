@@ -43,7 +43,7 @@ class TextCategory extends Revisionable
 
 		if($categoria === "null") return strtoupper($cat_value."?-".$txt_value);
 
-		$texto = $categoria->textos->keyBy('title')->get($txt_value);
+		$texto = $categoria->textos->keyBy('title')->get(strtolower($txt_value));
 
 		if(!$texto) return strtoupper($cat_value."-".$txt_value."?");
 

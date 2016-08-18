@@ -54,7 +54,7 @@ class Image extends Revisionable
 	{
 		$imagen = $query->get()->keyBy('title')->get(strtolower($value));
 
-		if(!$imagen) $imagen = $query->get()->keyBy('title')->get('sin imagen');
+		if(!$imagen) return sinImagen();
 
 		return $imagen;
 	}

@@ -21,3 +21,15 @@ function urlModelo($data){
 	return URL::route($ruta, ['id' => $data->revisionable_id]);
 	
 }
+
+function sinImagen(){
+	$imagen = Modules\Images\Models\Image::get()->keyBy('title')->get('sin imagen');
+
+	if(!$imagen) {
+		$imagen = new Modules\Images\Models\Image();
+		$imagen->file = 'images/sin-imagen.jpg';
+		$imagen->thumb = 'images/sin-imagen-thumb.jpg';
+	}
+
+	return $imagen;
+}
