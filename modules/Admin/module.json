@@ -1,7 +1,7 @@
 {
     "name": "Admin",
     "alias": "admin",
-    "description": "",
+    "description": "Nucleo del sistema de administracion.",
     "keywords": [],
     "active": 1,
     "order": 0,

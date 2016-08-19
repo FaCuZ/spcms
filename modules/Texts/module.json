@@ -1,10 +1,10 @@
 {
     "name": "Texts",
     "alias": "texts",
-    "description": "",
+    "description": "Permite modificar los textos de la pagina.",
     "keywords": [],
     "active": 1,
-    "order": 0,
+    "order": 1,
     "providers": [
         "Modules\\Texts\\Providers\\TextsServiceProvider"
     ],

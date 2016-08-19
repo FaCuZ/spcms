@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 
-use Auth, Mail, App, Artisan;
-
-use Modules\Texts\Models\Text;
-use Modules\Texts\Models\TextCategory;
+use Auth, Mail, App, Artisan, Module;
 
 use Venturecraft\Revisionable\Revision;
 
@@ -38,6 +35,23 @@ class AdminController extends Controller
 		$data['history'] = Revision::with('revisionable')->orderBy('id', 'desc')->paginate(10);
 
 		return view('admin::historial', $data);
+	}
+
+	public function showUsuarios(){
+
+		$data['usuarios'] = User::all();
+
+		return view('admin::usuarios', $data);
+	}
+
+	public function showModulos(){
+
+		$data['modulos'] = Module::all();
+
+		//Module::find('Texts')->disable();
+		//dd(Module::toCollection());
+
+		return view('admin::modulos', $data);
 	}
 
 	public function edicion()

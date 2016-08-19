@@ -1,10 +1,10 @@
 {
     "name": "Images",
     "alias": "images",
-    "description": "",
+    "description": "Administra las imagenes en galerias y albumes.",
     "keywords": [],
     "active": 1,
-    "order": 0,
+    "order": 2,
     "providers": [
         "Modules\\Images\\Providers\\ImagesServiceProvider"
     ],
