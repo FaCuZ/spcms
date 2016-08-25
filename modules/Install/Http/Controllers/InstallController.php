@@ -7,56 +7,31 @@ use Illuminate\Routing\Controller;
 
 class InstallController extends Controller
 {
-	/**
-     * Display a listing of the resource.
-     * @return Response
-     */
-    public function index()
-    {
-        return view('install::index');
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('install::create');
-    }
+	public function index()
+	{
+		return view('install::index');
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     * @param  Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-    }
+	public function showRequisitos()
+	{
+		return view('install::requisitos');
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     * @return Response
-     */
-    public function edit()
-    {
-        return view('install::edit');
-    }
+	public function showConfiguracion()
+	{
+		return view('install::configuracion');
+	}
 
-    /**
-     * Update the specified resource in storage.
-     * @param  Request $request
-     * @return Response
-     */
-    public function update(Request $request)
-    {
-    }
+	public function showBaseDeDatos()
+	{
+		return view('install::basededatos');
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     * @return Response
-     */
-    public function destroy()
-    {
-    }
+	public function showUsuario()
+	{
+		return view('install::usuario');
+	}
+
+
 }

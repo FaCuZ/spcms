@@ -28,6 +28,10 @@
   text-align: center;
   padding-top: 20px; }
 
+.install-box {
+  width: 500px;
+  text-align: center; }
+
 .pasos-box {
   float: left;
   position: relative;
