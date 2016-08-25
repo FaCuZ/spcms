@@ -1,10 +1,10 @@
 {
     "name": "Install",
     "alias": "install",
-    "description": "",
+    "description": "Instalacion base del CMS. Debe estar desactivo.",
     "keywords": [],
     "active": 1,
-    "order": 0,
+    "order": 10,
     "providers": [
         "Modules\\Install\\Providers\\InstallServiceProvider"
     ],

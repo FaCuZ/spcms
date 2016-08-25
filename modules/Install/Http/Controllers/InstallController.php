@@ -23,6 +23,11 @@ class InstallController extends Controller
 		return view('install::configuracion');
 	}
 
+	public function showEntorno()
+	{
+		return view('install::entorno');
+	}
+
 	public function showBaseDeDatos()
 	{
 		return view('install::basededatos');

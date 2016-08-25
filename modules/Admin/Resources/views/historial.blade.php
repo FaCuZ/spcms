@@ -12,7 +12,7 @@
 @section('content')
 
 	<div class="box">
-		@if(!empty($history))
+		@if( !empty($history->items()) )
 			<table class="table table-striped table-historial">
 				<thead>
 					<tr>
@@ -48,7 +48,7 @@
 			</table>
 			{{ $history->links() }}
 		@else
-			<p class="text-center">Sin Datos</p>
+			<p class="text-center">Sin cambios.</p>
 		@endif		
 	</div>
 

@@ -34,11 +34,36 @@
 				@endif
 
 				<div class="row">
-					<button type="submit" class="btn btn-primary btn-block btn-flat">Terminar</button>
+					<div class="col-md-6">
+						<a href="{{ route('install.basededatos') }}" class="btn btn-default btn-block btn-flat">Volver</a>
+					</div>
+					<div class="col-md-6">
+						<button type="submit" class="btn btn-primary btn-block btn-flat">Terminar</button>
+					</div>
+				
 				</div>
 			</form>
 	
 @endsection
 
 
-			
+
+@section('paso-1')
+	class="alert-success"
+@endsection
+
+@section('paso-2')
+	class="alert-success"
+@endsection
+
+@section('paso-3')
+	class="alert-success"
+@endsection
+
+@section('paso-4')
+	class="alert-success"
+@endsection
+
+@section('paso-5')
+	class="alert-warning"
+@endsection
