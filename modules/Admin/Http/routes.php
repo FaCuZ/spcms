@@ -18,6 +18,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modu
 		Route::get('usuarios', 	['as' => 'admin.usuarios',	'uses' => 'AdminController@showUsuarios' ]);
 		Route::get('modulos', 	['as' => 'admin.modulos',	'uses' => 'AdminController@showModulos'	 ]);
 		Route::get('historial', ['as' => 'admin.historial',	'uses' => 'AdminController@showHistorial']);
+		Route::get('temas', 	['as' => 'admin.temas',		'uses' => 'AdminController@showTemas'	 ]);
+		Route::get('paginas', 	['as' => 'admin.paginas',	'uses' => 'AdminController@showPaginas'	 ]);
 	});
 
 });

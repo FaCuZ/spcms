@@ -28,6 +28,14 @@
 	@if(Auth::user()->role=="admin")
 		<li class="header">ADMINISTRADOR</li>
 
+		<li @yield('a-temas')>   <a href="{{ URL::route('admin.temas') }}">
+			<i class="fa fa-paint-brush"></i> <span>Temas</span></a>
+		</li>
+
+		<li @yield('a-paginas')>   <a href="{{ URL::route('admin.paginas') }}">
+			<i class="fa fa-files-o"></i> <span>Paginas</span></a>
+		</li>
+
 		<li @yield('a-usuarios')>   <a href="{{ URL::route('admin.usuarios') }}">
 			<i class="fa fa-users"></i> <span>Usuarios</span></a>
 		</li>

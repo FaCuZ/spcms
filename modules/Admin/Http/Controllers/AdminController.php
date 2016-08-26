@@ -23,6 +23,14 @@ class AdminController extends Controller
 		return view('admin::emails');
 	}
 
+	public function showTemas(){
+		return view('admin::temas');
+	}
+
+	public function showPaginas(){
+		return view('admin::paginas');
+	}
+
 	public function showAyuda(){
 		
 		$email = Auth::user()->email;
