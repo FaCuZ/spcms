@@ -67,6 +67,12 @@ class AdminController extends Controller
 		return view('index');
 	}
 
+	public function borrarCache(){
+		clearCache();
+
+		return redirect()->route('admin.inicio')->withErrors(['good' => 'El cache se borro correctamente.']);
+	}
+
 	public function up()
 	{
 		Artisan::call('up');

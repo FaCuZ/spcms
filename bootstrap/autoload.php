@@ -21,9 +21,11 @@ require __DIR__.'/../vendor/autoload.php';
 | Page Cache / mmamedov
 |--------------------------------------------------------------------------
 |
-| Vendor package
+| Vendor package. Crea un cache para todos los GETs que no esten en 
+| el array $except
 |
 */
+
 if($_SERVER['REQUEST_METHOD']=='GET'){
 
 	$except = ['admin', 'login', 'logout', 'password', 'register', '_debugbar'];
@@ -32,7 +34,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 
 	$use_cache = true;
 
-	foreach ($except as $key => $value) {
+	foreach ($except as $value) {
 		if (in_array($value, $requestUri)){
 			$use_cache = false;
 			break;

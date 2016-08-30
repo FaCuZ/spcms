@@ -33,3 +33,34 @@ function sinImagen(){
 
 	return $imagen;
 }
+
+function clearCache(){
+	try {
+		$directorios = File::directories(base_path('bootstrap/cache'));
+		foreach ($directorios as $folder) {
+			rrmdir($folder);
+		}
+		
+	} catch (Exception $e) {
+		dd($e);
+	}
+}
+
+
+function rrmdir($dir) {
+	if (is_dir($dir)) {
+		$objects = scandir($dir);
+		foreach ($objects as $object) {
+			if ($object != "." && $object != "..") {
+				if (filetype($dir."/".$object) == "dir"){
+					rrmdir($dir."/".$object);
+				}else{ 
+					unlink($dir."/".$object);
+				}
+			}
+		}
+		reset($objects);
+		rmdir($dir);
+	}
+}
+

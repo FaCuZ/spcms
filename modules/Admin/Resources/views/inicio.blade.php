@@ -28,8 +28,10 @@
 
 	@if(Auth::user()->role=="admin")
 		<br/>
-		<p class="text-center">
-			
+		<p class="text-center">			
+			<a class="btn btn-primary btn-lg" href="{{ URL::route('admin.clear') }}" role="button"><i class="fa fa-database"></i> <span>Borrar Cache</span></a>
+		</p>
+		<p class="text-center">			
 			@if($down)
 				<a class="btn btn-success btn-lg" href="{{ URL::route('admin.up') }}" role="button"><i class="fa fa-check"></i> <span>Activar pagina web</span></a>
 			@else

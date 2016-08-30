@@ -8,6 +8,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modu
 	Route::get('up',	  ['as' => 'admin.up',	'uses' => 'AdminController@up'	]);
 	Route::get('down',	  ['as' => 'admin.down','uses' => 'AdminController@down']);
 
+	Route::get('clear',	  ['as' => 'admin.clear','uses' => 'AdminController@borrarCache']);
+
 	Route::get('emails',  ['as' => 'admin.emails',  'uses' => 'AdminController@showEmails']);
 	Route::get('ayuda',   ['as' => 'admin.ayuda',   'uses' => 'AdminController@showAyuda' ]);
 	
