@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "251431a41e4a53ef5d65895e5a5b009a",
-    "content-hash": "7c3026128ab4011077459ff006a2909f",
+    "hash": "e7257a3416e01378047f6f1375e63ef0",
+    "content-hash": "4aff0da2b3a7b1a36d88a0a111f54b98",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -541,16 +541,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.44",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546"
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f24b7acfb494437ef00bdd062bed61eb21535546",
-                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2a79f920d5584ec6df7cf996d922a742d11095d1",
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1",
                 "shasum": ""
             },
             "require": {
@@ -667,7 +667,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-23 13:03:29"
+            "time": "2016-08-26 11:44:52"
         },
         {
             "name": "laravelcollective/html",
@@ -805,6 +805,63 @@
                 "storage"
             ],
             "time": "2016-08-10 08:55:11"
+        },
+        {
+            "name": "mmamedov/page-cache",
+            "version": "v1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mmamedov/page-cache.git",
+                "reference": "bb518e61dbf232a0625aa91ac142c44281da848a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mmamedov/page-cache/zipball/bb518e61dbf232a0625aa91ac142c44281da848a",
+                "reference": "bb518e61dbf232a0625aa91ac142c44281da848a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "brianium/paratest": "dev-master",
+                "mikey179/vfsstream": "^1.6",
+                "mobiledetect/mobiledetectlib": "^2.8",
+                "monolog/monolog": "^1.19"
+            },
+            "suggest": {
+                "mobiledetect/mobiledetectlib": "Allows separate cache versions for mobile pages"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PageCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhammed Mamedov",
+                    "email": "mm@turkmenweb.net",
+                    "homepage": "http://www.turkmenweb.com/en/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PageCache is a lightweight PHP library for full page cache. It uses various strategies to differentiate among separate versions of the same page.",
+            "homepage": "https://github.com/mmamedov/page-cache",
+            "keywords": [
+                "cache",
+                "caching",
+                "file based cache",
+                "full page cache",
+                "page cache",
+                "php cache",
+                "php page cache"
+            ],
+            "time": "2016-05-23 07:00:30"
         },
         {
             "name": "monolog/monolog",

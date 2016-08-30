@@ -18,6 +18,36 @@ require __DIR__.'/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
+| Page Cache / mmamedov
+|--------------------------------------------------------------------------
+|
+| Vendor package
+|
+*/
+if($_SERVER['REQUEST_METHOD']=='GET'){
+
+	$except = ['admin', 'login', 'logout', 'password', 'register', '_debugbar'];
+	
+	$requestUri = explode("/", $_SERVER['REQUEST_URI']);
+
+	$use_cache = true;
+
+	foreach ($except as $key => $value) {
+		if (in_array($value, $requestUri)){
+			$use_cache = false;
+			break;
+		}
+	}
+
+	if($use_cache){
+		$cache = new PageCache\PageCache(__DIR__.'/page-cache-conf.php');
+		$cache->init();
+	}
+
+}
+
+/*
+|--------------------------------------------------------------------------
 | Include The Compiled Class File
 |--------------------------------------------------------------------------
 |

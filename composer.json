@@ -11,7 +11,8 @@
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "tremby/laravel-git-version": "^1.1",
         "nwidart/laravel-modules": "^0.10.0",
-        "venturecraft/revisionable": "1.*"
+        "venturecraft/revisionable": "1.*",
+        "mmamedov/page-cache": "^1.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
