@@ -164,6 +164,7 @@ return [
 		Barryvdh\Debugbar\ServiceProvider::class,
     	Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
     	Nwidart\Modules\LaravelModulesServiceProvider::class,
+    	GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
 
 	],
 
@@ -219,6 +220,7 @@ return [
 		'GitVersionHelper' 	=> Tremby\LaravelGitVersion\GitVersionHelper::class,
 		'Module' 			=> Nwidart\Modules\Facades\Module::class,
 		'RevisionableTrait' => Venturecraft\Revisionable\RevisionableTrait::class,
+		'HTMLMin' 			=> GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
 
 		],
 

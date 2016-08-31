@@ -26,7 +26,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-if($_SERVER['REQUEST_METHOD']=='GET'){
+if(isset($_SERVER['REQUEST_METHOD']) and $_SERVER['REQUEST_METHOD']=='GET'){
 
 	$except = ['admin', 'login', 'logout', 'password', 'register', '_debugbar'];
 	

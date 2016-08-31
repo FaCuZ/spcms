@@ -61,6 +61,7 @@
 		<br/>
 		<footer> @include('layouts.footer')	</footer>
 
+		{{-- Este js esta para probar la galeria de imagenes --}}
 		<script src="{{ URL::asset('js/admin-libs.js') }}"></script>
 
 	</body>

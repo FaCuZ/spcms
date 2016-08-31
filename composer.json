@@ -12,7 +12,8 @@
         "tremby/laravel-git-version": "^1.1",
         "nwidart/laravel-modules": "^0.10.0",
         "venturecraft/revisionable": "1.*",
-        "mmamedov/page-cache": "^1.3"
+        "mmamedov/page-cache": "^1.3",
+        "graham-campbell/htmlmin": "^4.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
