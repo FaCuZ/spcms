@@ -4,9 +4,134 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ef2f58592f89a0059516a73a02f226bb",
-    "content-hash": "0e44c22774e3c2275fa605f8da38d5c1",
+    "hash": "8bc8573dc5f11db63d073a21561768c7",
+    "content-hash": "1b4b2f0741df1c8581041f216bef0041",
     "packages": [
+        {
+            "name": "arcanedev/settings",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/Settings.git",
+                "reference": "8e08dadc29d5a47c64099454696100babb356530"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/Settings/zipball/8e08dadc29d5a47c64099454696100babb356530",
+                "reference": "8e08dadc29d5a47c64099454696100babb356530",
+                "shasum": ""
+            },
+            "require": {
+                "arcanedev/support": "~3.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpcov": "~2.0|~3.0",
+                "phpunit/phpunit": "~4.0|~5.0"
+            },
+            "suggest": {
+                "illuminate/database": "Save settings to a database table.",
+                "illuminate/filesystem": "Save settings to a JSON file."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Arcanedev\\Settings\\": "src/"
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "https://github.com/ARCANEDEV",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Persistent settings for Laravel.",
+            "homepage": "https://github.com/ARCANEDEV/Settings",
+            "keywords": [
+                "Settings",
+                "arcanedev",
+                "config",
+                "database",
+                "json",
+                "laravel",
+                "persistent",
+                "setting"
+            ],
+            "time": "2016-04-16 17:19:56"
+        },
+        {
+            "name": "arcanedev/support",
+            "version": "3.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/Support.git",
+                "reference": "daa8c5a46acb9afeb7db7a84862e799890fcc4d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/daa8c5a46acb9afeb7db7a84862e799890fcc4d6",
+                "reference": "daa8c5a46acb9afeb7db7a84862e799890fcc4d6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpcov": "~2.0|~3.0",
+                "phpunit/phpunit": "~4.0|~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Arcanedev\\Support\\": "src/"
+                },
+                "files": [
+                    "constants.php",
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "https://github.com/arcanedev-maroc"
+                }
+            ],
+            "description": "ARCANEDEV Support Helpers",
+            "homepage": "https://github.com/ARCANEDEV/Support",
+            "keywords": [
+                "arcanedev",
+                "arcanesoft",
+                "laravel",
+                "support"
+            ],
+            "time": "2016-09-04 23:35:41"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",

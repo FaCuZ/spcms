@@ -14,7 +14,7 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $middleware = [
-	   // \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+		// \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
 		\App\Http\Middleware\CheckForMaintenanceMode::class,
 	];
 
@@ -40,8 +40,8 @@ class Kernel extends HttpKernel
 
 			\App\Http\Middleware\Authenticate::class,
 			\App\Http\Middleware\SinRol::class,
+        \Arcanedev\Settings\Http\Middleware\SettingsMiddleware::class,		
 		],
-
 		'api' => [
 			'throttle:60,1',
 		],
