@@ -5,6 +5,8 @@ namespace Modules\Install\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use Setting;
+
 class InstallController extends Controller
 {
 
@@ -38,5 +40,20 @@ class InstallController extends Controller
 		return view('install::usuario');
 	}
 
+
+	public function storeConfiguracion(Request $request){
+		Setting::reset();
+ 
+		Setting::set('pagina.nombre', 		 $request->input('nombre'));
+		Setting::set('pagina.dominio', 		 $request->input('dominio'));
+		Setting::set('pagina.emails.activo', $request->input('emails'));
+		Setting::set('pagina.emails.webmail',$request->input('webmail'));
+		Setting::set('pagina.emails.email',  $request->input('email-base'));
+		Setting::set('pagina.emails.soporte',$request->input('email-soporte'));
+
+		Setting::save();
+
+		return redirect()->route('install.entorno');
+	}
 
 }

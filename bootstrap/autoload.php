@@ -42,8 +42,8 @@ if(isset($_SERVER['REQUEST_METHOD']) and $_SERVER['REQUEST_METHOD']=='GET'){
 	}
 
 	if($use_cache){
-		$cache = new PageCache\PageCache(__DIR__.'/page-cache-conf.php');
-		$cache->init();
+		//$cache = new PageCache\PageCache(__DIR__.'/page-cache-conf.php');
+		//$cache->init();
 	}
 
 }

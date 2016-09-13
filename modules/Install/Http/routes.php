@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'web', 'prefix' => 'install', 'namespace' => 'Modules\Install\Http\Controllers'], function()
+Route::group(['middleware' => 'admin', 'prefix' => 'install', 'namespace' => 'Modules\Install\Http\Controllers'], function()
 {
 	Route::get('/', 			['as' => 'install.index',		 'uses' => 'InstallController@index']);
 	Route::get('/requisitos', 	['as' => 'install.requisitos',	 'uses' => 'InstallController@showRequisitos']);
@@ -8,4 +8,6 @@ Route::group(['middleware' => 'web', 'prefix' => 'install', 'namespace' => 'Modu
 	Route::get('/entorno',		['as' => 'install.entorno',		 'uses' => 'InstallController@showEntorno']);
 	Route::get('/basededatos', 	['as' => 'install.basededatos',  'uses' => 'InstallController@showBaseDeDatos']);
 	Route::get('/ususario',		['as' => 'install.usuario',		 'uses' => 'InstallController@showUsuario']);
+
+	Route::post('/configuracion',['as' => 'install.configuracion.store','uses' => 'InstallController@storeConfiguracion']);
 });

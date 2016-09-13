@@ -40,7 +40,7 @@ class Kernel extends HttpKernel
 
 			\App\Http\Middleware\Authenticate::class,
 			\App\Http\Middleware\SinRol::class,
-        \Arcanedev\Settings\Http\Middleware\SettingsMiddleware::class,		
+			\Arcanedev\Settings\Http\Middleware\SettingsMiddleware::class,
 		],
 		'api' => [
 			'throttle:60,1',
