@@ -19,8 +19,8 @@
 				<ul>
 					<li @yield('paso-1')><i class="fa fa-life-ring"></i></li>
 					<li @yield('paso-2')><i class="fa fa-gear"></i></li>
-					<li @yield('paso-3')><i class="fa fa-pencil"></i></li>
-					<li @yield('paso-4')><i class="fa fa-database"></i></li>
+					<li @yield('paso-3')><i class="fa fa-database"></i></li>
+					<li @yield('paso-4')><i class="fa fa-pencil"></i></li>
 					<li @yield('paso-5')><i class="fa fa-user"></i></li>
 				</ul>
 			</div>
@@ -42,16 +42,3 @@
 
 
 @endsection
-
-
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Module Install</title>
-	</head>
-	<body>
-	</body>
-</html>

@@ -17,5 +17,6 @@
 
 		<script src="{{ URL::asset('js/admin-libs.js') }}"></script>
 
+
 	</body>
 </html>

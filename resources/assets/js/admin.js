@@ -46,15 +46,17 @@ $(function(){
 	});
 
 
+	$('#mostrar').click(function() {
+		if($(this).is(':checked'))  $('#oculto').show();
+		else 						$('#oculto').hide();		
+	});
 
 });
 
 function confirmarBorrado(){
 	var msj = '¿Está seguro que deseas borrarlo?';	
 	
-	if(confirm(msj)) 
-		return true;
-	else 
-		return false;
+	if(confirm(msj)) return true;
+	else 			 return false;
 
 }
