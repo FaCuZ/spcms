@@ -7,16 +7,18 @@ use Illuminate\Http\Request;
 
 use App\User;
 
-use Auth, Mail, App, Artisan, Module, Setting;
+use Auth, Mail, App, Artisan, Module, Setting, File;
 
 use Venturecraft\Revisionable\Revision;
 
 class AdminController extends Controller
 {
 	public function showInicio(){
-		$down = App::isDownForMaintenance();
+		$data['down'] = App::isDownForMaintenance();
+		
+		$data['cache'] = cacheStatus();
 
-		return view('admin::inicio', compact('down'));
+		return view('admin::inicio', $data);
 	}
 
 	public function showEmails(){
@@ -85,6 +87,20 @@ class AdminController extends Controller
 		Artisan::call('down');
 
 		return redirect()->route('admin.inicio')->withErrors(['alert' => 'La pagina entro en modo mantenimiento. Nadie podra verla hasta que se active de nuevo.']);
+	}
+
+	public function cacheOn()
+	{
+		File::put(base_path('bootstrap/cache/CACHE'),'');
+
+		return redirect()->route('admin.inicio')->withErrors(['good' => 'El sistema de cache fue ACTIVADO.']);
+	}
+
+	public function cacheOff()
+	{		
+		File::delete(base_path('bootstrap/cache/CACHE'));
+
+		return redirect()->route('admin.inicio')->withErrors(['alert' => 'El sistema de cache fue DESACTIVADO. Es importante no dejar desactivado por mucho tiempo.']);
 	}
 
 

@@ -64,3 +64,6 @@ function rrmdir($dir) {
 	}
 }
 
+function cacheStatus(){
+	return file_exists(base_path('bootstrap/cache/CACHE'));
+}

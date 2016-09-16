@@ -22,11 +22,11 @@ require __DIR__.'/../vendor/autoload.php';
 |--------------------------------------------------------------------------
 |
 | Vendor package. Crea un cache para todos los GETs que no esten en 
-| el array $except
+| el array $except, solo cuando el archivos CACHE existe.
 |
 */
 
-if(isset($_SERVER['REQUEST_METHOD']) and $_SERVER['REQUEST_METHOD']=='GET'){
+if(file_exists(__DIR__.'/cache/CACHE') and isset($_SERVER['REQUEST_METHOD']) and $_SERVER['REQUEST_METHOD']=='GET'){
 
 	$except = ['admin', 'login', 'logout', 'password', 'register', '_debugbar'];
 	
@@ -42,8 +42,8 @@ if(isset($_SERVER['REQUEST_METHOD']) and $_SERVER['REQUEST_METHOD']=='GET'){
 	}
 
 	if($use_cache){
-		//$cache = new PageCache\PageCache(__DIR__.'/page-cache-conf.php');
-		//$cache->init();
+		$cache = new PageCache\PageCache(__DIR__.'/page-cache-conf.php');
+		$cache->init();
 	}
 
 }

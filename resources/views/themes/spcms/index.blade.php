@@ -13,13 +13,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-		@include('layouts.styles')
+		@include('themes.spcms.layouts.styles')
 
 	</head>
 
 	<body>
 
-		<header> @include('layouts.header')	</header>
+		<header> @include('themes.spcms.layouts.header')	</header>
 
 		{{-- EJEMPLOS: --}}	
 		{{-- IMAGEN --}}
@@ -59,7 +59,7 @@
 		@endif
 
 		<br/>
-		<footer> @include('layouts.footer')	</footer>
+		<footer> @include('themes.spcms.layouts.footer')	</footer>
 
 		{{-- NOTA: Este js esta para probar la galeria de imagenes --}}
 		<script src="{{ URL::asset('js/admin-libs.js') }}"></script>
