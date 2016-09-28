@@ -10,7 +10,7 @@ $config = array(
     'enable_log' => false,
 
     //current page's cache expiration in seconds. Set to 10 minutes:
-    'expiration' => 30 * 60,
+    'expiration' => 120 * 60,
     //'expiration' => 1 * 60,
 
     //log file location, enable_log must be true for loging to work

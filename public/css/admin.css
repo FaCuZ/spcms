@@ -6,6 +6,9 @@
   position: relative;
   padding: 15px 15px 0 15px; }
 
+.btn-admin {
+  width: 90%; }
+
 .app-version {
   color: #535353;
   bottom: 5px;
