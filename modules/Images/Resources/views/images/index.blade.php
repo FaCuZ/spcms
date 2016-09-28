@@ -2,6 +2,8 @@
 
 @section('a-imagenes', 'class="active"')
 
+@section('a-contenido', 'active')
+
 @section('header')
 		<h1>Imagenes <small>Lista</small>
 

@@ -6,6 +6,21 @@
   position: relative;
   padding: 15px 15px 0 15px; }
 
+.sidebar-menu .treeview-menu > li > a {
+  padding: 12px 5px 12px 25px;
+  color: #c8c8c8; }
+
+.sidebar-menu > li > .treeview-menu {
+  margin: 0px !important;
+  padding: 0px; }
+  .sidebar-menu > li > .treeview-menu .active {
+    border-left: 3px solid #23526e;
+    background-color: #253238; }
+
+/*.sidebar-menu > li.active > a{
+	border-left: 0px;
+}
+*/
 .btn-admin {
   width: 90%; }
 

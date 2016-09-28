@@ -2,6 +2,8 @@
 
 @section('a-textos', 'class="active"')
 
+@section('a-contenido', 'active')
+
 @section('header')
     <h1>Categoria <small>{{ $text_category->title }}</small></h1>
 @endsection

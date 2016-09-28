@@ -2,6 +2,8 @@
 
 @section('a-imagenes', 'class="active"')
 
+@section('a-contenido', 'active')
+
 @section('header')
 		<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Imagenes <small>Lista</small>
 

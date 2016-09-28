@@ -1,6 +1,8 @@
 @extends('admin::layouts.master')
 
-@section('a-imagenes', 'class="active"')
+@section('a-textos', 'class="active"')
+
+@section('a-contenido', 'active')
 
 @section('header')
 	<h1>Categorias <small>Lista</small></h1>

@@ -2,6 +2,8 @@
 
 @section('a-textos', 'class="active"')
 
+@section('a-contenido', 'active')
+
 @section('header')
 	<h1>Textos <small>Lista</small>
 		<div class="pull-right">
