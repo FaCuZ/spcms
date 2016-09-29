@@ -5,6 +5,7 @@
     "keywords": [],
     "active": 1,
     "order": 2,
+    "disabled": 0,
     "providers": [
         "Modules\\Images\\Providers\\ImagesServiceProvider"
     ],

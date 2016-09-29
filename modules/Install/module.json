@@ -1,15 +1,16 @@
 {
-    "name": "Install",
-    "alias": "install",
-    "description": "Instalacion base del CMS. Debe estar desactivo.",
-    "keywords": [],
-    "active": 1,
-    "order": 10,
-    "providers": [
-        "Modules\\Install\\Providers\\InstallServiceProvider"
-    ],
-    "aliases":{},
-    "files": [
-        "start.php"
-    ]
+	"name": "Install",
+	"alias": "install",
+	"description": "Instalacion base del CMS. Debe estar desactivo.",
+	"keywords": [],
+	"active": 1,
+	"order": 10,
+	"disabled": 1,
+	"providers": [
+		"Modules\\Install\\Providers\\InstallServiceProvider"
+	],
+	"aliases":{},
+	"files": [
+		"start.php"
+	]
 }

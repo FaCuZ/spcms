@@ -26,7 +26,7 @@
 			</p>
 			<p class="jumbotron-text">Si necesitas ayuda puedes solicitarla desde la seccion de <a href="{{ URL::route('admin.ayuda') }}">soporte</a>.</p>
 		</div>
-		
+
 	</div>
 
 
@@ -62,18 +62,18 @@
 					<li>
 						<a href="#">Pagina Web 
 							@if(!$down)
-								<span class="pull-right text-green"> Activado</span>
+								<span class="pull-right text-green"> Activada</span>
 							@else
-								<span class="pull-right text-red"> Desactivado</span>
+								<span class="pull-right text-red"> Desactivada</span>
 							@endif	
 						</a>
 					</li>				
 					<li>
 						<a href="#">Cache 
 							@if($cache)
-								<span class="pull-right text-green"> Activado</span>
+								<span class="pull-right text-green"> Activada</span>
 							@else
-								<span class="pull-right text-red"> Desactivado</span>
+								<span class="pull-right text-red"> Desactivada</span>
 							@endif						
 						</a>
 					</li>

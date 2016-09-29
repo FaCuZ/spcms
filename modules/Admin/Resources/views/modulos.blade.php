@@ -22,6 +22,7 @@
 						<th>Descripcion</th>
 						<th>Ruta</th>
 						<th>Estado</th>
+						<th></th>
 					</tr>
 				</thead>
 
@@ -32,11 +33,22 @@
 							<td>{{ $modulo->description }}</td>
 							<td>{{ $modulo->getPath() }}</td>
 							<td>
-							@if($modulo->active == 1)
-								<strong class="text-success">Activo</strong>
-							@else
-								<strong class="text-warning">Desactivo</strong>
-							@endif
+								@if($modulo->active == 1)
+									<strong class="text-success">Activo</strong>
+								@else
+									<strong class="text-warning">Desactivo</strong>
+								@endif
+							</td>
+							<td>
+								@if($modulo->disabled == 0)
+									@if($modulo->active == 1)
+										<a class="btn btn-warning btn-xs" href="{{ URL::route('admin.modulos.off', ['name' => $modulo->name]) }}" role="button"><i class="fa fa-toggle-off"></i> <span>Desactivar</span></a>
+									@else
+										<a class="btn btn-success btn-xs" href="{{ URL::route('admin.modulos.on', ['name' => $modulo->name]) }}" role="button"><i class="fa fa-toggle-on"></i> <span>Activar</span></a>
+									@endif
+								@else
+									<a class="btn btn-default btn-xs" href="#" role="button" disabled><i class="fa fa-on"></i> <span>Activar</span></a>
+								@endif
 							</td>
 						</tr>
 					@endforeach

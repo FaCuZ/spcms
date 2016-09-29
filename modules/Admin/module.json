@@ -5,10 +5,11 @@
     "keywords": [],
     "active": 1,
     "order": 0,
+    "disabled": 1,
     "providers": [
         "Modules\\Admin\\Providers\\AdminServiceProvider"
     ],
-    "aliases":{},
+    "aliases": [],
     "files": [
         "start.php"
     ]

@@ -54,16 +54,6 @@ class AdminController extends Controller
 		return view('admin::usuarios', $data);
 	}
 
-	public function showModulos(){
-
-		$data['modulos'] = Module::all();
-
-		//Module::find('Texts')->disable();
-		//dd(Module::toCollection());
-
-		return view('admin::modulos', $data);
-	}
-
 	public function edicion()
 	{
 		return view('index');
