@@ -31,15 +31,9 @@
 
 			<p><img src="{{ URL::asset($image->file) }}"></p>
 
-			<p>
-				<strong>Codigo:</strong>
-				<pre>&lt;img src="&#123;&#123; $albumes->imagen('ALBUM', 'GALERIA', '{{ $image->title }}')->url }}" /&gt;
-			<a class="btn btn-sm btn-default pull-right btn-copiar" href="#"><i class="fa fa-align-lef"></i> Copiar</a>
-
-				</pre>
-
-				<pre>&#123;&#123; $albumes->imagen('ALBUM', 'GALERIA', '{{ $image->title }}')->url }}</pre>
-			</p>
+			<p><strong>Codigo:</strong></p>
+			<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('ALBUM', 'GALERIA', '{{ $image->title }}')->url }}" /&gt;</pre>
+			<pre class="pre-codigo">&#123;&#123; $albumes->imagen('ALBUM', 'GALERIA', '{{ $image->title }}')->url }}</pre>
 
 		</div>
 	</div>

@@ -87,6 +87,14 @@ $(function(){
 		else 						$('#oculto').hide();		
 	});
 
+
+	$(document).on("mouseenter", ".pre-codigo", function(){
+		$(this).append('<buttom class="btn btn-sm btn-default btn-copiar pull-right" onClick="copiarCodigo(this)">Copiar</buttom>');
+	}).on("mouseleave", ".pre-codigo", function(){
+		$(this).find('.btn-copiar').remove();
+	});
+
+
 });
 
 function confirmarBorrado(){
@@ -95,5 +103,14 @@ function confirmarBorrado(){
 	if(confirm(msj)) return true;
 	else 			 return false;
 
+}
+
+function copiarCodigo(self){
+    var $temp = $("<input>");
+    $("body").append($temp);
+    var $texto = $(self).parent().clone().children().remove().end().text();
+    $temp.val($texto).select();
+    document.execCommand("copy");
+    $temp.remove();
 }
 //# sourceMappingURL=admin-libs.js.map

@@ -28,6 +28,18 @@
 	width: 95%;
 }
 
+.pre-codigo{
+	position: relative;
+}
+
+.btn-copiar{
+	position: absolute;
+	text-transform: uppercase;
+	right: 4px;
+	top: 4px;
+}
+
+
 .app-version{
 	color: #535353;
 	bottom: 5px;
