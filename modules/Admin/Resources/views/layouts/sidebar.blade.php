@@ -12,15 +12,21 @@
 		</a>
 		<ul class="treeview-menu">
 			@if(Module::find('Texts')->active==1)
-			<li @yield('a-textos')>  <a href="{{ URL::route('admin.textos.index') }}">
-				<i class="fa fa-file-text-o"></i> <span>Textos</span></a>
-			</li>
+				<li @yield('a-textos')>  <a href="{{ URL::route('admin.textos.index') }}">
+					<i class="fa fa-file-text-o"></i> <span>Textos</span></a>
+				</li>
 			@endif
 
 			@if(Module::find('Images')->active == 1)
-			<li @yield('a-imagenes')><a href="{{ URL::route('admin.imagenes.index') }}">
-				<i class="fa fa-image"></i> <span>Imágenes</span></a>
-			</li>
+				<li @yield('a-imagenes')><a href="{{ URL::route('admin.imagenes.index') }}">
+					<i class="fa fa-image"></i> <span>Imágenes</span></a>
+				</li>
+			@endif
+
+			@if(Module::find('Faq')->active == 1)
+				<li @yield('a-faq')><a href="{{ URL::route('admin.faq.index') }}">
+					<i class="fa fa-question-circle"></i> <span>FAQ</span></a>
+				</li>
 			@endif
 		</ul>
 	</li>

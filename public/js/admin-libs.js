@@ -75,6 +75,14 @@ $(function(){
 		$(this).parent().find('.btns-opciones').addClass("hidden");
 	});
 
+
+	$(document).on("mouseenter", ".album", function(){
+		$(this).find('.btns-opciones-img').removeClass("hidden");
+	}).on("mouseleave", ".album", function(){
+		$(this).find('.btns-opciones-img').addClass("hidden");
+	});
+
+
 	$(document).on("mouseenter", ".table", function(){
 		$(this).find('.btns-nuevo-texto').removeClass("hidden");
 	}).on("mouseleave", ".table", function(){

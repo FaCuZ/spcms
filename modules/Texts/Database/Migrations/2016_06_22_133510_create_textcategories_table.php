@@ -12,9 +12,11 @@ class CreateTextCategoriesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('text_categories', function(Blueprint $table) {
+		Schema::create('text_categories', function(Blueprint $table) 
+		{
             $table->increments('id');
             $table->string('title');
+
             $table->timestamps();
             $table->softDeletes();
         });

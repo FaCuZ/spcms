@@ -1,0 +1,15 @@
+{
+    "name": "Faq",
+    "alias": "faq",
+    "description": "Agrega un sistema de preguntas frecuentes",
+    "keywords": [],
+    "active": 1,
+    "order": 4,
+    "providers": [
+        "Modules\\Faq\\Providers\\FaqServiceProvider"
+    ],
+    "aliases": [],
+    "files": [
+        "start.php"
+    ]
+}

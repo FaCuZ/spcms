@@ -12,8 +12,10 @@ class CreateTextsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('texts', function(Blueprint $table) {
+		Schema::create('texts', function(Blueprint $table) 
+		{
             $table->increments('id');
+            
             $table->string('title');
             $table->text('body');
 

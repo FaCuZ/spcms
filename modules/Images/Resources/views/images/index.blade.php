@@ -31,7 +31,7 @@
 
 							<h4><strong>{{ ucfirst($album->title) }}</strong>
 								@if(Auth::user()->role=="admin")
-									<div class="pull-right">
+									<div class="pull-right btns-opciones-img hidden">
 										<a class="btn btn-xs btn-warning" href="{{ route('admin.albums.edit', $album->id) }}"><i class="fa fa-edit"></i> Editar</a>
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.albums.show', $album->id) }}"><i class="fa fa-eye"></i> Ver</a>
 										<form action="{{ route('admin.albums.destroy', $album->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">

@@ -58,8 +58,6 @@ class Album extends Revisionable
 	public function scopeImagen($query, $album_value, $galeria_value, $imagen_value)
 	{
 		// Blade: {{ $albumes->galeria('diseño', 'logos'. 'imagen') }}
-		//dd(sinImagen());
-		//return sinImagen();
 
 		$album = $query->album(strtolower($album_value));
 
@@ -68,7 +66,6 @@ class Album extends Revisionable
 		$galeria = $album->galerias->keyBy('title')->get(strtolower($galeria_value));
 
 		if(!$galeria == 'null') return sinImagen();
-		//if($galeria === "null") return strtoupper($album_value."?-".$galeria_value."-".$imagen_value);
 		
 		$imagen = $galeria->imagenes->keyBy('title')->get(strtolower($imagen_value));
 
