@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 
-@section('a-textos', 'class="active"')
+@section('a-faq', 'class="active"')
 
 @section('a-contenido', 'active')
 
@@ -13,12 +13,12 @@
 
 	<div class="box box-solid">
 		<div class="box-header">
-			<h3 class="box-title">{{ $text_category->title }}</h3>
+			<h3 class="box-title">{{ $faq_category->title }}</h3>
 		</div>
 
 		<div class="box-body no-padding">
 
-			<form action="{{ route('admin.textos.categorias.update', $text_category->id) }}" method="POST">
+			<form action="{{ route('admin.faq.categorias.update', $faq_category->id) }}" method="POST">
 				<div class="modal-body">
 
 					<input type="hidden" name="_method" value="PUT">
@@ -27,20 +27,20 @@
 					@if(Auth::user()->role=="admin")
 						<div class="form-group @if($errors->has('title')) has-error @endif">
 							<label for="title-field">Nombre</label>
-							<input type="text" id="title-field" name="title" class="form-control" value="{{ $text_category->title }}"/>
+							<input type="text" id="title-field" name="title" class="form-control" value="{{ $faq_category->title }}"/>
 							@if($errors->has("title"))
 								<span class="help-block">{{ $errors->first("title") }}</span>
 							@endif
 						</div>
 					@else
-						<input type="hidden" id="title-field" name="title" value="{{ $text_category->title }}"/>
+						<input type="hidden" id="title-field" name="title" value="{{ $faq_category->title }}"/>
 					@endif
 
 				</div>
 
 				<div class="modal-footer">
-					<a class="btn btn-default" href="{{ route('admin.textos.categorias.index') }}">Cancelar</a>
-					<button type="submit" class="btn btn-primary" href="{{ route('admin.textos.categorias.index') }}">Guardar cambios</button>
+					<a class="btn btn-default" href="{{ route('admin.faq.categorias.index') }}">Cancelar</a>
+					<button type="submit" class="btn btn-primary" href="{{ route('admin.faq.categorias.index') }}">Guardar cambios</button>
 				</div>
 			</form>
 

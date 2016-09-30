@@ -1,17 +1,17 @@
 
 @extends('admin::layouts.master')
 
-@section('a-textos', 'class="active"')
+@section('a-faq', 'class="active"')
 
 @section('a-contenido', 'active')
 
 @section('header')
 	<h1>
-		<a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Textos
+		<a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> Faq
 		<small>Edicion</small>
 									
 		<div class="pull-right">
-			<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">
+			<form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">
 				<input type="hidden" name="_method" value="DELETE">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
@@ -26,12 +26,12 @@
 	
 	<div class="box">
 		<div class="box-header">
-			<h3 class="box-title">{{ $text->title }}</h3>
+			<h3 class="box-question">{{ $faq->question }}</h3>
 		</div>
 
 		<div class="box-body no-padding">
 
-			<form action="{{ route('admin.textos.update', $text->id) }}" method="POST">
+			<form action="{{ route('admin.faq.update', $faq->id) }}" method="POST">
 				<div class="modal-body">
 
 
@@ -39,23 +39,23 @@
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					
 					@if(Auth::user()->role=="admin")
-						<div class="form-group @if($errors->has('title')) has-error @endif">
-							<label for="title-field">Title</label>
-							<input type="text" id="title-field" name="title" class="form-control" value="{{ $text->title }}"/>
-							@if($errors->has("title"))
-								<span class="help-block">{{ $errors->first("title") }}</span>
+						<div class="form-group @if($errors->has('question')) has-error @endif">
+							<label for="question-field">question</label>
+							<input type="text" id="question-field" name="question" class="form-control" value="{{ $faq->question }}"/>
+							@if($errors->has("question"))
+								<span class="help-block">{{ $errors->first("question") }}</span>
 							@endif
 						</div>
 					@else
-						<input type="hidden" id="title-field" name="title" value="{{ $text->title }}"/>
+						<input type="hidden" id="question-field" name="question" value="{{ $faq->question }}"/>
 					@endif
 
-					<div class="form-group @if($errors->has('text_category_id')) has-error @endif">
+					<div class="form-group @if($errors->has('faq_category_id')) has-error @endif">
 						<label for="body-field">Categoria</label>
 						<div>		
-						    @if ($text_categories->count())
-								<select name="text_category_id">
-	        						@foreach($text_categories as $categoria)					
+						    @if ($faq_categories->count())
+								<select name="faq_category_id">
+	        						@foreach($faq_categories as $categoria)					
 		            					<option value="{{ $categoria->id }}" {{ $selected == $categoria->id ? 'selected="selected"' : '' }}>{{ $categoria->title }}</option>   
 									@endforeach
 								</select> 
@@ -65,19 +65,19 @@
 						
 					</div>
 
-					<div class="form-group @if($errors->has('body')) has-error @endif">
-						<label for="body-field">Texto</label>
-						<textarea class="form-control" id="body-field" rows="15" style="resize: vertical;" name="body">{{ $text->body }}</textarea>
-							@if($errors->has("body"))
-								<span class="help-block">{{ $errors->first("body") }}</span>
+					<div class="form-group @if($errors->has('answer')) has-error @endif">
+						<label for="answer-field">Texto</label>
+						<textarea class="form-control" id="answer-field" rows="15" style="resize: vertical;" name="answer">{{ $faq->answer }}</textarea>
+							@if($errors->has("answer"))
+								<span class="help-block">{{ $errors->first("answer") }}</span>
 							@endif
 					</div>
 
 				</div>
 
 				<div class="modal-footer">
-					<a class="btn btn-default" href="{{ route('admin.textos.index') }}">Cancelar</a>
-					<button type="submit" class="btn btn-primary" href="{{ route('admin.textos.index') }}">Guardar cambios</button>
+					<a class="btn btn-default" href="{{ route('admin.faq.index') }}">Cancelar</a>
+					<button type="submit" class="btn btn-primary" href="{{ route('admin.faq.index') }}">Guardar cambios</button>
 				</div>
 			</form>
 

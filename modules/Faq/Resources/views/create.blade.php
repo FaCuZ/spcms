@@ -29,13 +29,13 @@
 						@endif
 					</div>
 
-					<div class="form-group @if($errors->has('text_category_id')) has-error @endif">
+					<div class="form-group @if($errors->has('faq_category_id')) has-error @endif">
 						<label for="body-field">Categoria</label>
 						<div>								
 							@if($faq_categories->count())
-								<select name="text_category_id">
+								<select name="faq_category_id">
 									@foreach($faq_categories as $categoria)					
-										<option value="{{ $categoria->id }}" {{ $selected == $categoria->id ? 'selected="selected"' : '' }}>{{ $categoria->question }}</option>   
+										<option value="{{ $categoria->id }}" {{ $selected == $categoria->id ? 'selected="selected"' : '' }}>{{ $categoria->title }}</option>   
 									@endforeach
 								</select> 
 							@endif

@@ -26,7 +26,7 @@
 
 					<table class="table table-striped">
 						<thead><tr><th colspan="2" class="btns-padre">
-								<h4><strong>{{ ucfirst($category->question) }}:</strong>
+								<h4><strong>{{ ucfirst($category->title) }}:</strong>
 									<div class="pull-right btns-nuevo-texto hidden">
 										<a class="btn btn-xs btn-success pull-right" href="{{ route('admin.faq.create', ['selected' => $category->id]) }}"><i class="fa fa-plus"></i> Agregar texto</a>
 									</div>
@@ -38,7 +38,7 @@
 									@foreach($category->faq as $faq)
 										<tr>
 											<td class="nowrap"><strong>{{ ucfirst($faq->question) }}</strong></td>
-											<td class="btns-padre">{{$faq->anwser}}
+											<td class="btns-padre">{{$faq->answer}}
 												<div class="nowrap btns-opciones hidden">
 													<a class="btn btn-xs btn-warning" href="{{ route('admin.faq.edit', $faq->id) }}"><i class="fa fa-edit"></i> Editar</a>
 													<a class="btn btn-xs btn-primary" href="{{ route('admin.faq.show', $faq->id) }}"><i class="fa fa-eye"></i> Ver</a>

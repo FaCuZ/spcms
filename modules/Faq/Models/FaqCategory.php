@@ -23,7 +23,7 @@ class FaqCategory extends Revisionable
 		'deleted_at' => 'Borrado'
 	];
 
-	public function textos()
+	public function faq()
 	{
 		return $this->hasMany('Modules\Faq\Models\Faq');
 	}

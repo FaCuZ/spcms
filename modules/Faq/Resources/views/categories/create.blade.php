@@ -1,12 +1,12 @@
 @extends('admin::layouts.master')
 
-@section('a-textos', 'class="active"')
+@section('a-faq', 'class="active"')
 
 @section('a-contenido', 'active')
 
 @section('header')
 	<h1>
-		<a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Categoria 
+		<a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> Categoria 
 		<small>Nueva</small>
 	</h1>
 @endsection
@@ -17,7 +17,7 @@
 	<div class="box box-solid">
 		<div class="box-body no-padding">
 
-			<form action="{{ route('admin.textos.categorias.store') }}" method="POST">
+			<form action="{{ route('admin.faq.categorias.store') }}" method="POST">
 				<div class="modal-body">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -31,7 +31,7 @@
 				</div>
 
 				<div class="modal-footer">
-					<a class="btn btn-default" href="{{ route('admin.textos.categorias.index') }}">Cancelar</a>
+					<a class="btn btn-default" href="{{ route('admin.faq.categorias.index') }}">Cancelar</a>
 					<button type="submit" class="btn btn-primary">Crear</button>
 				</div>
 			</form>

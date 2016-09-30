@@ -30,7 +30,7 @@ elixir(function(mix) {
 	
 
 	mix.scripts([
-				'./node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js',
+				'./node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
 				'./node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
 				'./node_modules/admin-lte/plugins/iCheck/icheck.min.js',
 				'./node_modules/admin-lte/dist/js/app.min.js',
@@ -65,7 +65,7 @@ elixir(function(mix) {
 	
 
 	mix.scripts([
-				'./node_modules/admin-lte/plugins/jQuery/jQuery-2.2.0.min.js',
+				'./node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
 				'./node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
 				'./resources/assets/js/main.js'
 				
