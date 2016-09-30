@@ -10,12 +10,9 @@ use Module, Artisan;
 class ModuleController extends Controller
 {
 
-
 	public function index(){
 
 		$data['modulos'] = Module::all();
-
-		//dd(Module::toCollection());
 
 		return view('admin::modulos', $data);
 	}
@@ -33,6 +30,5 @@ class ModuleController extends Controller
 
 		return redirect()->route('admin.modulos')->withErrors(['alert' => 'El modulo se desactivo correctamente.']);
 	}
-
 
 }

@@ -17,12 +17,8 @@
     border-left: 3px solid #23526e;
     background-color: #253238; }
 
-/*.sidebar-menu > li.active > a{
-	border-left: 0px;
-}
-*/
 .btn-admin {
-  width: 90%; }
+  width: 95%; }
 
 .app-version {
   color: #535353;

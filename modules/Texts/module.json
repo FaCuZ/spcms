@@ -3,7 +3,7 @@
     "alias": "texts",
     "description": "Permite modificar los textos de la pagina.",
     "keywords": [],
-    "active": 0,
+    "active": 1,
     "order": 1,
     "disabled": 0,
     "providers": [

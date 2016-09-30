@@ -22,7 +22,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modu
 	Route::group(['middleware' => 'roladmin'], function () {
 		Route::get('usuarios', 	['as' => 'admin.usuarios',	'uses' => 'AdminController@showUsuarios' ]);
 
-		//Route::get('modulos', 	['as' => 'admin.modulos',	'uses' => 'AdminController@showModulos'	 ]);
 		Route::get('modulos', 		['as' => 'admin.modulos',		'uses' => 'ModuleController@index'		]);
 		Route::get('modulos/on', 	['as' => 'admin.modulos.on',	'uses' => 'ModuleController@activate'	]);
 		Route::get('modulos/off', 	['as' => 'admin.modulos.off',	'uses' => 'ModuleController@deactivate'	]);

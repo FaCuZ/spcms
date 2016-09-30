@@ -18,7 +18,11 @@ function urlModelo($data){
 		default: return '#'; 
 	}
 
-	return URL::route($ruta, ['id' => $data->revisionable_id]);
+	try {
+		return URL::route($ruta, ['id' => $data->revisionable_id]);
+	} catch (Exception $e) {
+		return '#';	
+	}
 	
 }
 

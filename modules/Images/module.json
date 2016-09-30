@@ -9,7 +9,7 @@
     "providers": [
         "Modules\\Images\\Providers\\ImagesServiceProvider"
     ],
-    "aliases":{},
+    "aliases": [],
     "files": [
         "start.php"
     ]

@@ -42,12 +42,12 @@
 							<td>
 								@if($modulo->disabled == 0)
 									@if($modulo->active == 1)
-										<a class="btn btn-warning btn-xs" href="{{ URL::route('admin.modulos.off', ['name' => $modulo->name]) }}" role="button"><i class="fa fa-toggle-off"></i> <span>Desactivar</span></a>
+										<a class="btn btn-warning btn-xs" href="{{ URL::route('admin.modulos.off', ['name' => $modulo->name]) }}" role="button"><span>Desactivar</span></a>
 									@else
-										<a class="btn btn-success btn-xs" href="{{ URL::route('admin.modulos.on', ['name' => $modulo->name]) }}" role="button"><i class="fa fa-toggle-on"></i> <span>Activar</span></a>
+										<a class="btn btn-success btn-xs" href="{{ URL::route('admin.modulos.on', ['name' => $modulo->name]) }}" role="button"><span>Activar</span></a>
 									@endif
 								@else
-									<a class="btn btn-default btn-xs" href="#" role="button" disabled><i class="fa fa-on"></i> <span>Activar</span></a>
+									<a class="btn btn-default btn-xs" href="#" role="button" disabled><i class="fa fa-on"></i> <span>Desactivar</span></a>
 								@endif
 							</td>
 						</tr>

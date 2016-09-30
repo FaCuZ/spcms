@@ -25,11 +25,21 @@
 	<div class="box box-solid">
 
 		<div class="box-body">
-			<p><strong>Nombre: </strong>[{{$image->id}}] {{$image->title}}</p>			
-			<p><strong>Archivo: </strong><a href="{{ URL::asset($image->file) }}">{{$image->file}}</a></p>			
+			<p><strong>Nombre: </strong>[{{ $image->id }}] {{ $image->title }}</p>			
+			<p><strong>Archivo: </strong><a href="{{ URL::asset($image->file) }}">{{ $image->file }}</a></p>			
 			<p><strong>Descripcion: </strong>{{$image->description}}</p>
 
 			<p><img src="{{ URL::asset($image->file) }}"></p>
+
+			<p>
+				<strong>Codigo:</strong>
+				<pre>&lt;img src="&#123;&#123; $albumes->imagen('ALBUM', 'GALERIA', '{{ $image->title }}')->url }}" /&gt;
+			<a class="btn btn-sm btn-default pull-right btn-copiar" href="#"><i class="fa fa-align-lef"></i> Copiar</a>
+
+				</pre>
+
+				<pre>&#123;&#123; $albumes->imagen('ALBUM', 'GALERIA', '{{ $image->title }}')->url }}</pre>
+			</p>
 
 		</div>
 	</div>
