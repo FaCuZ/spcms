@@ -26,7 +26,7 @@ class Image extends Revisionable
 
 
 	public function galeria(){
-		return $this->belongsTo('Modules\Images\Models\Gallery');
+		return $this->belongsTo('Modules\Images\Models\Gallery', 'gallery_id');
 	}
 
 	public function getUrlAttribute()

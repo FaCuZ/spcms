@@ -105,9 +105,13 @@ class ImageController extends Controller {
 	 */
 	public function show($id)
 	{
-		$image = Image::findOrFail($id);
+		$data['image'] = Image::findOrFail($id);
 
-		return view('images::images.show', compact('image'));
+		$data['gallery'] = $data['image']->galeria()->first();
+
+		$data['album'] = $data['gallery']->album()->first();
+
+		return view('images::images.show', $data);
 	}
 
 	/**
@@ -119,7 +123,7 @@ class ImageController extends Controller {
 	public function edit($id)
 	{
 		$image = Image::findOrFail($id);
-		
+
 		return view('images::images.edit', compact('image'));
 	}
 

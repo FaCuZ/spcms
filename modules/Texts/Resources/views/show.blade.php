@@ -32,11 +32,9 @@
 			<strong>Cuerpo:</strong>
 			<p>{{$text->body}}</p>
 
-			<p>
-				<strong>Codigo:</strong>
-				<pre>&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
-				<pre>&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
-			</p>
+			<p><strong>Codigo:</strong></p>
+			<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
+			<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
 		</div>
 	</div>
 

@@ -26,14 +26,22 @@
 
 		<div class="box-body">
 			<p><strong>Nombre: </strong>[{{ $image->id }}] {{ $image->title }}</p>			
-			<p><strong>Archivo: </strong><a href="{{ URL::asset($image->file) }}">{{ $image->file }}</a></p>			
-			<p><strong>Descripcion: </strong>{{$image->description}}</p>
+			<p><strong>Archivo: </strong><a href="{{ URL::asset($image->file) }}">{{ $image->file }}</a></p>	
+			<p><strong>Miniatura: </strong><a href="{{ URL::asset($image->thumb) }}">{{ $image->thumb }}</a></p>	
+
+			<p><strong>Galeria: </strong>{{ $gallery->title }}</p>
+			<p><strong>Album: </strong>{{ $album->title }}</p>
+
+			<p><strong>Descripcion: </strong>{{ $image->description }}</p>
 
 			<p><img src="{{ URL::asset($image->file) }}"></p>
 
 			<p><strong>Codigo:</strong></p>
-			<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('ALBUM', 'GALERIA', '{{ $image->title }}')->url }}" /&gt;</pre>
-			<pre class="pre-codigo">&#123;&#123; $albumes->imagen('ALBUM', 'GALERIA', '{{ $image->title }}')->url }}</pre>
+			<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}" /&gt;</pre>
+			<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}</pre>
+			<h5>Miniatura:</h5>
+			<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}" /&gt;</pre>
+			<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}</pre>
 
 		</div>
 	</div>
