@@ -80,7 +80,7 @@
 				@endforeach
 			</div>
 		@else
-			<p class="text-center">No hay albumes creados</p>
+			<p class="tabla-empty">No hay ninguna album creado</p>
 		@endif
 
 	</div>

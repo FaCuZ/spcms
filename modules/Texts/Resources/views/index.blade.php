@@ -64,8 +64,7 @@
 
 			</div>
 		@else
-			<p class="text-center">Sin Elementos</p>
-			<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.textos.create') }}"><i class="fa fa-plus"></i> Nuevo Texto</a>
+			<p class="tabla-empty">No hay ninguna categoria creada</p>
 		@endif
 
 	</div>

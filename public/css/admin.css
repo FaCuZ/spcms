@@ -17,6 +17,11 @@
     border-left: 3px solid #23526e;
     background-color: #253238; }
 
+.tabla-empty {
+  padding: 20px;
+  font-size: 1.2em;
+  text-align: center; }
+
 .btn-admin {
   width: 95%; }
 

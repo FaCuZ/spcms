@@ -57,7 +57,7 @@
 				</table>
 			</div>
 		@else
-			<p class="text-center">Sin Elementos</p>
+			<p class="tabla-empty">No hay ninguna galeria creada</p>
 		@endif
 	</div>
 

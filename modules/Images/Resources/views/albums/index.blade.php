@@ -47,7 +47,7 @@
 				</table>
 			</div>
 		@else
-			<p class="text-center">Sin albumes</p>
+			<p class="tabla-empty">No hay ninguna album creado</p>
 			@if(Auth::user()->role=="admin")
 				<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
 			@endif
