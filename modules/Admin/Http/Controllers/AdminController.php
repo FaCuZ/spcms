@@ -47,13 +47,6 @@ class AdminController extends Controller
 		return view('admin::historial', $data);
 	}
 
-	public function showUsuarios(){
-
-		$data['usuarios'] = User::all();
-
-		return view('admin::usuarios', $data);
-	}
-
 	public function edicion()
 	{
 		return view('index');

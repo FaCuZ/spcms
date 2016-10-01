@@ -107,9 +107,9 @@ class ImageController extends Controller {
 	{
 		$data['image'] = Image::findOrFail($id);
 
-		$data['gallery'] = $data['image']->galeria()->first();
+		$data['gallery'] = $data['image']->galeria()->firstOrFail();
 
-		$data['album'] = $data['gallery']->album()->first();
+		$data['album'] = $data['gallery']->album()->firstOrFail();
 
 		return view('images::images.show', $data);
 	}

@@ -20,7 +20,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modu
 	Route::post('sendEmail',   ['as' => 'admin.sendEmail',   'uses' => 'AdminController@sendMailEmail'	]);
 	
 	Route::group(['middleware' => 'roladmin'], function () {
-		Route::get('usuarios', 	['as' => 'admin.usuarios',	'uses' => 'AdminController@showUsuarios' ]);
+		Route::get('usuarios',		 ['as' => 'admin.usuarios',		 'uses' => 'UserController@index' ]);
+		Route::get('usuario/{id}',	 ['as' => 'admin.usuario',	 	 'uses' => 'UserController@edit'  ]);
+		Route::post('usuario/{id}',	 ['as' => 'admin.usuario.update','uses' => 'UserController@update']);
 
 		Route::get('modulos', 		['as' => 'admin.modulos',		'uses' => 'ModuleController@index'		]);
 		Route::get('modulos/on', 	['as' => 'admin.modulos.on',	'uses' => 'ModuleController@activate'	]);

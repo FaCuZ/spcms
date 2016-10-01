@@ -20,7 +20,8 @@
 						<th>Email</th>
 						<th>Rol</th>
 						<th>Fecha</th>
-						<th>Cambios</th>
+						<th>Modificado</th>
+						<th></th>
 					</tr>
 				</thead>
 
@@ -32,6 +33,7 @@
 							<td>{{ $data->role }}</td>
 							<td class="nowrap">{{ $data->created_at or 'Siempre' }}</td>
 							<td class="nowrap">{{ $data->updated_at or 'Nunca' }}</td>
+							<td><a class="btn btn-xs btn-warning" href="{{ URL::route('admin.usuario', $data->id) }}"><i class="fa fa-edit"></i> Editar</a></td>
 						</tr>
 					@endforeach
 				</tbody>
