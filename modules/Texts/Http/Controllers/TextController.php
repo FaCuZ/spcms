@@ -8,7 +8,7 @@ use Modules\Texts\Models\Text;
 
 use Illuminate\Http\Request;
 
-use Auth;
+use Auth, DB;
 
 class TextController extends Controller {
 
@@ -70,6 +70,10 @@ class TextController extends Controller {
 	{
 		$data['text'] = Text::findOrFail($id);
 		$data['text_category'] = TextCategory::find($data['text']->text_category_id);
+
+
+		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('texts');
+		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('text_categories');
 
 		return view('texts::show', $data);
 	}

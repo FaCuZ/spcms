@@ -29,11 +29,45 @@
 			<p><strong>Categoria:</strong> {{ $faq_category->title }}</p>
 			<p><strong>Pregunta:</strong> {{ $faq->question }}</p>
 			<strong>Respuesta:</strong>
-			<p>{{$faq->answer}}</p>
+			<p>{{ $faq->answer }}</p>
 
 			<p><strong>Codigo:</strong></p>
 			<pre class="pre-codigo">&#123;&#123; $faq_categorias->texto('{{ $faq_category->title }}','{{ $faq->question }}') }}</pre>
 			<pre class="pre-codigo">&#123;&#123; $faq->texto('{{ $faq->question }}') }}</pre>
+
+			<p><strong>Tablas:</strong></p>
+			<h5>faq</h5>
+			<table class="tabla_ejemplo">
+				@if(!empty($tabla_1))
+					<tr>
+						@foreach($tabla_1 as $col)
+							<th>{{ $col }}</th>
+						@endforeach
+					</tr>
+					<tr>
+						@foreach($tabla_1 as $col)
+							<td> {{ $faq[$col] }} </td>
+						@endforeach
+					</tr>
+				@endif
+			</table> 	
+
+			<h5>faq_category</h5>
+			<table class="tabla_ejemplo">
+				@if(!empty($tabla_2))
+					<tr>
+						@foreach($tabla_2 as $col)
+							<th>{{ $col }}</th>
+						@endforeach
+					</tr>
+					<tr>
+						@foreach($tabla_2 as $col)
+							<td> {{ $faq_category[$col] }} </td>
+						@endforeach
+					</tr>
+				@endif
+			</table> 
+
 		</div>
 	</div>
 

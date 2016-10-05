@@ -35,6 +35,41 @@
 			<p><strong>Codigo:</strong></p>
 			<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
 			<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
+		
+			<p><strong>Tablas:</strong></p>
+			<h5>texts</h5>
+			<table class="tabla_ejemplo">
+				@if(!empty($tabla_1))
+					<tr>
+						@foreach($tabla_1 as $col)
+							<th>{{ $col }}</th>
+						@endforeach
+					</tr>
+					<tr>
+						@foreach($tabla_1 as $col)
+							<td> {{ $text[$col] }} </td>
+						@endforeach
+					</tr>
+				@endif
+			</table> 	
+
+			<h5>texts_category</h5>
+			<table class="tabla_ejemplo">
+				@if(!empty($tabla_2))
+					<tr>
+						@foreach($tabla_2 as $col)
+							<th>{{ $col }}</th>
+						@endforeach
+					</tr>
+					<tr>
+						@foreach($tabla_2 as $col)
+							<td> {{ $text_category[$col] }} </td>
+						@endforeach
+					</tr>
+				@endif
+			</table> 
+
+
 		</div>
 	</div>
 

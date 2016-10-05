@@ -30,6 +30,26 @@
 	text-align: center;
 }
 
+.tabla_ejemplo{
+	text-align: center;
+	max-width: 100%;
+	th {
+		padding: 10px 10px;
+		background-color: #ececec;
+		border: 1px solid #d7d7d7;
+	}
+	td {
+	
+		padding: 10px 10px;
+		background-color: #f9f9f9;
+		border: 1px solid #d7d7d7;
+		overflow: hidden;
+		white-space: nowrap; 
+		max-width: 300px;
+	    text-overflow: ellipsis; 
+	}
+}
+
 .btn-admin{
 	width: 95%;
 }

@@ -8,7 +8,7 @@ use Modules\Faq\Models\Faq;
 
 use Illuminate\Http\Request;
 
-use Auth;
+use Auth, DB;
 
 class FaqController extends Controller {
 
@@ -69,7 +69,11 @@ class FaqController extends Controller {
 	public function show($id)
 	{
 		$data['faq'] = Faq::findOrFail($id);
+
 		$data['faq_category'] = FaqCategory::find($data['faq']->faq_category_id);
+
+		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('faq');
+		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('faq_categories');
 
 		return view('faq::show', $data);
 	}
