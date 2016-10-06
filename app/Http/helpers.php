@@ -71,3 +71,23 @@ function rrmdir($dir) {
 function cacheStatus(){
 	return file_exists(base_path('bootstrap/cache/CACHE'));
 }
+
+
+function showTable($tabla, $data){
+	$html = '';
+	if(!empty($tabla)){
+		$html .=  '<table class="tabla_ejemplo">';
+		$html .= '<tr>';
+		foreach($tabla as $col){
+			$html .= '<th>'.$col.'</th>';
+		}
+		$html .= '</tr><tr>';
+
+		foreach($tabla as $col){
+			$html .= '<td>'.$data[$col].'</td>';
+		}
+							
+		$html .= '</tr></table>';
+	}
+	return $html;
+}

@@ -24,7 +24,8 @@
 
 .tabla_ejemplo {
   text-align: center;
-  max-width: 100%; }
+  max-width: 100%;
+  margin-bottom: 15px; }
   .tabla_ejemplo th {
     padding: 10px 10px;
     background-color: #ececec;
@@ -218,5 +219,13 @@ tbody {
 
 .after-box {
   clear: left; }
+
+@media screen and (min-width: 768px) {
+  .dl-horizontal dd {
+    margin-left: 100px;
+    padding: 3px 8px; }
+  .dl-horizontal dt {
+    width: 100px;
+    padding: 3px; } }
 
 /*# sourceMappingURL=admin.css.map */

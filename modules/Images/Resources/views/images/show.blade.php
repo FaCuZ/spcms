@@ -25,23 +25,57 @@
 	<div class="box box-solid">
 
 		<div class="box-body">
-			<p><strong>Nombre: </strong>[{{ $image->id }}] {{ $image->title }}</p>			
-			<p><strong>Archivo: </strong><a href="{{ URL::asset($image->file) }}">{{ $image->file }}</a></p>	
-			<p><strong>Miniatura: </strong><a href="{{ URL::asset($image->thumb) }}">{{ $image->thumb }}</a></p>	
 
-			<p><strong>Galeria: </strong>{{ $gallery->title }}</p>
-			<p><strong>Album: </strong>{{ $album->title }}</p>
 
-			<p><strong>Descripcion: </strong>{{ $image->description }}</p>
+			<dl class="dl-horizontal">
 
-			<p><img src="{{ URL::asset($image->file) }}"></p>
+				<dt>Id:</dt>{{ $image->id }}
+				<dt>Nombre:</dt>
+				<dd>{{ $image->title }}</dd>			
+				<dt>Archivo:</dt>
+				<dd><a href="{{ URL::asset($image->file) }}">{{ $image->file }}</a></dd>
+				<dt>Miniatura:</dt>
+				<dd><a href="{{ URL::asset($image->thumb) }}">{{ $image->thumb }}</a></dd>
 
-			<p><strong>Codigo:</strong></p>
-			<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}" /&gt;</pre>
-			<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}</pre>
-			<h5>Miniatura:</h5>
-			<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}" /&gt;</pre>
-			<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}</pre>
+				<dt>Galeria:</dt>
+				<dd>{{ $gallery->title }}</dd>
+				<dt>Album:</dt>
+				<dd>{{ $album->title }}</dd>
+
+				<dt>Descripcion:</dt>
+				<dd>{{ $image->description }}</dd>
+				<dt>Imagen:</dt>
+				<p><img src="{{ URL::asset($image->file) }}"></p>
+				<dt>Miniatura:</dt>
+				<p><img src="{{ URL::asset($image->thumb) }}"></p>
+
+				<dt>Codigo:</dt>
+				<dd>
+					<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}" /&gt;</pre>
+					<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}</pre>
+					Miniatura:
+					<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}" /&gt;</pre>
+					<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}</pre>
+				</dd>
+
+
+				<dt>Tablas:</dt>
+				<dd>
+					images				
+					{!! showTable($tabla_1, $image) !!}
+					
+					gallery
+					{!! showTable($tabla_2, $gallery) !!}
+
+					album
+					{!! showTable($tabla_3, $album) !!}
+				</dd>
+
+
+
+			</dl>
+
+
 
 		</div>
 	</div>

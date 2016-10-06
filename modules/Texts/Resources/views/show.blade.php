@@ -25,50 +25,36 @@
 	<div class="box">
 		<div class="box-body">
 			
-			<p><strong>Id:</strong> {{ $text->id }}</p>			
-			<p><strong>Titulo:</strong> {{ $text->title }}</p>
-			<p><strong>Categoria:</strong> {{ $text_category->title }}</p>
 
-			<strong>Cuerpo:</strong>
-			<p>{{$text->body}}</p>
+			<dl class="dl-horizontal">
 
-			<p><strong>Codigo:</strong></p>
-			<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
-			<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
-		
-			<p><strong>Tablas:</strong></p>
-			<h5>texts</h5>
-			<table class="tabla_ejemplo">
-				@if(!empty($tabla_1))
-					<tr>
-						@foreach($tabla_1 as $col)
-							<th>{{ $col }}</th>
-						@endforeach
-					</tr>
-					<tr>
-						@foreach($tabla_1 as $col)
-							<td> {{ $text[$col] }} </td>
-						@endforeach
-					</tr>
-				@endif
-			</table> 	
 
-			<h5>texts_category</h5>
-			<table class="tabla_ejemplo">
-				@if(!empty($tabla_2))
-					<tr>
-						@foreach($tabla_2 as $col)
-							<th>{{ $col }}</th>
-						@endforeach
-					</tr>
-					<tr>
-						@foreach($tabla_2 as $col)
-							<td> {{ $text_category[$col] }} </td>
-						@endforeach
-					</tr>
-				@endif
-			</table> 
+				<dt>Id:</dt> 
+				<dd>{{ $text->id }}</dd>			
+				<dt>Titulo:</dt>
+				<dd>{{ $text->title }}</dd>
+				<dt>Categoria:</dt>
+				<dd>{{ $text_category->title }}</dd>
 
+				<dt>Cuerpo:</dt>
+				<dd>{{$text->body}}</dd>
+
+				<dt>Codigo:</dt>
+				<dd>
+					<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
+					<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
+				</dd>
+
+				<dt>Tablas:</dt>
+				<dd>
+					texts
+					{!! showTable($tabla_1, $text) !!}
+
+					texts_category
+					{!! showTable($tabla_2, $text_category) !!}
+					
+				</dd>
+			</dl>
 
 		</div>
 	</div>

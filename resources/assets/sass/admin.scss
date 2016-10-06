@@ -33,6 +33,7 @@
 .tabla_ejemplo{
 	text-align: center;
 	max-width: 100%;
+	margin-bottom: 15px;
 	th {
 		padding: 10px 10px;
 		background-color: #ececec;
@@ -46,7 +47,7 @@
 		overflow: hidden;
 		white-space: nowrap; 
 		max-width: 300px;
-	    text-overflow: ellipsis; 
+		text-overflow: ellipsis; 
 	}
 }
 
@@ -294,4 +295,16 @@ tbody{
 
 .after-box {
 	clear: left;
+}
+
+@media screen and (min-width: 768px) {
+	.dl-horizontal dd {
+		margin-left: 100px;
+		padding: 3px 8px;
+	}
+
+	.dl-horizontal dt {
+		width: 100px;
+		padding: 3px;    
+	}
 }

@@ -9,7 +9,7 @@ use Modules\Images\Models\Gallery;
 
 use Illuminate\Http\Request;
 
-use Auth;
+use Auth, DB;
 use ImageI;
 
 class ImageController extends Controller {
@@ -110,6 +110,10 @@ class ImageController extends Controller {
 		$data['gallery'] = $data['image']->galeria()->firstOrFail();
 
 		$data['album'] = $data['gallery']->album()->firstOrFail();
+
+		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('images');
+		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('galleries');
+		$data['tabla_3'] = DB::getSchemaBuilder()->getColumnListing('albums');
 
 		return view('images::images.show', $data);
 	}

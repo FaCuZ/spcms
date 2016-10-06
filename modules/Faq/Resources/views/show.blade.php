@@ -5,7 +5,7 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> faq <small>{{ $faq->question }}</small>
+	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> FAQ <small>{{ $faq->id }}</small>
 		
 		<div class="pull-right">
 			<form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
@@ -25,48 +25,36 @@
 	<div class="box">
 		<div class="box-body">
 			
-			<p><strong>Id:</strong> {{ $faq->id }}</p>			
-			<p><strong>Categoria:</strong> {{ $faq_category->title }}</p>
-			<p><strong>Pregunta:</strong> {{ $faq->question }}</p>
-			<strong>Respuesta:</strong>
-			<p>{{ $faq->answer }}</p>
+			<dl class="dl-horizontal">
+				<dt>Id:</dt>
+				<dd>{{ $faq->id }}</dd>
+				<dt>Categoria:</dt>
+				<dd>{{ $faq_category->title }}</dd>
+				<dt>Pregunta:</dt>
+				<dd>{{ $faq->question }}</dd>
+				<dt>Respuesta:</dt>
+				<dd>{{ $faq->answer }}</dd>
 
-			<p><strong>Codigo:</strong></p>
-			<pre class="pre-codigo">&#123;&#123; $faq_categorias->texto('{{ $faq_category->title }}','{{ $faq->question }}') }}</pre>
-			<pre class="pre-codigo">&#123;&#123; $faq->texto('{{ $faq->question }}') }}</pre>
+				<dt>Codigo:</dt>
+				<dd>
+					<pre class="pre-codigo">&#123;&#123; $faq_categorias->texto('{{ $faq_category->title }}','{{ $faq->question }}') }}</pre>
+					<pre class="pre-codigo">&#123;&#123; $faq->texto('{{ $faq->question }}') }}</pre>
+				</dd>
 
-			<p><strong>Tablas:</strong></p>
-			<h5>faq</h5>
-			<table class="tabla_ejemplo">
-				@if(!empty($tabla_1))
-					<tr>
-						@foreach($tabla_1 as $col)
-							<th>{{ $col }}</th>
-						@endforeach
-					</tr>
-					<tr>
-						@foreach($tabla_1 as $col)
-							<td> {{ $faq[$col] }} </td>
-						@endforeach
-					</tr>
-				@endif
-			</table> 	
+				<dt>Tablas:</dt>
+				<dd>
+					faq
+					{!! showTable($tabla_1, $faq) !!}
 
-			<h5>faq_category</h5>
-			<table class="tabla_ejemplo">
-				@if(!empty($tabla_2))
-					<tr>
-						@foreach($tabla_2 as $col)
-							<th>{{ $col }}</th>
-						@endforeach
-					</tr>
-					<tr>
-						@foreach($tabla_2 as $col)
-							<td> {{ $faq_category[$col] }} </td>
-						@endforeach
-					</tr>
-				@endif
-			</table> 
+					faq_category
+					{!! showTable($tabla_2, $faq_category) !!}
+				</dd>
+
+
+
+
+			</dl>
+
 
 		</div>
 	</div>
