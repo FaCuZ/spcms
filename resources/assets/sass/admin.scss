@@ -209,6 +209,24 @@
 	}
 }
 
+
+.table-historial-show{
+	thead {
+		tr {
+			border: 1px solid #e1e1e1;
+			th{
+				text-align: center;
+				background-color: #ECECEC;
+			}
+		}
+	} 
+
+	tbody tr{
+		text-align: center;
+	}
+
+}
+
 thead h3{
 	margin-top: 10px;
 }

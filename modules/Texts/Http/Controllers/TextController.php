@@ -74,6 +74,9 @@ class TextController extends Controller {
 
 		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('texts');
 		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('text_categories');
+		
+		$data['historial_1'] = $data['text']->revisionHistory;
+		$data['historial_2'] = $data['text_category']->revisionHistory;
 
 		return view('texts::show', $data);
 	}

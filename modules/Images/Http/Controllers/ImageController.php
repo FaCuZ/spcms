@@ -105,15 +105,18 @@ class ImageController extends Controller {
 	 */
 	public function show($id)
 	{
-		$data['image'] = Image::findOrFail($id);
-
+		$data['image'] 	 = Image::findOrFail($id);
 		$data['gallery'] = $data['image']->galeria()->firstOrFail();
-
-		$data['album'] = $data['gallery']->album()->firstOrFail();
+		$data['album']	 = $data['gallery']->album()->firstOrFail();
 
 		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('images');
 		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('galleries');
 		$data['tabla_3'] = DB::getSchemaBuilder()->getColumnListing('albums');
+
+
+		$data['historial_1'] = $data['image']->revisionHistory;
+		$data['historial_2'] = $data['gallery']->revisionHistory;
+		$data['historial_3'] = $data['album']->revisionHistory;
 
 		return view('images::images.show', $data);
 	}

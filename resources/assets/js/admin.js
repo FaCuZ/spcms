@@ -60,6 +60,12 @@ $(function(){
 	});
 
 
+	$('.mostrar-avanzado').click(function() {
+		$('.mostrar-avanzado-div').hide();		
+		$('.mostrar-avanzado-dl').removeClass('hidden');
+	});
+
+
 	$(document).on("mouseenter", ".pre-codigo", function(){
 		$(this).append('<buttom class="btn btn-sm btn-default btn-copiar pull-right" onClick="copiarCodigo(this)">Copiar</buttom>');
 	}).on("mouseleave", ".pre-codigo", function(){

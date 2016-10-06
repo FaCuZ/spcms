@@ -75,6 +75,9 @@ class FaqController extends Controller {
 		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('faq');
 		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('faq_categories');
 
+		$data['historial_1'] = $data['faq']->revisionHistory;
+		$data['historial_2'] = $data['faq_category']->revisionHistory;
+
 		return view('faq::show', $data);
 	}
 

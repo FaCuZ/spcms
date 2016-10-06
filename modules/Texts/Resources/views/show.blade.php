@@ -25,10 +25,7 @@
 	<div class="box">
 		<div class="box-body">
 			
-
 			<dl class="dl-horizontal">
-
-
 				<dt>Id:</dt> 
 				<dd>{{ $text->id }}</dd>			
 				<dt>Titulo:</dt>
@@ -38,24 +35,39 @@
 
 				<dt>Cuerpo:</dt>
 				<dd>{{$text->body}}</dd>
-
-				<dt>Codigo:</dt>
-				<dd>
-					<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
-					<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
-				</dd>
-
-				<dt>Tablas:</dt>
-				<dd>
-					texts
-					{!! showTable($tabla_1, $text) !!}
-
-					texts_category
-					{!! showTable($tabla_2, $text_category) !!}
-					
-				</dd>
 			</dl>
 
+			<div class="box-footer">
+				<div class="text-center mostrar-avanzado-div">
+					<a href="#" class="mostrar-avanzado">Mostrar detalles avanzados</a>
+				</div>
+
+				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
+					<dt>Codigo:</dt>
+					<dd>
+						<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
+						<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
+					</dd>
+
+					<dt>Tablas:</dt>
+					<dd>
+						texts:
+						{!! showTable($tabla_1, $text) !!}
+
+						texts_category:
+						{!! showTable($tabla_2, $text_category) !!}					
+					</dd>
+
+					<dt>Historial:</dt>
+					<dd>
+						texts:
+						{!! showHistory($historial_1) !!}
+
+						texts_category:
+						{!! showHistory($historial_2) !!}
+					</dd>
+				</dl>
+			</div>
 		</div>
 	</div>
 

@@ -29,7 +29,8 @@
 
 			<dl class="dl-horizontal">
 
-				<dt>Id:</dt>{{ $image->id }}
+				<dt>Id:</dt>
+				<dd>{{ $image->id }}</dd>
 				<dt>Nombre:</dt>
 				<dd>{{ $image->title }}</dd>			
 				<dt>Archivo:</dt>
@@ -45,35 +46,54 @@
 				<dt>Descripcion:</dt>
 				<dd>{{ $image->description }}</dd>
 				<dt>Imagen:</dt>
-				<p><img src="{{ URL::asset($image->file) }}"></p>
+				<dd><img src="{{ URL::asset($image->file) }}"></dd>
 				<dt>Miniatura:</dt>
-				<p><img src="{{ URL::asset($image->thumb) }}"></p>
-
-				<dt>Codigo:</dt>
-				<dd>
-					<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}" /&gt;</pre>
-					<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}</pre>
-					Miniatura:
-					<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}" /&gt;</pre>
-					<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}</pre>
-				</dd>
-
-
-				<dt>Tablas:</dt>
-				<dd>
-					images				
-					{!! showTable($tabla_1, $image) !!}
-					
-					gallery
-					{!! showTable($tabla_2, $gallery) !!}
-
-					album
-					{!! showTable($tabla_3, $album) !!}
-				</dd>
-
-
+				<dd><img src="{{ URL::asset($image->thumb) }}"></dd>
 
 			</dl>
+
+			<div class="box-footer">
+				<div class="text-center mostrar-avanzado-div">
+					<a href="javascript:void(0)" class="mostrar-avanzado">Mostrar detalles avanzados</a>
+				</div>
+
+				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
+					<dt>Codigo:</dt>
+					<dd>
+						<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}" /&gt;</pre>
+						<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}</pre>
+						Miniatura:
+						<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}" /&gt;</pre>
+						<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}</pre>
+					</dd>
+
+
+					<dt>Tablas:</dt>
+					<dd>
+						images:			
+						{!! showTable($tabla_1, $image) !!}
+						
+						gallery:
+						{!! showTable($tabla_2, $gallery) !!}
+
+						album:
+						{!! showTable($tabla_3, $album) !!}
+					</dd>
+
+					<dt>Historial:</dt>
+					<dd>
+						images:
+						{!! showHistory($historial_1) !!}
+
+						gallery:
+						{!! showHistory($historial_2) !!}
+
+						album:
+						{!! showHistory($historial_3) !!}
+					</dd>
+				</dl>
+
+			</div>
 
 
 

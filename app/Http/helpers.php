@@ -74,10 +74,9 @@ function cacheStatus(){
 
 
 function showTable($tabla, $data){
-	$html = '';
 	if(!empty($tabla)){
-		$html .=  '<table class="tabla_ejemplo">';
-		$html .= '<tr>';
+		$html =  '<table class="tabla_ejemplo">'.
+				 '	<tr>';
 		foreach($tabla as $col){
 			$html .= '<th>'.$col.'</th>';
 		}
@@ -88,6 +87,42 @@ function showTable($tabla, $data){
 		}
 							
 		$html .= '</tr></table>';
+	} else {
+		$html = '';
 	}
+
+	return $html;
+}
+
+function showHistory($historial){
+	if(!$historial->isEmpty()){
+		$html = '<table class="table table-striped table-historial-show">'.
+				'<thead>'.
+				'	<tr>'.
+				'		<th>Usuario</th>'.
+				'		<th>Elemento</th>'.
+				'		<th>Anterior</th>'.
+				'		<th>Nuevo</th>'.
+				'		<th>Tiempo</th>'.
+				'	</tr>'.
+				'</thead>'.
+				'<tbody>';
+
+		foreach($historial as $data){
+			$html .='<tr>'.
+					'	<td>'.$data->userResponsible()->name.'</td>'.
+					'	<td>'.$data->fieldName().'</td>'.
+					'	<td><code>'.$data->oldValue().'</code></td>'.
+					'	<td><code>'.$data->newValue().'</code></td>'.
+					'	<td class="nowrap">'.$data->created_at->diffForHumans().'</td>'.
+					'</tr>';
+		}
+		$html .= '</tbody>'.
+				'</table>';
+	} else {
+		$html = '<h5>Sin cambios.</h5>';
+
+	} 
+
 	return $html;
 }

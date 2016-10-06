@@ -159,6 +159,15 @@
 .table-historial tbody tr:hover {
   background-color: #eae8f5 !important; }
 
+.table-historial-show thead tr {
+  border: 1px solid #e1e1e1; }
+  .table-historial-show thead tr th {
+    text-align: center;
+    background-color: #ECECEC; }
+
+.table-historial-show tbody tr {
+  text-align: center; }
+
 thead h3 {
   margin-top: 10px; }
 
