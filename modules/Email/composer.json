@@ -1,0 +1,15 @@
+{
+	"name": "facuz/email",
+	"description": "",
+	"authors": [
+		{
+			"name": "Facundo Zaldo",
+			"email": "fzaldo@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Modules\\Email\\": ""
+		}
+	}
+}

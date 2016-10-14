@@ -1,0 +1,16 @@
+{
+    "name": "Support",
+    "alias": "support",
+    "description": "Facilita la comunicacion con el desarrollador.",
+    "keywords": [],
+    "active": 1,
+    "order": 11,
+    "disabled": 0,
+    "providers": [
+        "Modules\\Support\\Providers\\SupportServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

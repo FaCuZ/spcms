@@ -1,16 +1,16 @@
 {
-    "name": "Admin",
-    "alias": "admin",
-    "description": "Nucleo del sistema de administracion.",
-    "keywords": [],
-    "active": 1,
-    "order": 0,
-    "disabled": 1,
-    "providers": [
-        "Modules\\Admin\\Providers\\AdminServiceProvider"
-    ],
-    "aliases": [],
-    "files": [
-        "start.php"
-    ]
+	"name": "Admin",
+	"alias": "admin",
+	"description": "Nucleo del sistema de administracion.",
+	"keywords": [],
+	"active": 1,
+	"order": 0,
+	"disabled": 1,
+	"providers": [
+		"Modules\\Admin\\Providers\\AdminServiceProvider"
+	],
+	"aliases": [],
+	"files": [
+		"start.php"
+	]
 }

@@ -14,7 +14,7 @@
 			<i class="fa fa-angle-left pull-right"></i>
 		</a>
 		<ul class="treeview-menu">
-			@if(Module::find('Texts')->active==1)
+			@if(Module::active('Texts'))
 				<li @yield('a-textos')> 
 					<a href="{{ URL::route('admin.textos.index') }}">
 						<i class="fa fa-file-text-o"></i> <span>Textos</span>
@@ -22,7 +22,7 @@
 				</li>
 			@endif
 
-			@if(Module::find('Images')->active == 1)
+			@if(Module::active('Images'))
 				<li @yield('a-imagenes')>
 					<a href="{{ URL::route('admin.imagenes.index') }}">
 						<i class="fa fa-image"></i> <span>Imágenes</span>
@@ -30,7 +30,7 @@
 				</li>
 			@endif
 
-			@if(Module::find('Faq')->active == 1)
+			@if(Module::active('Faq'))
 				<li @yield('a-faq')>
 					<a href="{{ URL::route('admin.faq.index') }}">
 						<i class="fa fa-question-circle"></i> <span>FAQ</span>
@@ -41,18 +41,21 @@
 	</li>
 
 
-
-	<li @yield('a-emails')>  
-		<a href="{{ URL::route('admin.emails') }}">
-			<i class="fa fa-envelope"></i> <span>Emails</span>
-		</a>
-	</li>
+	@if(Module::active('Email'))
+		<li @yield('a-email')>  
+			<a href="{{ URL::route('admin.email.index') }}">
+				<i class="fa fa-envelope"></i> <span>Emails</span>
+			</a>
+		</li>
+	@endif
 	
-	<li @yield('a-ayuda')>   
-		<a href="{{ URL::route('admin.ayuda') }}">
-			<i class="fa fa-info-circle"></i> <span>Soporte</span>
-		</a>
-	</li>
+	@if(Module::active('Support'))
+		<li @yield('a-soporte')>   
+			<a href="{{ URL::route('admin.soporte.index') }}">
+				<i class="fa fa-info-circle"></i> <span>Soporte</span>
+			</a>
+		</li>
+	@endif
 
 	@if(Auth::user()->role=="admin")
 		<li class="header">ADMINISTRADOR</li>

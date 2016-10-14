@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 
-@section('a-ayuda', 'class="active"')
+@section('a-soporte', 'class="active"')
 
 @section('header')
 	<h1>Soporte <small>Solicitud</small></h1>
@@ -18,7 +18,7 @@
 				</div>
 
 				<div class="box-body">
-					<form role="form" action="{{ route('admin.sendSoporte') }}" method="POST">
+					<form role="form" action="{{ route('admin.soporte.send') }}" method="POST">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="form-group">
 							<label>Asunto:</label>

@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 
-@section('a-emails', 'class="active"')
+@section('a-email', 'class="active"')
 
 @section('header')
 	<h1>Emails <small>Configuracion</small></h1>
@@ -40,7 +40,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">ble</h4>
 				</div>
-				<form role="form" action="{{ route('admin.sendEmail') }}" method="POST">
+				<form role="form" action="{{ route('admin.email.send') }}" method="POST">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">					
 					<input type="hidden" name="accion" id="hidden-accion" value="">
 					<input type="hidden" name="asunto" id="hidden-asunto" value="">
@@ -74,7 +74,7 @@
 					</div>
 					<div class="modal-footer">
 
-						<a class="btn btn-default" href="{{ route('admin.emails') }}">Cancelar</a>
+						<a class="btn btn-default" href="{{ route('admin.email.index') }}">Cancelar</a>
 						<button type="submit" class="btn btn-primary">Enviar</button>
 					</div>
 				</form>

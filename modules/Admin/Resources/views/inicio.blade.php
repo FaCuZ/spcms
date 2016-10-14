@@ -25,7 +25,7 @@
 
 			<div class="jumbotron">
 				<h1>Bienvenido</h1>
-				<p class="jumbotron-text">Desde este sistema podrás modificar la pagina a tu gusto, tanto textos como imágenes. Recuerde que para ingresar nuevos textos a la pagina deberá contactar al administrador.</p>
+				<p class="jumbotron-text">Desde este sistema podrás modificar la pagina a tu gusto, tanto textos como imágenes. Recuerde que para ingresar nuevos textos a la página deberá contactar al administrador.</p>
 				<p>
 					@if(Module::find('Texts')->active == 1)
 						<a class="btn btn-default btn-lg" href="{{ URL::route('admin.textos.index') }}" role="button"><i class="fa fa-file-text-o"></i> <span>Textos</span></a>
@@ -34,17 +34,19 @@
 						<a class="btn btn-default btn-lg" href="{{ URL::route('admin.imagenes.index') }}" role="button"><i class="fa fa-image"></i> <span>Imágenes</span></a>
 					@endif
 				</p>
-				<p class="jumbotron-text">Si necesitas ayuda puedes solicitarla desde la seccion de <a href="{{ URL::route('admin.ayuda') }}">soporte</a>.</p>
+				<p class="jumbotron-text">Si necesitas ayuda puedes solicitarla desde la seccion de <a href="{{ URL::route('admin.soporte.index') }}">soporte</a>.</p>
 
 			</div>
 
 			@if($down)
-				<div class="callout callout-warning">
-					<h4>En modo de mantenimiento</h4>
+				<div class="jumbotron">
+					<h3 class="text-yellow"><i class="icon fa fa-warning"></i> Modo mantenimiento</h3>
 
-					<p>Actualmente la página principal no está activa (modo mantenimiento), si necesita ver cambios realizados puede hacerlo desde el siguiente botón:</p>
-					
-					<p><a class="btn btn-warning btn-lg" href="{{ URL::route('admin.imagenes.index') }}" role="button"><i class="fa fa-share-square-o"></i> <span>Ver pagina sin cache</span></a></p>
+					<p class="jumbotron-text">Actualmente la página principal no está activa, si necesita ver los cambios realizados sin habilitarla, puede hacerlo desde el siguiente enlace:</p>
+						
+					<p><a class="btn btn-default btn-lg" href="{{ URL::route('admin.edicion') }}" role="button"><i class="fa fa-share-square-o"></i> <span>Ver página</span></a></p>
+
+					<p class="jumbotron-text">Puede activar la pagina cuando lo desee desde el menu de la derecha.</p>
 				</div>
 			@endif			
 

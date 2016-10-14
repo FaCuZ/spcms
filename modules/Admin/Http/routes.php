@@ -3,7 +3,7 @@
 Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modules\Admin\Http\Controllers'], function () {
 	
 	Route::get('/',		  ['as' => 'admin.inicio',  'uses' => 'AdminController@showInicio']);
-	Route::get('edicion', ['as' => 'edicion', 		'uses' => 'AdminController@edicion'	  ]);
+	Route::get('edicion', ['as' => 'admin.edicion', 'uses' => 'AdminController@edicion'	  ]);
 
 	Route::get('up',	  ['as' => 'admin.up',	'uses' => 'AdminController@up'	]);
 	Route::get('down',	  ['as' => 'admin.down','uses' => 'AdminController@down']);
@@ -12,13 +12,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modu
 	Route::get('cache/off',['as' => 'admin.cache.off',	'uses' => 'AdminController@cacheOff']);
 
 	Route::get('clear',	  ['as' => 'admin.clear','uses' => 'AdminController@borrarCache']);
-
-	Route::get('emails',  ['as' => 'admin.emails',  'uses' => 'AdminController@showEmails']);
-	Route::get('ayuda',   ['as' => 'admin.ayuda',   'uses' => 'AdminController@showAyuda' ]);
-	
-	Route::post('sendSoporte', ['as' => 'admin.sendSoporte', 'uses' => 'AdminController@sendMailSoporte']);
-	Route::post('sendEmail',   ['as' => 'admin.sendEmail',   'uses' => 'AdminController@sendMailEmail'	]);
-	
+		
 	Route::group(['middleware' => 'roladmin'], function () {
 		Route::get('usuarios',		 ['as' => 'admin.usuarios',		 'uses' => 'UserController@index' ]);
 		Route::get('usuario/{id}',	 ['as' => 'admin.usuario',	 	 'uses' => 'UserController@edit'  ]);
