@@ -14,6 +14,15 @@
 	<div class="row">
 		<div class="col-md-9">
 
+			@if(!$cache)
+				<div class="callout callout-danger">
+					<h4>Memoria cache desactivada</h4>
+
+					<p>La memoria cache no está activada. Es importante que no quede así por mucho tiempo.</p>
+				</div>
+			@endif
+
+
 			<div class="jumbotron">
 				<h1>Bienvenido</h1>
 				<p class="jumbotron-text">Desde este sistema podrás modificar la pagina a tu gusto, tanto textos como imágenes. Recuerde que para ingresar nuevos textos a la pagina deberá contactar al administrador.</p>
@@ -26,7 +35,19 @@
 					@endif
 				</p>
 				<p class="jumbotron-text">Si necesitas ayuda puedes solicitarla desde la seccion de <a href="{{ URL::route('admin.ayuda') }}">soporte</a>.</p>
+
 			</div>
+
+			@if($down)
+				<div class="callout callout-warning">
+					<h4>En modo de mantenimiento</h4>
+
+					<p>Actualmente la página principal no está activa (modo mantenimiento), si necesita ver cambios realizados puede hacerlo desde el siguiente botón:</p>
+					
+					<p><a class="btn btn-warning btn-lg" href="{{ URL::route('admin.imagenes.index') }}" role="button"><i class="fa fa-share-square-o"></i> <span>Ver pagina sin cache</span></a></p>
+				</div>
+			@endif			
+
 
 		</div>
 
