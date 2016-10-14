@@ -75,5 +75,4 @@ class AdminController extends Controller
 		return redirect()->route('admin.inicio')->withErrors(['alert' => 'El sistema de cache fue DESACTIVADO. Es importante no dejar desactivado por mucho tiempo.']);
 	}
 
-
 }
