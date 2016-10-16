@@ -5,7 +5,7 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Album <small>Nuevo</small></h1>
+	<h1>{!! button('back') !!} Album <small>Nuevo</small></h1>
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@
 
 				<div class="modal-footer">
 					<a class="btn btn-default" href="{{ route('admin.albums.index') }}">Cancelar</a>
-					<button type="submit" class="btn btn-primary">Crear</button>
+					<button type="submit" class="btn btn-primary">Crear Album</button>
 				</div>
 			</form>
 

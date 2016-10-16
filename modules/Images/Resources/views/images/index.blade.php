@@ -8,7 +8,7 @@
 		<h1>Imagenes <small>Lista</small>
 
 			<div class="pull-right">
-				@if(Auth::user()->role=="admin")
+				@if(Auth::user()->isAdmin)
 					<a class="btn btn-xs btn-success" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo album</a>
 					<a class="btn btn-xs btn-primary" href="{{ route('admin.albums.index') }}"><i class="fa fa-list"></i> Listar Albumes</a>
 				@endif
@@ -30,7 +30,7 @@
 						<div class="nav-tabs-custom">
 
 							<h4><strong>{{ ucfirst($album->title) }}</strong>
-								@if(Auth::user()->role=="admin")
+								@if(Auth::user()->isAdmin)
 									<div class="pull-right btns-opciones-img hidden">
 										<a class="btn btn-xs btn-warning" href="{{ route('admin.albums.edit', $album->id) }}"><i class="fa fa-edit"></i> Editar</a>
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.albums.show', $album->id) }}"><i class="fa fa-eye"></i> Ver</a>

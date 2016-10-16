@@ -14,8 +14,7 @@ class RolAdmin
 	 */
 	public function handle($request, Closure $next)
 	{
-
-		if(Auth::User()->role != 'admin'){
+		if(!Auth::User()->isAdmin){
 			if ($request->ajax() || $request->wantsJson()) {
 				return response('Unauthorized.', 401);
 			} else {

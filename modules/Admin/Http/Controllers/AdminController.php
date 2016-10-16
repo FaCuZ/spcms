@@ -5,8 +5,6 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\User;
-
 use App, Artisan, Setting, File;
 
 use Venturecraft\Revisionable\Revision;

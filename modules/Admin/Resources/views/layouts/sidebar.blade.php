@@ -57,7 +57,7 @@
 		</li>
 	@endif
 
-	@if(Auth::user()->role=="admin")
+	@if(Auth::user()->isAdmin)
 		<li class="header">ADMINISTRADOR</li>
 {{-- 
 		<li @yield('a-temas')>   

@@ -33,7 +33,6 @@ class TextController extends Controller {
 	 */
 	public function create(Request $request)
 	{
-
 		$data['selected'] = $request->input('selected');
 
 		$data['text_categories'] = TextCategory::all();

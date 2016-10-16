@@ -16,14 +16,11 @@
 @endsection
 
 @section('content')
-
-	<div class="box">
-
+	<div class="box box-solid">
 		@if($faq_categories->count())			
 			<div class="box-body">
-
 				@foreach($faq_categories as $category)
-
+				
 					<table class="table table-striped">
 						<thead><tr><th colspan="2" class="btns-padre">
 								<h4><strong>{{ ucfirst($category->title) }}:</strong>

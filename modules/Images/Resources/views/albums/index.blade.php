@@ -6,10 +6,9 @@
 
 @section('header')
 	<h1>
-		<a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Albumes 
-		<small>Lista</small>
+		{!! button('images') !!} Albumes <small>Lista</small>
 
-		@if(Auth::user()->role=="admin")
+		@if(Auth::user()->isAdmin)
 			<div class="pull-right">
 				<a class="btn btn-xs btn-success" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo album</a>
 			</div>
@@ -28,7 +27,7 @@
 							<tr>
 								<td><strong>{{$album->title}}</strong></td>
 								<td>{{$album->description}}</td>
-								@if(Auth::user()->role=="admin")
+								@if(Auth::user()->isAdmin)
 									<td class="text-right nowrap">
 										<a class="btn btn-xs btn-warning" href="{{ route('admin.albums.edit', $album->id) }}"><i class="fa fa-edit"></i> Editar</a>
 										<a class="btn btn-xs btn-success" href="{{ route('admin.galerias.create', ['album' => $album->id]) }}"><i class="fa fa-plus"></i> Nueva Galeria</a>
@@ -48,7 +47,7 @@
 			</div>
 		@else
 			<p class="tabla-empty">No hay ninguna album creado</p>
-			@if(Auth::user()->role=="admin")
+			@if(Auth::user()->isAdmin)
 				<a class="btn btn-sm btn-success pull-right" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
 			@endif
 		@endif

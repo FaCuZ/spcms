@@ -5,7 +5,9 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> FAQ <small>{{ $faq->id }}</small>
+	<h1>
+		<a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> FAQ 
+		<small>Mostrar: {{ $faq->id }}</small>
 		
 		<div class="pull-right">
 			<form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
@@ -22,7 +24,7 @@
 
 @section('content')
 
-	<div class="box">
+	<div class="box box-solid">
 		<div class="box-body">
 			
 			<dl class="dl-horizontal">

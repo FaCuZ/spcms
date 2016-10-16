@@ -7,11 +7,9 @@
 	<h1>
 		Administrador<small>Usuarios</small>
 
-		@if(Auth::user()->role=="admin")
-			<div class="pull-right">
-				<a class="btn btn-xs btn-success" href="{{ route('admin.usuario.create') }}"><i class="fa fa-align-left"></i> Nuevo usuario</a>
-			</div>
-		@endif
+		<div class="pull-right">
+			<a class="btn btn-xs btn-success" href="{{ route('admin.usuario.create') }}"><i class="fa fa-align-left"></i> Nuevo usuario</a>
+		</div>
 	</h1>
 
 @endsection

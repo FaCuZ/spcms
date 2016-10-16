@@ -8,8 +8,8 @@
 @section('header')
 	<h1>
 		<a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Textos
-		<small>Edicion</small>
-									
+		<small>Edicion: {{ $text->title }}</small>
+
 		<div class="pull-right">
 			<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">
 				<input type="hidden" name="_method" value="DELETE">
@@ -25,11 +25,7 @@
 	@include('errors.error')
 	
 	<div class="box">
-		<div class="box-header">
-			<h3 class="box-title">{{ $text->title }}</h3>
-		</div>
-
-		<div class="box-body no-padding">
+		<div class="box-body">
 
 			<form action="{{ route('admin.textos.update', $text->id) }}" method="POST">
 				<div class="modal-body">
@@ -38,17 +34,19 @@
 					<input type="hidden" name="_method" value="PUT">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					
-					@if(Auth::user()->role=="admin")
-						<div class="form-group @if($errors->has('title')) has-error @endif">
-							<label for="title-field">Title</label>
+					<div class="form-group @if($errors->has('title')) has-error @endif">
+						<label for="title-field">Nombre</label>
+						@if(Auth::user()->isAdmin)
 							<input type="text" id="title-field" name="title" class="form-control" value="{{ $text->title }}"/>
-							@if($errors->has("title"))
-								<span class="help-block">{{ $errors->first("title") }}</span>
-							@endif
-						</div>
-					@else
-						<input type="hidden" id="title-field" name="title" value="{{ $text->title }}"/>
-					@endif
+						@else
+							<p>{{ $text->title }}</p>
+							<input type="hidden" id="title-field" name="title" value="{{ $text->title }}"/>
+						@endif
+
+						@if($errors->has("title"))
+							<span class="help-block">{{ $errors->first("title") }}</span>
+						@endif
+					</div>
 
 					<div class="form-group @if($errors->has('text_category_id')) has-error @endif">
 						<label for="body-field">Categoria</label>

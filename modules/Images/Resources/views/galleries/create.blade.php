@@ -5,7 +5,7 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Galeria <small>Nueva</small></h1>
+	<h1>{!! button('back') !!} Galeria <small>Nueva</small></h1>
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
 	<div class="box box-solid">
 
-		<div class="box-body no-padding">
+		<div class="box-body">
 
 			<form action="{{ route('admin.galerias.store') }}" method="POST">
 				<div class="modal-body">

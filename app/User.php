@@ -13,4 +13,15 @@ class User extends Authenticatable
 	public function identifiableName(){
 		return $this->name;
 	}
+
+	public function getIsAdminAttribute($value)
+	{
+		return ($this->role == 'admin' ? true : false);
+	}
+
+	public function getIsNoneAttribute($value)
+	{
+		return ($this->role == 'none' ? true : false);
+	}
+
 }

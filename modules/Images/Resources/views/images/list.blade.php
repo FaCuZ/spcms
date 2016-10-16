@@ -5,9 +5,9 @@
 @section('a-contenido', 'active')
 
 @section('header')
-		<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Imagenes <small>Lista</small>
+		<h1>{!! button('images') !!} Imagenes <small>Lista</small>
 
-			@if(Auth::user()->role=="admin")
+			@if(Auth::user()->isAdmin)
 				<div class="pull-right">
 					<a class="btn btn-sm btn-success" href="{{ route('admin.albums.create') }}"><i class="fa fa-plus"></i> Nuevo album</a>
 				</div>

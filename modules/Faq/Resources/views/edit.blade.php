@@ -8,7 +8,7 @@
 @section('header')
 	<h1>
 		<a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> Faq
-		<small>Edicion</small>
+		<small>Edicion: {{ $faq->question }}</small>
 									
 		<div class="pull-right">
 			<form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">
@@ -25,30 +25,20 @@
 	@include('errors.error')
 	
 	<div class="box">
-		<div class="box-header">
-			<h3 class="box-question">{{ $faq->question }}</h3>
-		</div>
-
-		<div class="box-body no-padding">
+		<div class="box-body">
 
 			<form action="{{ route('admin.faq.update', $faq->id) }}" method="POST">
 				<div class="modal-body">
-
-
 					<input type="hidden" name="_method" value="PUT">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					
-					@if(Auth::user()->role=="admin")
-						<div class="form-group @if($errors->has('question')) has-error @endif">
-							<label for="question-field">question</label>
-							<input type="text" id="question-field" name="question" class="form-control" value="{{ $faq->question }}"/>
-							@if($errors->has("question"))
-								<span class="help-block">{{ $errors->first("question") }}</span>
-							@endif
-						</div>
-					@else
-						<input type="hidden" id="question-field" name="question" value="{{ $faq->question }}"/>
-					@endif
+					<div class="form-group @if($errors->has('question')) has-error @endif">
+						<label for="question-field">Pregunta</label>
+						<input type="text" id="question-field" name="question" class="form-control" value="{{ $faq->question }}"/>
+						@if($errors->has("question"))
+							<span class="help-block">{{ $errors->first("question") }}</span>
+						@endif
+					</div>
 
 					<div class="form-group @if($errors->has('faq_category_id')) has-error @endif">
 						<label for="body-field">Categoria</label>

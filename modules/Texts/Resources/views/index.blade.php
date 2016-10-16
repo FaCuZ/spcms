@@ -17,7 +17,7 @@
 
 @section('content')
 
-	<div class="box">
+	<div class="box box-solid">
 
 		@if($text_categories->count())			
 			<div class="box-body">

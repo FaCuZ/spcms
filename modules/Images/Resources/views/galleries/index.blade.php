@@ -6,8 +6,7 @@
 
 @section('header')
 	<h1>
-		<a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Galerias 
-		<small>Lista</small>
+		{!! button('images') !!} Galerias <small>Lista</small>
 
 		<div class="pull-right">
 			<a class="btn btn-xs btn-success" href="{{ route('admin.galerias.create') }}"><i class="fa fa-plus"></i> Nueva galeria</a>
@@ -23,24 +22,16 @@
 			<div class="box-body no-padding">
 				<table class="table table-striped">
 					<tbody>
-						<thead>
-							<tr>
-								<th>Nombre</th>
-								<th>Descripcion</th>
-								<th>Album</th>
-								<th></th>
-							</tr>
-						</thead>
 						@foreach($galleries as $gallery)
 							<tr>
 								<td><strong>{{$gallery->title}}</strong></td>
-								<td>{{$gallery->description}}</td>
 								<td>{{$gallery->album->title}}</td>
+								<td>{{$gallery->description}}</td>
 								<td class="text-right nowrap">
 									<a class="btn btn-xs btn-warning" href="{{ route('admin.galerias.edit', $gallery->id) }}"><i class="fa fa-edit"></i> Editar</a>
 									<a class="btn btn-xs btn-success" href="{{ route('admin.imagenes.create', ['gallery' => $gallery->id]) }}"><i class="fa fa-plus"></i> Agregar Imagen</a>
 									
-									@if(Auth::user()->role=="admin")
+									@if(Auth::user()->isAdmin)
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.galerias.show', $gallery->id) }}"><i class="fa fa-eye"></i> Ver</a>
 									@endif
 

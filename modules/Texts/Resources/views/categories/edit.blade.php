@@ -5,36 +5,44 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1>Categoria <small>Edicion</small></h1>
+	<h1>
+		<a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Categoria de textos
+		<small>Edicion: {{ $text_category->title }}</small>
+
+		<div class="pull-right">
+			<form action="{{ route('admin.textos.categorias.destroy', $text_category->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">
+				<input type="hidden" name="_method" value="DELETE">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
+			</form>
+		</div>
+	</h1>
+
 @endsection
 
 @section('content')
 	@include('errors.error')
 
 	<div class="box box-solid">
-		<div class="box-header">
-			<h3 class="box-title">{{ $text_category->title }}</h3>
-		</div>
-
-		<div class="box-body no-padding">
-
+		<div class="box-body">
 			<form action="{{ route('admin.textos.categorias.update', $text_category->id) }}" method="POST">
 				<div class="modal-body">
-
 					<input type="hidden" name="_method" value="PUT">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					@if(Auth::user()->role=="admin")
-						<div class="form-group @if($errors->has('title')) has-error @endif">
-							<label for="title-field">Nombre</label>
+					<div class="form-group @if($errors->has('title')) has-error @endif">
+						<label for="title-field">Nombre</label>
+						@if(Auth::user()->isAdmin)
 							<input type="text" id="title-field" name="title" class="form-control" value="{{ $text_category->title }}"/>
-							@if($errors->has("title"))
-								<span class="help-block">{{ $errors->first("title") }}</span>
-							@endif
-						</div>
-					@else
-						<input type="hidden" id="title-field" name="title" value="{{ $text_category->title }}"/>
-					@endif
+						@else
+							<p>{{ $text_category->title }}</p>
+							<input type="hidden" id="title-field" name="title" value="{{ $text_category->title }}"/>
+						@endif
+
+						@if($errors->has("title"))
+							<span class="help-block">{{ $errors->first("title") }}</span>
+						@endif
+					</div>
 
 				</div>
 

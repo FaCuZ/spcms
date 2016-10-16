@@ -126,3 +126,22 @@ function showHistory($historial){
 
 	return $html;
 }
+
+
+function button($boton){
+
+	return '<a class="btn btn-default btn-xs" href="'.getUrlButton($boton).'"><i class="fa fa-chevron-left"></i></a>';
+
+
+}
+
+function getUrlButton($op){
+	switch ($op) {
+		case 'back': 	return URL::previous();
+		case 'images': 	return route('admin.imagenes.index');
+		case 'texts': 	return route('admin.textos.index');
+		case 'faq': 	return route('admin.faq.index');
+
+		default: return route($boton);
+	}
+}

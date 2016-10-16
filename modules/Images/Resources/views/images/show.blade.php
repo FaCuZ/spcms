@@ -5,7 +5,9 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Imagen <small>{{ $image->title }}</small>
+	<h1>
+		{!! button('images') !!} Imagen <small>{{ $image->title }}</small>
+
 		<div class="pull-right">
 			<form action="{{ route('admin.imagenes.destroy', $image->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
 				<input type="hidden" name="_method" value="DELETE">
@@ -58,27 +60,29 @@
 				</div>
 
 				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
-					<dt>Codigo:</dt>
-					<dd>
-						<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}" /&gt;</pre>
-						<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}</pre>
-						Miniatura:
-						<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}" /&gt;</pre>
-						<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}</pre>
-					</dd>
+					@if(Auth::user()->isAdmin)
+						<dt>Codigo:</dt>
+						<dd>
+							<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}" /&gt;</pre>
+							<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}</pre>
+							Miniatura:
+							<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}" /&gt;</pre>
+							<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}</pre>
+						</dd>
 
 
-					<dt>Tablas:</dt>
-					<dd>
-						images:			
-						{!! showTable($tabla_1, $image) !!}
-						
-						gallery:
-						{!! showTable($tabla_2, $gallery) !!}
+						<dt>Tablas:</dt>
+						<dd>
+							images:
+							{!! showTable($tabla_1, $image) !!}
+							
+							gallery:
+							{!! showTable($tabla_2, $gallery) !!}
 
-						album:
-						{!! showTable($tabla_3, $album) !!}
-					</dd>
+							album:
+							{!! showTable($tabla_3, $album) !!}
+						</dd>
+					@endif
 
 					<dt>Historial:</dt>
 					<dd>

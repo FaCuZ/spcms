@@ -5,37 +5,35 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.imagenes.index') }}"><i class="fa fa-chevron-left"></i></a> Galeria <small>Edicion</small></h1>
+	<h1>{!! button('back') !!} Galeria <small>Edicion</small></h1>
 @endsection
 
 @section('content')
 	@include('errors.error')
 
 	<div class="box box-solid">
-	  <div class="box-header">
-		<h3 class="box-title">{{ $gallery->title }}</h3>
-	  </div>
+		<div class="box-body no-padding">
 
-	  <div class="box-body no-padding">
-
-		<form action="{{ route('admin.galerias.update', $gallery->id) }}" method="POST">
-		  <div class="modal-body">
+			<form action="{{ route('admin.galerias.update', $gallery->id) }}" method="POST">
+				<div class="modal-body">
 
 
-		  	<input type="hidden" name="_method" value="PUT">
-		  	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="hidden" name="_method" value="PUT">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-			@if(Auth::user()->role=="admin")
 				<div class="form-group @if($errors->has('title')) has-error @endif">
 					<label for="title-field">Nombre</label>
-					<input type="text" id="title-field" name="title" class="form-control" value="{{ $gallery->title }}"/>
-			  		@if($errors->has("title"))
-			  			<span class="help-block">{{ $errors->first("title") }}</span>
-			  		@endif
-			  	</div>
-		  	@else
-				<input type="hidden" id="title-field" name="title" value="{{ $gallery->title }}"/>
-			@endif
+					@if(Auth::user()->isAdmin)
+						<input type="text" id="title-field" name="title" class="form-control" value="{{ $gallery->title }}"/>
+					@else
+						<p>{{ $gallery->title }}</p>
+						<input type="hidden" id="title-field" name="title" value="{{ $gallery->title }}"/>
+					@endif
+					
+					@if($errors->has("title"))
+						<span class="help-block">{{ $errors->first("title") }}</span>
+					@endif
+				</div>
 
 			<div class="form-group @if($errors->has('description')) has-error @endif">
 				<label for="description-field">Descripcion</label>
