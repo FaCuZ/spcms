@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 
-use Auth, Mail, App, Artisan, Setting, File;
+use App, Artisan, Setting, File;
 
 use Venturecraft\Revisionable\Revision;
 

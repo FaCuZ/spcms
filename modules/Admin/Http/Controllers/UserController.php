@@ -5,6 +5,8 @@ use Illuminate\Routing\Controller;
 
 use App\User;
 
+use Hash;
+
 class UserController extends Controller
 {
 
@@ -29,7 +31,7 @@ class UserController extends Controller
 	 */
 	public function create()
 	{
-		return view('admin::create');
+		return view('admin::user.create');
 	}
 
 	/**
@@ -38,6 +40,11 @@ class UserController extends Controller
 	 * @return Response
 	 */
 	public function store(Request $request){
+        $request->merge(['password' => Hash::make($request->password)]);
+        
+        $user = User::create($request->all());
+
+		return redirect()->route('admin.usuarios')->withErrors(['good' => 'El usuario se creo correctamente.']);
 
 	}
 
@@ -80,7 +87,10 @@ class UserController extends Controller
 	 * Remove the specified resource from storage.
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($id)
 	{
+		User::destroy($id);
+		
+		return redirect()->route('admin.usuarios')->withErrors(['good' => 'El usuario se borrado correctamente.']);
 	}
 }

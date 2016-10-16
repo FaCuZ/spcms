@@ -14,9 +14,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modu
 	Route::get('clear',	  ['as' => 'admin.clear','uses' => 'AdminController@borrarCache']);
 		
 	Route::group(['middleware' => 'roladmin'], function () {
-		Route::get('usuarios',		 ['as' => 'admin.usuarios',		 'uses' => 'UserController@index' ]);
-		Route::get('usuario/{id}',	 ['as' => 'admin.usuario',	 	 'uses' => 'UserController@edit'  ]);
-		Route::post('usuario/{id}',	 ['as' => 'admin.usuario.update','uses' => 'UserController@update']);
+		Route::get('usuarios',		 ['as' => 'admin.usuarios',		  'uses' => 'UserController@index' ]);
+		Route::get('usuario/nuevo',	 ['as' => 'admin.usuario.create', 'uses' => 'UserController@create']);
+		Route::get('usuario/{id}',	 ['as' => 'admin.usuario',	 	  'uses' => 'UserController@edit'  ]);
+		Route::post('usuario/store', ['as' => 'admin.usuario.store',  'uses' => 'UserController@store' ]);
+		Route::delete('usuario/{id}',['as' => 'admin.usuario.destroy','uses' => 'UserController@destroy']);
+		Route::post('usuario/{id}',	 ['as' => 'admin.usuario.update', 'uses' => 'UserController@update']);
 
 		Route::get('modulos', 		['as' => 'admin.modulos',		'uses' => 'ModuleController@index'		]);
 		Route::get('modulos/on', 	['as' => 'admin.modulos.on',	'uses' => 'ModuleController@activate'	]);

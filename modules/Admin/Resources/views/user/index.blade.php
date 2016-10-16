@@ -4,7 +4,15 @@
 
 @section('header')
 
-	<h1>Administrador<small>Usuarios</small></h1>
+	<h1>
+		Administrador<small>Usuarios</small>
+
+		@if(Auth::user()->role=="admin")
+			<div class="pull-right">
+				<a class="btn btn-xs btn-success" href="{{ route('admin.usuario.create') }}"><i class="fa fa-align-left"></i> Nuevo usuario</a>
+			</div>
+		@endif
+	</h1>
 
 @endsection
 
