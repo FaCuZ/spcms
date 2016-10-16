@@ -6,19 +6,18 @@
 
 @section('header')
 	<h1>
-		<a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> FAQ 
-		<small>Mostrar: {{ $faq->id }}</small>
+		{!! button('back') !!} FAQ <small>Mostrar: {{ $faq->id }}</small>
 		
-		<div class="pull-right">
-			<form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
-				<input type="hidden" name="_method" value="DELETE">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<div class="pull-right">
-					<a class="btn btn-xs btn-warning btn-group" role="group" href="{{ route('admin.faq.edit', $faq->id) }}"><i class="fa fa-edit"></i> Editar</a>
+		@if(Auth::user()->isAdmin)		
+			<div class="pull-right">
+				<a class="btn btn-xs btn-warning btn-group" role="group" href="{{ route('admin.faq.edit', $faq->id) }}"><i class="fa fa-edit"></i> Editar</a>
+				<form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
+					<input type="hidden" name="_method" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
-				</div>
-			</form>
-		</div>	
+				</form>
+			</div>
+		@endif
 	</h1>
 @endsection
 
@@ -44,21 +43,22 @@
 				</div>
 
 				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
+					@if(Auth::user()->isAdmin)
+						<dt>Codigo:</dt>
+						<dd>
+							<pre class="pre-codigo">&#123;&#123; $faq_categorias->texto('{{ $faq_category->title }}','{{ $faq->question }}') }}</pre>
+							<pre class="pre-codigo">&#123;&#123; $faq->texto('{{ $faq->question }}') }}</pre>
+						</dd>
 
-					<dt>Codigo:</dt>
-					<dd>
-						<pre class="pre-codigo">&#123;&#123; $faq_categorias->texto('{{ $faq_category->title }}','{{ $faq->question }}') }}</pre>
-						<pre class="pre-codigo">&#123;&#123; $faq->texto('{{ $faq->question }}') }}</pre>
-					</dd>
+						<dt>Tablas:</dt>
+						<dd>
+							faq:
+							{!! showTable($tabla_1, $faq) !!}
 
-					<dt>Tablas:</dt>
-					<dd>
-						faq:
-						{!! showTable($tabla_1, $faq) !!}
-
-						faq_category:
-						{!! showTable($tabla_2, $faq_category) !!}
-					</dd>
+							faq_category:
+							{!! showTable($tabla_2, $faq_category) !!}
+						</dd>
+					@endif
 
 					<dt>Historial:</dt>
 					<dd>

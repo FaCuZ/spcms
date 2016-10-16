@@ -6,8 +6,7 @@
 
 @section('header')
 	<h1>
-		<a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Categoria de textos
-		<small>Edicion: {{ $text_category->title }}</small>
+		{!! button('texts') !!} Categoria de textos <small>Edicion: {{ $text_category->title }}</small>
 
 		<div class="pull-right">
 			<form action="{{ route('admin.textos.categorias.destroy', $text_category->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">

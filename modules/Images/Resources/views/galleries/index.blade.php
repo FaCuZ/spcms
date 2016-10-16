@@ -17,7 +17,7 @@
 
 @section('content')
 
-	<div class="box box-solid">
+	<div class="box box-default">
 		@if($galleries->count())
 			<div class="box-body no-padding">
 				<table class="table table-striped">
@@ -29,7 +29,7 @@
 								<td>{{$gallery->description}}</td>
 								<td class="text-right nowrap">
 									<a class="btn btn-xs btn-warning" href="{{ route('admin.galerias.edit', $gallery->id) }}"><i class="fa fa-edit"></i> Editar</a>
-									<a class="btn btn-xs btn-success" href="{{ route('admin.imagenes.create', ['gallery' => $gallery->id]) }}"><i class="fa fa-plus"></i> Agregar Imagen</a>
+									<a class="btn btn-xs btn-success" href="{{ route('admin.imagenes.create', ['selected' => $gallery->id]) }}"><i class="fa fa-plus"></i> Agregar Imagen</a>
 									
 									@if(Auth::user()->isAdmin)
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.galerias.show', $gallery->id) }}"><i class="fa fa-eye"></i> Ver</a>

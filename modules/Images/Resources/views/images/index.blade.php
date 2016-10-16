@@ -25,7 +25,6 @@
 			<div class="box-body">
 				@foreach($albums as $album)
 					<div class="album">
-						
 
 						<div class="nav-tabs-custom">
 
@@ -49,7 +48,7 @@
 									<li class="galeria_item"><a href="#tab_{{ $galeria->id }}" data-toggle="tab"><i class="fa fa-folder-o"></i> {{ ucfirst($galeria->title) }}</a></li>
 								@endforeach
 
-								<li class="new"><a href="{{ route('admin.galerias.create', ['album' => $album->id]) }}"><i class="fa fa-plus"></i></a></li>
+								<li class="new"><a href="{{ route('admin.galerias.create', ['selected' => $album->id]) }}"><i class="fa fa-plus"></i></a></li>
 
 							</ul>
 							<div class="tab-content">
@@ -61,7 +60,7 @@
 											</span>
 										@endforeach
 										<div class="new_image">
-											<a href="{{ route('admin.imagenes.create', ['gallery' => $galeria->id]) }}"><i class="fa fa-plus"></i></a>
+											<a href="{{ route('admin.imagenes.create', ['selected' => $galeria->id]) }}"><i class="fa fa-plus"></i></a>
 										</div>
 
 
@@ -74,8 +73,6 @@
 						</div>
 						
 						
-
-
 					</div>
 				@endforeach
 			</div>

@@ -18,14 +18,25 @@
 				<div class="modal-body">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					<input type="hidden" name="gallery_id" value="{{ $gallery->id }}">
-
 					<div class="form-group @if($errors->has('title')) has-error @endif">
 						<label for="title-field">Nombre</label>
 						<input type="text" id="title-field" name="title" class="form-control" value="{{ old("title") }}"/>
 						@if($errors->has("title"))
 							<span class="help-block">{{ $errors->first("title") }}</span>
 						@endif
+					</div>
+
+					<div class="form-group @if($errors->has('gallery_id')) has-error @endif">
+						<label for="body-field">Galeria</label>
+						<div>								
+							@if($galleries->count())
+								<select name="gallery_id">
+									@foreach($galleries as $gallery)					
+										<option value="{{ $gallery->id }}" {{ $selected == $gallery->id ? 'selected="selected"' : '' }}>{{ $gallery->title }}</option>   
+									@endforeach
+								</select> 
+							@endif
+						</div>
 					</div>
 
 					<div class="form-group @if($errors->has('file')) has-error @endif">

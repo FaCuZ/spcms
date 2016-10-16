@@ -35,6 +35,19 @@
 						@endif
 					</div>
 
+					<div class="form-group @if($errors->has('gallery_id')) has-error @endif">
+						<label for="body-field">Galeria</label>
+						<div>								
+							@if($galleries->count())
+								<select name="gallery_id">
+									@foreach($galleries as $gallery)					
+										<option value="{{ $gallery->id }}" {{ $selected == $gallery->id ? 'selected="selected"' : '' }}>{{ $gallery->title }}</option>   
+									@endforeach
+								</select> 
+							@endif
+						</div>
+					</div>
+
 					<div class="form-group @if($errors->has('file')) has-error @endif">
 						<label for="file-field">Imagen</label>
 						<input type="file" id="file-field" name="file">

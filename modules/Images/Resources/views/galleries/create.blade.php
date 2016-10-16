@@ -19,8 +19,6 @@
 				<div class="modal-body">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					<input type="hidden" name="album_id" value="{{ $album->id }}">
-
 					<div class="form-group @if($errors->has('title')) has-error @endif">
 						<label for="title-field">Nombre</label>
 						<input type="text" id="title-field" name="title" class="form-control" value="{{ old("title") }}"/>
@@ -28,6 +26,22 @@
 							<span class="help-block">{{ $errors->first("title") }}</span>
 						@endif
 					</div>
+
+
+					<div class="form-group @if($errors->has('album_id')) has-error @endif">
+						<label for="body-field">Album</label>
+						<div>								
+							@if($albums->count())
+								<select name="album_id">
+									@foreach($albums as $album)					
+										<option value="{{ $album->id }}" {{ $selected == $album->id ? 'selected="selected"' : '' }}>{{ $album->title }}</option>   
+									@endforeach
+								</select> 
+							@endif
+						</div>
+					</div>
+
+
 					<div class="form-group @if($errors->has('description')) has-error @endif">
 						<label for="description-field">Descripcion</label>
 						<textarea class="form-control" id="description-field" rows="15" name="description">{{ old("description") }}</textarea>

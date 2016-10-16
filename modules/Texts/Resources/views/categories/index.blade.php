@@ -6,9 +6,7 @@
 
 @section('header')
 	<h1>
-		<a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Categoria de textos
-		<small>Lista</small>
-
+		{!! button('texts') !!} Categoria de textos <small>Lista</small>
 		<div class="pull-right">
 			<a class="btn btn-xs btn-success pull-right" href="{{ route('admin.textos.categorias.create') }}"><i class="fa fa-plus"></i> Nuevo</a>
 		</div>

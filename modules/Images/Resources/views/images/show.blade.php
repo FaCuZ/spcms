@@ -13,7 +13,7 @@
 				<input type="hidden" name="_method" value="DELETE">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="pull-right">
-					<a class="btn btn-xs btn-warning btn-group" role="group" href="{{ route('admin.imagenes.edit', $image->id) }}"><i class="fa fa-edit"></i> Editar</a>
+					<a class="btn btn-xs btn-warning btn-group" role="group" href="{{ route('admin.imagenes.edit', [$image->id, 'selected' => $image->gallery_id]) }}"><i class="fa fa-edit"></i> Editar</a>
 					<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
 				</div>
 			</form>

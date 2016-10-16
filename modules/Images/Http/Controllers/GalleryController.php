@@ -32,11 +32,10 @@ class GalleryController extends Controller {
 	 */
 	public function create(Request $request)
 	{
+		$data['albums'] = Album::all();
+		$data['selected'] = $request->input('selected');
 
- 		$album_id = $request->input('album');
- 		$album = Album::findOrFail($album_id);
-
-		return view('images::galleries.create', compact('album'));
+		return view('images::galleries.create', $data);
 	}
 
 	/**
@@ -50,8 +49,8 @@ class GalleryController extends Controller {
 		$gallery = new Gallery();
 
 		$gallery->title = $request->input("title");
-        $gallery->description = $request->input("description");
-        $gallery->album_id = $request->input("album_id");
+		$gallery->description = $request->input("description");
+		$gallery->album_id = $request->input("album_id");
 
 		$gallery->save();
 
@@ -79,13 +78,17 @@ class GalleryController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Request $request, $id)
 	{
-		$gallery = Gallery::findOrFail($id);
+		$data['gallery'] = Gallery::findOrFail($id);
 
-		$rol = Auth::user()->role;
+		$data['albums'] = Album::all();
+		$data['selected'] = $data['gallery']->album_id;
+
+		$data['rol'] = Auth::user()->role;
+
 		
-		return view('images::galleries.edit', compact(['gallery','rol']));
+		return view('images::galleries.edit', $data);
 	}
 
 	/**
@@ -100,7 +103,8 @@ class GalleryController extends Controller {
 		$gallery = Gallery::findOrFail($id);
 
 		$gallery->title = $request->input("title");
-        $gallery->description = $request->input("description");
+		$gallery->description = $request->input("description");
+		$gallery->album_id = $request->input("album_id");
 
 		$gallery->save();
 

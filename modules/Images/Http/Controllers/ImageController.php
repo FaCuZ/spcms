@@ -49,10 +49,10 @@ class ImageController extends Controller {
 	 */
 	public function create(Request $request)
 	{
-		$gallery_id = $request->input('gallery');
-		$gallery = Gallery::findOrFail($gallery_id);
+		$data['galleries'] = Gallery::all();
+		$data['selected'] = $request->input('selected');
 
-		return view('images::images.create', compact('gallery'));
+		return view('images::images.create', $data);
 
 	}
 
@@ -73,7 +73,6 @@ class ImageController extends Controller {
 		$image->title = $request->input("title");
 		$image->description = $request->input("description");        
 		$image->gallery_id = $request->input("gallery_id");
-
 
 		$file = $request->file;		
 		$imageFile = ImageI::make($request->file);
@@ -127,11 +126,14 @@ class ImageController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
-		$image = Image::findOrFail($id);
+	public function edit(Request $request, $id)
+	{		
+		$data['galleries'] = Gallery::all();
+		$data['selected'] = $request->input('selected');
+		
+		$data['image'] = Image::findOrFail($id);
 
-		return view('images::images.edit', compact('image'));
+		return view('images::images.edit', $data);
 	}
 
 	/**
@@ -147,6 +149,7 @@ class ImageController extends Controller {
 
 		$image->title = $request->input("title");
 		$image->description = $request->input("description");
+		$image->gallery_id = $request->input("gallery_id");
 
 		if ($request->hasFile('file')) {
 			$file = $request->file;

@@ -5,7 +5,7 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1><a class="btn btn-default btn-xs" href="{{ route('admin.textos.index') }}"><i class="fa fa-chevron-left"></i></a> Textos <small>{{ $text->title }}</small>
+	<h1>{!! button('back') !!} Textos <small>{{ $text->title }}</small>
 		
 		<div class="pull-right">
 			<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
@@ -43,20 +43,22 @@
 				</div>
 
 				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
-					<dt>Codigo:</dt>
-					<dd>
-						<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
-						<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
-					</dd>
+					@if(Auth::user()->isAdmin)
+						<dt>Codigo:</dt>
+						<dd>
+							<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
+							<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
+						</dd>
 
-					<dt>Tablas:</dt>
-					<dd>
-						texts:
-						{!! showTable($tabla_1, $text) !!}
+						<dt>Tablas:</dt>
+						<dd>
+							texts:
+							{!! showTable($tabla_1, $text) !!}
 
-						texts_category:
-						{!! showTable($tabla_2, $text_category) !!}					
-					</dd>
+							texts_category:
+							{!! showTable($tabla_2, $text_category) !!}					
+						</dd>
+					@endif
 
 					<dt>Historial:</dt>
 					<dd>

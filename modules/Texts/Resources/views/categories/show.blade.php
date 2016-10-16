@@ -5,7 +5,7 @@
 @section('a-contenido', 'active')
 
 @section('header')
-    <h1>Categoria <small>{{ $text_category->title }}</small></h1>
+    <h1>{!! button('texts') !!} Categoria <small>{{ $text_category->title }}</small></h1>
 @endsection
 
 @section('content')

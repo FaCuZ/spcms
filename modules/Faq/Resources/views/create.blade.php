@@ -5,10 +5,7 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1> 
-		<a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> faq
-		<small>Nuevo</small>
-	</h1>
+	<h1>{!! button('back') !!} faq <small>Nuevo</small></h1>
 @endsection
 
 @section('content')

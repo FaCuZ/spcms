@@ -7,16 +7,17 @@
 
 @section('header')
 	<h1>
-		<a class="btn btn-default btn-xs" href="{{ route('admin.faq.index') }}"><i class="fa fa-chevron-left"></i></a> Faq
-		<small>Edicion: {{ $faq->question }}</small>
-									
-		<div class="pull-right">
-			<form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">
-				<input type="hidden" name="_method" value="DELETE">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
-			</form>
-		</div>
+		{!! button('faq') !!} Faq <small>Edicion: {{ $faq->question }}</small>
+		
+		@if(Auth::user()->isAdmin)								
+			<div class="pull-right">
+				<form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">
+					<input type="hidden" name="_method" value="DELETE">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Borrar</button>
+				</form>
+			</div>
+		@endif
 
 	</h1>
 @endsection
