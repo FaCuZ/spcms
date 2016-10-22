@@ -14,8 +14,11 @@ class CreateGalleriesTable extends Migration {
 	{
 		Schema::create('galleries', function(Blueprint $table) {
 			$table->increments('id');
+
 			$table->string('title');
 			$table->text('description')->nullable();
+			
+			$table->integer('default_image_id')->unsigned()->nullable();
 
 			$table->integer('album_id')->unsigned();
 			$table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');

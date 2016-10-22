@@ -9,7 +9,7 @@ class Gallery extends Revisionable
 {
     use SoftDeletes;
 	
-	protected $fillable = [ 'title', 'description', 'album_id' ];
+	protected $fillable = [ 'title', 'description', 'default_image_id', 'album_id' ];
     protected $dates = ['deleted_at'];
 
 	protected $revisionEnabled = true;
@@ -30,7 +30,6 @@ class Gallery extends Revisionable
 		return $this->hasMany('Modules\Images\Models\Image');
 	}
 
-
 	public function setTitleAttribute($value)
 	{
 		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
@@ -43,6 +42,12 @@ class Gallery extends Revisionable
 		if(!$galeria) return 'null';
 
 		return $galeria;
+	}
+
+	public function getVistaAttribute()
+	{
+		// TODO: Preguntar si tiene una imagen para mostrar por default
+		return $this->imagenes->first()["thumb"];
 	}
 
 }
