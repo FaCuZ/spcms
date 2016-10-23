@@ -83,7 +83,11 @@ function showTable($tabla, $data){
 		$html .= '</tr><tr>';
 
 		foreach($tabla as $col){
-			$html .= '<td>'.$data[$col].'</td>';
+			if($data[$col]){
+				$html .= '<td>'.$data[$col].'</td>';
+			} else {
+				$html .= '<td><small class="text-muted"><em>null</em></small></td>';				
+			}
 		}
 							
 		$html .= '</tr></table>';
@@ -120,7 +124,7 @@ function showHistory($historial){
 		$html .= '</tbody>'.
 				'</table>';
 	} else {
-		$html = '<h5>Sin cambios.</h5>';
+		$html = '<p><small class="text-muted"><em>Sin cambios.</em></small><br/></p>';
 
 	} 
 

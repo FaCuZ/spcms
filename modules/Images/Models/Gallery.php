@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 use \Venturecraft\Revisionable\Revisionable;
 
-class Gallery extends Revisionable
+class Gallery extends Revisionable 
 {
     use SoftDeletes;
 	
