@@ -133,10 +133,7 @@ function showHistory($historial){
 
 
 function button($boton){
-
 	return '<a class="btn btn-default btn-xs" href="'.getUrlButton($boton).'"><i class="fa fa-chevron-left"></i></a>';
-
-
 }
 
 function getUrlButton($op){

@@ -1,16 +1,16 @@
 {
-    "name": "Texts",
-    "alias": "texts",
-    "description": "Permite modificar los textos de la pagina.",
-    "keywords": [],
-    "active": 1,
-    "order": 1,
-    "disabled": 0,
-    "providers": [
-        "Modules\\Texts\\Providers\\TextsServiceProvider"
-    ],
-    "aliases": [],
-    "files": [
-        "start.php"
-    ]
+	"name": "Texts",
+	"alias": "texts",
+	"description": "Permite modificar los textos de la pagina.",
+	"keywords": [],
+	"active": 1,
+	"order": 1,
+	"disabled": 0,
+	"providers": [
+		"Modules\\Texts\\Providers\\TextsServiceProvider"
+	],
+	"aliases": [],
+	"files": [
+		"start.php"
+	]
 }

@@ -1,0 +1,16 @@
+{
+	"name": "News",
+	"alias": "news",
+	"description": "Permite publicar noticias",
+	"keywords": [],
+	"active": 1,
+	"order": 3,
+	"disabled": 0,
+	"providers": [
+		"Modules\\News\\Providers\\NewsServiceProvider"
+	],
+	"aliases":{},
+	"files": [
+		"start.php"
+	]
+}
