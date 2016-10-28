@@ -51,8 +51,8 @@ class TextController extends Controller {
 		$text = new Text();
 
 		$text->title = $request->input("title");
-        $text->body = $request->input("body");
-        $text->text_category_id = $request->input("text_category_id");
+		$text->body = $request->input("body");
+		$text->text_category_id = $request->input("text_category_id");
 
 		$text->save();
 
@@ -109,8 +109,8 @@ class TextController extends Controller {
 		$text = Text::findOrFail($id);
 
 		$text->title = $request->input("title");
-        $text->body = $request->input("body");
-        $text->text_category_id = $request->input("text_category_id");
+		$text->body = $request->input("body");
+		$text->text_category_id = $request->input("text_category_id");
 
 		$text->save();
 

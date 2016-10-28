@@ -1,11 +1,11 @@
-<?php namespace Modules\Texts\Models;
+<?php namespace Modules\News\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use \Venturecraft\Revisionable\Revisionable;
 
-class Text extends Revisionable
+class News extends Revisionable
 {
 	use SoftDeletes;
 	
@@ -18,15 +18,14 @@ class Text extends Revisionable
 
 	protected $revisionFormattedFieldNames = [
 		'title' => 'Titulo',
-		'body' => 'Texto',
-		'text_category_id' => 'Categoria',
+		'body' => 'Cuerpo',
 		'deleted_at' => 'Borrado'
 
 	];
 
 
-	public function categoria(){
-		return $this->belongsTo('Modules\Texts\Models\TextCategory','text_category_id');
+	/*public function categoria(){
+		return $this->belongsTo('Modules\News\Models\TextCategory','text_category_id');
 	}
 
 
@@ -48,7 +47,7 @@ class Text extends Revisionable
 	public function setTitleAttribute($value)
 	{
 		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
-	}
+	}*/
 
 	public function identifiableName()
 	{

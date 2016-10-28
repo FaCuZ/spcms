@@ -141,6 +141,7 @@ function getUrlButton($op){
 		case 'back': 	return URL::previous();
 		case 'images': 	return route('admin.imagenes.index');
 		case 'texts': 	return route('admin.textos.index');
+		case 'news': 	return route('admin.noticias.index');
 		case 'faq': 	return route('admin.faq.index');
 
 		default: return route($boton);
