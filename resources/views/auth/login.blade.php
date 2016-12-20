@@ -1,6 +1,7 @@
 @extends('auth.layouts.master')
 
 @section('content')
+{{-- dd(Auth::user()) --}}
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">

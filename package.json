@@ -10,6 +10,6 @@
     "laravel-elixir": "^5.0.0"
   },
   "dependencies": {
-    "admin-lte": "^2.3.3"
+    "admin-lte": "^2.3.8"
   }
 }

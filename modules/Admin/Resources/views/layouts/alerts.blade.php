@@ -1,7 +1,7 @@
 {{--	Alertas Posibles: "error", "alert", "info" y "good" 						--}}
 {{-- 	Ejemplo: ->withErrors(['error' => 'Todo mal', 'good' => 'Todo bien']); 		--}}
 
-@if($errors->has())
+@if($errors->has(''))
 
 		@if($errors->first('error'))
 			<div class="alert alert-danger alert-dismissible fade in">

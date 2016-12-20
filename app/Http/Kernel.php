@@ -30,6 +30,7 @@ class Kernel extends HttpKernel
 			\Illuminate\Session\Middleware\StartSession::class,
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 			\App\Http\Middleware\VerifyCsrfToken::class,
+			\Illuminate\Routing\Middleware\SubstituteBindings::class,
 		],
 		'admin' => [
 			\App\Http\Middleware\EncryptCookies::class,
@@ -38,12 +39,14 @@ class Kernel extends HttpKernel
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 			\App\Http\Middleware\VerifyCsrfToken::class,
 
-			\App\Http\Middleware\Authenticate::class,
+			//\App\Http\Middleware\Authenticate::class,
+			\Illuminate\Auth\Middleware\Authenticate::class,
 			\App\Http\Middleware\SinRol::class,
 			\Arcanedev\Settings\Http\Middleware\SettingsMiddleware::class,
 		],
 		'api' => [
 			'throttle:60,1',
+			'bindings',
 		],
 	];
 
@@ -55,12 +58,15 @@ class Kernel extends HttpKernel
 	 * @var array
 	 */
 	protected $routeMiddleware = [
+		//'auth' => \App\Http\Middleware\Authenticate::class,
+		'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
 		'auth' => \App\Http\Middleware\Authenticate::class,
 		'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-		'sinrol' => \App\Http\Middleware\SinRol::class,
-		'roladmin' => \App\Http\Middleware\RolAdmin::class,
-		'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+		'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+		'can' => \Illuminate\Auth\Middleware\Authorize::class,
 		'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
 		'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+		'sinrol' => \App\Http\Middleware\SinRol::class,
+		'roladmin' => \App\Http\Middleware\RolAdmin::class,
 	];
 }

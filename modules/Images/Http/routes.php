@@ -1,8 +1,8 @@
 <?php
 
-Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Modules\Images\Http\Controllers'], function()
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin'], 'namespace' => 'Modules\Images\Http\Controllers'], function()
 {
-	Route::resource("imagenes","ImageController");
+	Route::resource("imagenes", "ImageController");
 
 	Route::get('images', ['as' => 'admin.imagenes.lista', 'uses' => 'ImageController@lista']);
 
