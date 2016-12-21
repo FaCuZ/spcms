@@ -14,6 +14,14 @@
 			<i class="fa fa-angle-left pull-right"></i>
 		</a>
 		<ul class="treeview-menu">
+			@if(Module::active('Pages'))
+				<li @yield('a-paginas')> 
+					<a href="{{ URL::route('admin.paginas.index') }}">
+						<i class="fa fa-file-o"></i> <span>Paginas</span>
+					</a>
+				</li>
+			@endif
+
 			@if(Module::active('News'))
 				<li @yield('a-noticias')> 
 					<a href="{{ URL::route('admin.noticias.index') }}">

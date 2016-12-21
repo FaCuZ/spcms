@@ -52,8 +52,8 @@ class FaqController extends Controller {
 		$faq = new Faq();
 
 		$faq->question = $request->input("question");
-        $faq->answer = $request->input("answer");
-        $faq->faq_category_id = $request->input("faq_category_id");
+		$faq->answer = $request->input("answer");
+		$faq->faq_category_id = $request->input("faq_category_id");
 
 		$faq->save();
 
@@ -110,8 +110,8 @@ class FaqController extends Controller {
 		$faq = Faq::findOrFail($id);
 
 		$faq->question = $request->input("question");
-        $faq->answer = $request->input("answer");
-        $faq->faq_category_id = $request->input("faq_category_id");
+		$faq->answer = $request->input("answer");
+		$faq->faq_category_id = $request->input("faq_category_id");
 
 		$faq->save();
 

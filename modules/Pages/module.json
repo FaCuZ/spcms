@@ -1,0 +1,15 @@
+{
+    "name": "Pages",
+    "alias": "pages",
+    "description": "Permite crear otras paginas ademas del index",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Pages\\Providers\\PagesServiceProvider"
+    ],
+    "aliases": [],
+    "files": [
+        "start.php"
+    ]
+}
