@@ -2,8 +2,6 @@
 
 @section('a-faq', 'class="active"')
 
-@section('a-contenido', 'active')
-
 @section('header')
 	<h1>
 		{!! button('back') !!} Pagina <small>Mostrar: {{ $pagina->titulo }}</small>

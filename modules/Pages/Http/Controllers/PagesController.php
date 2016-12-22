@@ -5,6 +5,7 @@ namespace Modules\Pages\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Database\Eloquent\Exception;
 
 use  Modules\Pages\Models\Page;
 
@@ -12,6 +13,20 @@ use DB;
 
 class PagesController extends Controller
 {
+
+	public function getPage($page){
+		try{
+			$result = Page::where('active', 1)->where('title', $page)->take(1)->firstOrfail();
+
+			return view($page);
+
+		} catch(\Exception $e) {
+			dd($e);
+			abort(404);
+		}
+
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 * @return Response

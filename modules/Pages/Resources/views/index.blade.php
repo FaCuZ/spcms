@@ -2,8 +2,6 @@
 
 @section('a-paginas', 'class="active"')
 
-@section('a-contenido', 'active')
-
 @section('header')
 	<h1>Paginas <small>Listado</small>
 		<div class="pull-right">
@@ -27,12 +25,13 @@
 
 						@foreach($pages as $pagina)	
 							<tr>
-								<td span="1">{{ $pagina->order }}</td>
-								<td span="1"><strong>{{ ucfirst($pagina->title) }}</strong></td>
-								<td span="1">{{ $pagina->path }}</td>
-								<td span="1">{{ $pagina->editable ? 'true' : 'false' }}</td>
-								<td span="3" class="btns-padre">
+								<td>{{ $pagina->order }}</td>
+								<td><strong>{{ ucfirst($pagina->title) }}</strong></td>
+								<td class="nowrap">{{ url($pagina->path) }}</td>
+								<td class="nowrap">{{ $pagina->editable ? 'true' : 'false' }}</td>
+								<td class="btns-padre">
 									<div class="nowrap btns-opciones hidden">
+										<a class="btn btn-xs btn-info" href="{{ $pagina->path }}"><i class="fa fa-external-link"></i> Abrir</a>
 										<a class="btn btn-xs btn-warning" href="{{ route('admin.paginas.edit', $pagina->id) }}"><i class="fa fa-edit"></i> Editar</a>
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.paginas.show', $pagina->id) }}"><i class="fa fa-eye"></i> Ver</a>
 										<form action="{{ route('admin.paginas.destroy', $pagina->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">

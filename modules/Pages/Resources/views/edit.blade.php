@@ -3,11 +3,9 @@
 
 @section('a-paginas', 'class="active"')
 
-@section('a-contenido', 'active')
-
 @section('header')
 	<h1>
-		{!! button('faq') !!} Pagina <small>Edicion: {{ $pagina->title }}</small>
+		{!! button('paginas') !!} Pagina <small>Edicion: {{ $pagina->title }}</small>
 		
 		@if(Auth::user()->isAdmin)								
 			<div class="pull-right">

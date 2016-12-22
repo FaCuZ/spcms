@@ -2,8 +2,6 @@
 
 @section('a-paginas', 'class="active"')
 
-@section('a-contenido', 'active')
-
 @section('header')
 	<h1>{!! button('back') !!} Pagina <small>Nueva</small></h1>
 @endsection

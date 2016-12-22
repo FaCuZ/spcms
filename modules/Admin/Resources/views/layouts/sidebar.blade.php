@@ -14,14 +14,6 @@
 			<i class="fa fa-angle-left pull-right"></i>
 		</a>
 		<ul class="treeview-menu">
-			@if(Module::active('Pages'))
-				<li @yield('a-paginas')> 
-					<a href="{{ URL::route('admin.paginas.index') }}">
-						<i class="fa fa-file-o"></i> <span>Paginas</span>
-					</a>
-				</li>
-			@endif
-
 			@if(Module::active('News'))
 				<li @yield('a-noticias')> 
 					<a href="{{ URL::route('admin.noticias.index') }}">
@@ -73,21 +65,25 @@
 		</li>
 	@endif
 
+
 	@if(Auth::user()->isAdmin)
 		<li class="header">ADMINISTRADOR</li>
 {{-- 
 		<li @yield('a-temas')>   
-			<a href="{{ URL::route('admin.temas') }}">
+			<a href="{{ URL::route('admin.temas.index') }}">
 				<i class="fa fa-paint-brush"></i> <span>Temas</span>
 			</a>
 		</li>
 
-		<li @yield('a-paginas')>   
-			<a href="{{ URL::route('admin.paginas') }}">
-				<i class="fa fa-files-o"></i> <span>Paginas</span>
-			</a>
-		</li>
  --}}
+
+		@if(Module::active('Pages'))
+			<li @yield('a-paginas')> 
+				<a href="{{ URL::route('admin.paginas.index') }}">
+					<i class="fa fa-files-o"></i> <span>Paginas</span>
+				</a>
+			</li>
+		@endif
 		<li @yield('a-usuarios')>   
 			<a href="{{ URL::route('admin.usuarios') }}">
 				<i class="fa fa-users"></i> <span>Usuarios</span>
