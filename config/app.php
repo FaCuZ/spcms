@@ -167,6 +167,7 @@ return [
 		Nwidart\Modules\LaravelModulesServiceProvider::class,
 		GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
 		Arcanedev\Settings\SettingsServiceProvider::class,
+		Teepluss\Theme\ThemeServiceProvider::class,
 
 	],
 
@@ -224,6 +225,7 @@ return [
 		'RevisionableTrait' => Venturecraft\Revisionable\RevisionableTrait::class,
 		'HTMLMin'			=> GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
 		'Setting'			=> Arcanedev\Settings\Facades\Setting::class,
+		'Theme' => Teepluss\Theme\Facades\Theme::class,
 
 		],
 

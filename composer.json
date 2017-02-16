@@ -14,7 +14,8 @@
         "venturecraft/revisionable": "1.*",
         "mmamedov/page-cache": "^1.3",
         "graham-campbell/htmlmin": "^4.4",
-        "arcanedev/settings": "^1.2"
+        "arcanedev/settings": "^1.2",
+        "teepluss/theme": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

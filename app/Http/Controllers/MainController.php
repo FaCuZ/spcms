@@ -4,12 +4,18 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Theme;
+
 class MainController extends Controller
 {
 
     public function index()
 	{
-		return view('index');
+		$theme = Theme::uses('default')->layout('base');
+
+		return $theme->watch('index')->render();
+		
+		//return view('index');
 	}
 
 	public function showAlerta(){
