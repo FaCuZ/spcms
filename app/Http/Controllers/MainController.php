@@ -14,8 +14,6 @@ class MainController extends Controller
 		$theme = Theme::uses('default')->layout('base');
 
 		return $theme->watch('index')->render();
-		
-		//return view('index');
 	}
 
 	public function showAlerta(){

@@ -12,9 +12,11 @@ return array(
 	| The path to asset, this config can be cdn host.
 	| eg. http://cdn.domain.com
 	|
+	| Default:
+	| 'assetUrl' => env('APP_ASSET_URL', '/'),
+	|	
 	*/
-
-	'assetUrl' => env('APP_ASSET_URL', '/'),
+	'assetUrl' => env('APP_ASSET_URL', ''),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,6 +67,7 @@ return array(
 		'layout'  => 'layouts',
 		'asset'   => 'assets',
 		'partial' => 'partials',
+		'section' => 'sections',
 		'widget'  => 'widgets',
 		'view'    => 'views'
 	),
