@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App, Artisan, Setting, File;
+use App, Artisan, Setting, File, Theme;
 
 use Venturecraft\Revisionable\Revision;
 
@@ -36,7 +36,9 @@ class AdminController extends Controller
 
 	public function edicion()
 	{
-		return view('index');
+		$theme = Theme::uses('default')->layout('base');
+
+		return $theme->watch('index')->render();
 	}
 
 	public function borrarCache(){

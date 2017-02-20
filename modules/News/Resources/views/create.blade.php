@@ -5,7 +5,7 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1>{!! button('back') !!} z <small>Nuevo</small></h1>
+	<h1>{!! button('back') !!} Noticia <small>Nueva</small></h1>
 @endsection
 
 @section('content')

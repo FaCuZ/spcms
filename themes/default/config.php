@@ -47,7 +47,7 @@ return array(
 		'before' => function($theme)
 		{
 			// You can remove this line anytime.
-			$theme->setTitle(Modules\Texts\Models\TextCategory::texto("diseño","titulo")."ble");
+			$theme->setTitle(Modules\Texts\Models\TextCategory::texto("diseño","titulo"));
 
 
 			

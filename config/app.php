@@ -160,7 +160,6 @@ return [
 		/*
 		 * Vendor Service Providers...
 		 */
-		Laralib\L5scaffold\GeneratorsServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
 		Barryvdh\Debugbar\ServiceProvider::class,
 		Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
@@ -225,7 +224,7 @@ return [
 		'RevisionableTrait' => Venturecraft\Revisionable\RevisionableTrait::class,
 		'HTMLMin'			=> GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
 		'Setting'			=> Arcanedev\Settings\Facades\Setting::class,
-		'Theme' => Teepluss\Theme\Facades\Theme::class,
+		'Theme' 			=> Teepluss\Theme\Facades\Theme::class,
 
 		],
 
