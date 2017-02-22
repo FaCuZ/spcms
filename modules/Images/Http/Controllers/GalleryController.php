@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Modules\Images\Models\Gallery;
 use Modules\Images\Models\Album;
 
+use Modules\Images\Http\Requests\GalleryRequest;
 use Illuminate\Http\Request;
 
 use Auth;
@@ -44,7 +45,7 @@ class GalleryController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(GalleryRequest $request)
 	{
 		$gallery = new Gallery();
 
@@ -78,7 +79,7 @@ class GalleryController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit(Request $request, $id)
+	public function edit(GalleryRequest $request, $id)
 	{
 		$data['gallery'] = Gallery::findOrFail($id);
 

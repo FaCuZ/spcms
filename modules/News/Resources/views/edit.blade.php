@@ -21,8 +21,6 @@
 @endsection
 
 @section('content')
-	@include('errors.error')
-	
 	<div class="box">
 		<div class="box-body">
 

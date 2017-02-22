@@ -15,7 +15,7 @@ class CreateTextsTable extends Migration {
 		Schema::create('texts', function(Blueprint $table) {
             $table->increments('id');
             
-            $table->string('title')->unique();
+            $table->string('title');
             $table->text('body');
 
 			$table->integer('text_category_id')->unsigned();

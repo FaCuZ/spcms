@@ -5,12 +5,10 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1>{!! button('back') !!} Imagen <small>Nueva</small></h1>
+	<h1>{!! button('images') !!} Imagen <small>Nueva</small></h1>
 @endsection
 
 @section('content')
-	@include('errors.error')
-
 	<div class="box">
 		<div class="box-body box-solid no-padding">
 

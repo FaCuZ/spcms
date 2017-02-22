@@ -9,8 +9,6 @@
 @endsection
 
 @section('content')
-	@include('errors.error')
-	
 	<div class="box">
 		<div class="box-body no-padding">
 			@if($faq_categories->count())

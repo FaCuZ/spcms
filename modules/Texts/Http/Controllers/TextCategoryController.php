@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Modules\Texts\Models\TextCategory;
 use Modules\Texts\Models\Text;
 
+use Modules\Texts\Http\Requests\TextCategoryRequest;
+
 use Illuminate\Http\Request;
+
 
 use Auth;
 
@@ -40,7 +43,7 @@ class TextCategoryController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(TextCategoryRequest $request)
 	{
 		$text_category = new TextCategory();
 
@@ -84,7 +87,7 @@ class TextCategoryController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(TextCategoryRequest $request, $id)
 	{
 		$text_category = TextCategory::findOrFail($id);
 

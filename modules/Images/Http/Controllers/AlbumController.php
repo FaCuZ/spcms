@@ -5,7 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Modules\Images\Models\Album;
 
-use Illuminate\Http\Request;
+use Modules\Images\Http\Requests\AlbumRequest;
+
 
 use Auth;
 
@@ -39,7 +40,7 @@ class AlbumController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(AlbumRequest $request)
 	{
 		$album = new Album();
 
@@ -83,7 +84,7 @@ class AlbumController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(AlbumRequest $request, $id)
 	{
 		$album = Album::findOrFail($id);
 

@@ -69,7 +69,7 @@ return array(
         "string"  => "El campo :attribute debe contener :size caracteres.",
         "array"   => "El campo :attribute debe contener :size elementos.",
         ),
-    "unique"           => "Ya existe una cuenta con el :attribute ingresado",
+    "unique"           => "El campo :attribute ingresado ya existe",
     "url"              => "El formato :attribute es inválido.",
     "user"             => array(
         "no_access"    => "No tienes los suficientes permisos",

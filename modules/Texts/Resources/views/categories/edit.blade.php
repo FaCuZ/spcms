@@ -20,8 +20,6 @@
 @endsection
 
 @section('content')
-	@include('errors.error')
-
 	<div class="box box-solid">
 		<div class="box-body">
 			<form action="{{ route('admin.textos.categorias.update', $text_category->id) }}" method="POST">

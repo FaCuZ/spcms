@@ -1,10 +1,11 @@
 <?php namespace Modules\Texts\Http\Controllers;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Modules\Texts\Models\TextCategory;
 use Modules\Texts\Models\Text;
+
+use Modules\Texts\Http\Requests\TextRequest;
 
 use Illuminate\Http\Request;
 
@@ -46,7 +47,7 @@ class TextController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(TextRequest $request)
 	{
 		$text = new Text();
 
@@ -104,7 +105,7 @@ class TextController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(TextRequest $request, $id)
 	{
 		$text = Text::findOrFail($id);
 

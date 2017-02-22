@@ -7,6 +7,7 @@ use Modules\Images\Models\Image;
 use Modules\Images\Models\Album;
 use Modules\Images\Models\Gallery;
 
+use Modules\Images\Http\Requests\ImageRequest;
 use Illuminate\Http\Request;
 
 use Auth, DB;
@@ -62,7 +63,7 @@ class ImageController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(ImageRequest $request)
 	{
 		if (!$request->hasFile('file')) {
 			return redirect()->route('admin.imagenes.create')->withErrors('error', 'Elija un archivo');
@@ -143,7 +144,7 @@ class ImageController extends Controller {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(ImageRequest $request, $id)
 	{
 		$image = Image::findOrFail($id);
 

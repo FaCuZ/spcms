@@ -10,8 +10,6 @@
 @endsection
 
 @section('content')
-	@include('errors.error')
-	
 	<div class="box">
 		<div class="box-header">
 			<h3 class="box-title">Nuevo usuario</h3>

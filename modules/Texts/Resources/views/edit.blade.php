@@ -7,7 +7,7 @@
 
 @section('header')
 	<h1>
-		{!! button('texts') !!} Textos <small>Edicion: {{ $text->title }}</small>
+		{!! button('images') !!} Textos <small>Edicion: {{ $text->title }}</small>
 
 		<div class="pull-right">
 			<form action="{{ route('admin.textos.destroy', $text->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado()">
@@ -21,8 +21,6 @@
 @endsection
 
 @section('content')
-	@include('errors.error')
-	
 	<div class="box">
 		<div class="box-body">
 

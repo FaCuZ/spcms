@@ -19,8 +19,6 @@
 @endsection
 
 @section('content')
-	@include('errors.error')
-	
 	<div class="box">
 		<div class="box-header">
 			<h3 class="box-title">{{ $usuario->name }}</h3>

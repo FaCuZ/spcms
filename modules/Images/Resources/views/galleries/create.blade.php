@@ -5,12 +5,10 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1>{!! button('back') !!} Galeria <small>Nueva</small></h1>
+	<h1>{!! button('images') !!} Galeria <small>Nueva</small></h1>
 @endsection
 
 @section('content')
-	@include('errors.error')
-
 	<div class="box box-solid">
 
 		<div class="box-body">
