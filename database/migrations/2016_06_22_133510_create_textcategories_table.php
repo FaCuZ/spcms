@@ -15,7 +15,7 @@ class CreateTextcategoriesTable extends Migration {
 		Schema::create('text_categories', function(Blueprint $table) {
             $table->increments('id');
             
-            $table->string('title');
+            $table->string('title')->unique();
 
             $table->timestamps();
             $table->softDeletes();
@@ -29,7 +29,7 @@ class CreateTextcategoriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('text_categories');
+		Schema::dropIfExists('text_categories');
 	}
 
 }

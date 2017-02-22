@@ -13,6 +13,12 @@ class TextTableSeeder extends Seeder {
 			'text_category_id' => 1,
 		]);
 
+		DB::table('texts')->insert([
+			'title' => 'titulo',
+			'body' => 'Single Page CMS',
+			'text_category_id' => 1,
+		]);
+
 		if (App::environment('local'))
 		{
 			DB::table('texts')->insert([

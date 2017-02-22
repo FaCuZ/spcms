@@ -15,7 +15,7 @@ class CreateAlbumsTable extends Migration {
 		Schema::create('albums', function(Blueprint $table) {
             $table->increments('id');
             
-            $table->string('title');
+            $table->string('title')->unique();
             
             $table->timestamps();
             $table->softDeletes();
@@ -29,7 +29,7 @@ class CreateAlbumsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('albums');
+		Schema::dropIfExists('albums');
 	}
 
 }

@@ -34,7 +34,7 @@ class CreateFaqTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('faq');
+        Schema::dropIfExists('faq');
     }
 
 }

@@ -15,7 +15,7 @@ class CreateTextsTable extends Migration {
 		Schema::create('texts', function(Blueprint $table) {
             $table->increments('id');
             
-            $table->string('title');
+            $table->string('title')->unique();
             $table->text('body');
 
 			$table->integer('text_category_id')->unsigned();
@@ -33,7 +33,7 @@ class CreateTextsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('texts');
+		Schema::dropIfExists('texts');
 	}
 
 }

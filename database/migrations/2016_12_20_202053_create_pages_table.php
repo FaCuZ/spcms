@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
 		{
 			$table->increments('id');
 			
-			$table->string('title');
+			$table->string('title')->unique();
 			$table->string('path');
 
 			$table->unsignedTinyInteger('order');
@@ -36,6 +36,6 @@ class CreatePagesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('pages');
+		Schema::dropIfExists('pages');
 	}
 }

@@ -15,7 +15,7 @@ class CreateGalleriesTable extends Migration {
 		Schema::create('galleries', function(Blueprint $table) {
 			$table->increments('id');
 			
-			$table->string('title');
+			$table->string('title')->unique();
 			$table->text('description')->nullable();
 
 			$table->integer('default_image_id')->unsigned()->nullable();
@@ -35,7 +35,7 @@ class CreateGalleriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('galleries');
+		Schema::dropIfExists('galleries');
 	}
 
 }

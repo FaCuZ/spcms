@@ -15,7 +15,7 @@ class CreateImagesTable extends Migration {
 		Schema::create('images', function(Blueprint $table) {
             $table->increments('id');
             
-            $table->string('title');
+            $table->string('title')->unique();
             $table->string('file');  
             $table->string('thumb');  
             $table->text('description')->nullable();
@@ -35,7 +35,7 @@ class CreateImagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('images');
+		Schema::dropIfExists('images');
 	}
 
 }
