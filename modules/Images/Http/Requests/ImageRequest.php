@@ -8,8 +8,6 @@ class ImageRequest extends FormRequest
 	{
 		return [
 			'title'			=> 'required|unique:images,deleted_at,NULL',
-			'file'			=> 'required',
-			'thumb '		=> 'required',
 			'description'	=> 'nullable',
 			'gallery_id'	=> 'exists:galleries,id',
 		];
