@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        // Commands\Inspire::class,
+        \Modules\Install\Console\SpcmsInstall::class,
     ];
 
     /**

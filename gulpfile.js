@@ -1,6 +1,9 @@
 process.env.DISABLE_NOTIFIER = true;
 var elixir = require('laravel-elixir');
 
+var app_name = process.env.INIT_CWD.split("/")[4];
+
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -11,7 +14,6 @@ var elixir = require('laravel-elixir');
  | file for our application, as well as publishing vendor resources.
  |
  */
-
 elixir(function(mix) {
 	/*
 	 *	Sistema de administracion
@@ -47,7 +49,7 @@ elixir(function(mix) {
 			   'resources/views/**/*'	   
 			   
 			   ],
-			   proxy: 'localhost/spcms/public/',
+			   proxy: 'localhost/'+ app_name +'/public/',
 			   browser: '/opt/firefox_dev/firefox',
 			   ws: true,
 	});
