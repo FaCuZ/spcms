@@ -3,22 +3,16 @@ var elixir = require('laravel-elixir');
 
 var app_name = process.env.INIT_CWD.split("/")[4];
 
-
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
 elixir(function(mix) {
+	/*
+	 *	Pagina Offline
+	 */
+
+	mix.sass('offline.scss');
+
 	/*
 	 *	Sistema de administracion
 	 */
-
 	mix.sass('admin.scss');
 
 	mix.styles( [
@@ -46,38 +40,12 @@ elixir(function(mix) {
 		files: [
 			   'app/**/*',
 			   'public/**/*',
-			   'resources/views/**/*'	   
-			   
+			   'resources/views/**/*'	
+
 			   ],
 			   proxy: 'localhost/'+ app_name +'/public/',
 			   browser: '/opt/firefox_dev/firefox',
 			   ws: true,
 	});
-
-
-	/*
-	 *	Pagina Principal
-	 */
-	mix.sass('admin.scss');
-
-	mix.styles( [
-				'./node_modules/admin-lte/bootstrap/css/bootstrap.min.css'				
-				], 'public/css/main-libs.css'
-	);
-	
-
-	mix.scripts([
-				'./node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
-				'./node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
-				'./resources/assets/js/main.js'
-				
-				], 'public/js/main-libs.js'
-	);
-
-	/*
-	 *	Pagina Offline
-	 */
-
-	mix.sass('offline.scss');
 
 });
