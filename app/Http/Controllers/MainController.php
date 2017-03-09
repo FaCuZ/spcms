@@ -11,7 +11,9 @@ class MainController extends Controller
 
     public function index()
 	{
-		$theme = Theme::uses('default')->layout('base');
+		$active = config('theme.themeActive');
+
+		$theme = Theme::uses($active)->layout('base');
 
 		return $theme->watch('index')->render();
 	}

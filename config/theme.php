@@ -4,6 +4,8 @@ $serializer = new SuperClosure\Serializer;
 
 return array(
 
+	'themeActive' => env('APP_THEME', 'default'),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Asset url path
@@ -40,7 +42,7 @@ return array(
 	|
 	*/
 
-	'layoutDefault' => 'default',
+	'layoutDefault' => 'base',
 
 	/*
 	|--------------------------------------------------------------------------
