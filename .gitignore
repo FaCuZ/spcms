@@ -9,3 +9,4 @@ Homestead.yaml
 /public/images/uploads/
 TODO.md
 .env
+npm-debug.log

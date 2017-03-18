@@ -36,7 +36,10 @@ class AdminController extends Controller
 
 	public function edicion()
 	{
-		$theme = Theme::uses('default')->layout('base');
+
+		$active = config('theme.themeActive');
+
+		$theme = Theme::uses($active)->layout('base');
 
 		return $theme->watch('index')->render();
 	}

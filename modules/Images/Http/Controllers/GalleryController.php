@@ -79,7 +79,7 @@ class GalleryController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit(GalleryRequest $request, $id)
+	public function edit($id)
 	{
 		$data['gallery'] = Gallery::findOrFail($id);
 
