@@ -14,6 +14,14 @@ return [
 
     'name' => 'Spcms',
 
+    'client' => [
+        'name' => env('CLIENT_NAME', 'Web'),
+        'email' => env('CLIENT_EMAIL', 'noreply@example.com'),
+        'web' => env('CLIENT_WEB', 'www.google.com'),
+        'webmail' => env('CLIENT_WEBMAIL', 'www.google.com'),
+    ],
+
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Environment

@@ -36,9 +36,9 @@ class EmailController extends Controller
 
 		Mail::send('admin::email', ['asunto' => $asunto, 'mensaje' => $mensaje, 'email' => $email, 'responder' => $responder], function ($message) use ($asunto)
 		{
-			$message->from('web@indis.com.ar', 'Web');
-			$message->to('fzaldo@gmail.com');           
-			$message->subject("[". env('CLIENT_NAME') ."] PEDIDO: ". $asunto);
+			$message->from(config('mail.from.address'), config('mail.from.name'));
+			$message->to(config('mail.support.address'), config('mail.support.name'));
+			$message->subject("[".config('app.client.name')."] PEDIDO: ". $asunto);
 
 		});
 

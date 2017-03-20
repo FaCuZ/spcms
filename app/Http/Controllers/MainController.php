@@ -30,9 +30,9 @@ class MainController extends Controller
 		Mail::send('admin::emailContacto', ['nombre' => $nombre, 'texto' => $texto, 'email' => $email], function ($message) use ($nombre,$email)
 		{
 			$message->from($email, $nombre);
-			$message->to(env('CONTACT_TO'));
+			$message->to(config('app.client.email'));
 			$message->replyTo($email, $nombre);
-			$message->subject("[". env('CLIENT_NAME') ."] ". $nombre . " te envio un mensaje desde la pagina web");
+			$message->subject("[". config('app.client.name') ."] ". $nombre . " te envio un mensaje desde la pagina web");
 
 		});
 
