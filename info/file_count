@@ -1,0 +1,29 @@
+SPMS: Cantidad de archivos (20-Mar-17)
+--------------------------------------
+Todo 
+100%    61.201   305,4 MB
+
+Sin node_modules
+21,6%   13.248   102.1 MB
+
+Sin node_modules y .git
+16,6%   10.219    95.9 MB
+
+Sin node_modules y vendor
+7,3%    4.520    41,2 MB
+
+Sin node_modules, vendor y .git
+2,4%    1.491    35.0 MB
+
+
+Cantidad por carpetas
+---------------------
+node_modules
+78,4%   47.953   203,3 MB
+
+vendor
+14,2%   8.728    60,9 MB
+
+.git
+4,9%    3.029    6,2 MB
+

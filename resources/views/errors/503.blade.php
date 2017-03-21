@@ -1,22 +1,19 @@
-@inject('textos',    'Modules\Texts\Models\Text')
 @inject('categorias','Modules\Texts\Models\TextCategory')
 @inject('albumes',   'Modules\Images\Models\Album')
-@inject('imagenes',  'Modules\Images\Models\Image')
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{{ $textos->texto("titulo") }}</title>
+	<head>
+		<title>{{ $categorias->texto('diseño','titulo') }}</title>
 
-        <link rel="stylesheet" href="{{ URL::asset('css/offline.css') }}">
+		<link rel="stylesheet" href="{{ URL::asset('css/offline.css') }}">
 
-    </head>
+	</head>
 
-    <body>
-        <div class="centrar">
-            <img src="{{ $imagenes->imagen("logo")->url }}" />
-            <div class="informacion">{{ $textos->texto("mantenimiento") }}</div>
-        </div>
-    </body>
-
+	<body>
+		<div class="centrar">
+			<img src="{{ $albumes->imagen('diseño', 'logos', 'logo')->url }}" />
+			<div class="informacion">{{ $categorias->texto('diseño','mantenimiento') }}</div>
+		</div>
+	</body>
 </html>
