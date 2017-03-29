@@ -3,7 +3,7 @@
     "alias": "faq",
     "description": "Agrega un sistema de preguntas frecuentes",
     "keywords": [],
-    "active": 1,
+    "active": 0,
     "order": 4,
     "providers": [
         "Modules\\Faq\\Providers\\FaqServiceProvider"
