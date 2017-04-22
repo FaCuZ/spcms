@@ -3,7 +3,7 @@
     "alias": "pages",
     "description": "Permite crear otras paginas ademas del index",
     "keywords": [],
-    "active": 1,
+    "active": 0,
     "order": 1,
     "providers": [
         "Modules\\Pages\\Providers\\PagesServiceProvider"

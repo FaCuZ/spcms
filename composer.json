@@ -36,7 +36,7 @@
             "Modules\\": "modules/"
         },
         "files": [
-            "app/Http/helpers.php"
+            "modules/Admin/Http/helpers.php"
         ]
     },
     "autoload-dev": {
