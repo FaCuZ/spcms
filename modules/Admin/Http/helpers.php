@@ -147,13 +147,3 @@ function getUrlButton($op){
 		default: return route($boton);
 	}
 }
-
-
-function protectEmail($email) {
-	$p = str_split(trim($email));
-	$new_mail = '';
-	foreach ($p as $val) {
-		$new_mail .= '&#'.ord($val).';';
-	}
-	return $new_mail;
-}

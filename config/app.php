@@ -183,13 +183,12 @@ return [
 		 * Vendor Service Providers...
 		 */
 		Intervention\Image\ImageServiceProvider::class,
-		Barryvdh\Debugbar\ServiceProvider::class,
+		//Barryvdh\Debugbar\ServiceProvider::class,
 		Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
 		Nwidart\Modules\LaravelModulesServiceProvider::class,
-		GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
+		Facuz\Theme\ThemeServiceProvider::class,
 		Arcanedev\Settings\SettingsServiceProvider::class,
-		Teepluss\Theme\ThemeServiceProvider::class,
-
+		//GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
 	],
 
 	/*
@@ -240,13 +239,13 @@ return [
 		 * Vendor Aliases...
 		 */
 		'ImageI'			=> Intervention\Image\Facades\Image::class,
-		'Debugbar'			=> Barryvdh\Debugbar\Facade::class,
+		//'Debugbar'			=> Barryvdh\Debugbar\Facade::class,
 		'GitVersionHelper'	=> Tremby\LaravelGitVersion\GitVersionHelper::class,
 		'Module'			=> Nwidart\Modules\Facades\Module::class,
 		'RevisionableTrait' => Venturecraft\Revisionable\RevisionableTrait::class,
-		'HTMLMin'			=> GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
+		'Theme' 			=> Facuz\Theme\Facades\Theme::class,
 		'Setting'			=> Arcanedev\Settings\Facades\Setting::class,
-		'Theme' 			=> Teepluss\Theme\Facades\Theme::class,
+		//'HTMLMin'			=> GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
 
 		],
 

@@ -13,12 +13,12 @@ return [
 			$theme->setAuthor('Facundo Zaldo');
 		},
 
-
-		'beforeRenderTheme' => function($theme)
+		'asset' => function($asset)
 		{
-			$theme->asset()->usePath()->add('styles', 'dist/css/styles.css');
-
-			$theme->asset()->usePath()->add('scripts', 'dist/js/scripts.js');
+			$asset->themePath()->add([
+										['styles', 'dist/css/styles.css'],
+										['scripts', 'dist/js/scripts.js']
+									 ]);
 		}
 
 	]

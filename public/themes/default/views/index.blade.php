@@ -1,8 +1,8 @@
-	{!! Theme::partial('sections.introduccion') !!}
+@sections('introduccion')
 
-	{!! Theme::partial('sections.imagenes') !!}
+@sections('imagenes')
 
-	{!! Theme::partial('sections.textos') !!}
+@sections('textos')
 
-	{!! Theme::partial('sections.galerias') !!}
+@sections('galerias')
 

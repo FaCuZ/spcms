@@ -1,0 +1,9 @@
+{
+	"slug": "default",
+	"name": "Default",
+	"author": "Facundo Zaldo",
+	"description": "This is an example theme.",
+	"license": "MIT",
+	"type": "free",
+	"version": "1.1"
+}
