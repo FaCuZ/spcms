@@ -1,5 +1,7 @@
 <?php namespace Modules\Texts\Providers;
 
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class TextsServiceProvider extends ServiceProvider
@@ -21,7 +23,14 @@ class TextsServiceProvider extends ServiceProvider
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
+
+		$this->injectModel();
+
+		$this->addToBlade(['text', '$categorias->texto(%s);']);
+		$this->addToBlade(['email', 'protectEmail($categorias->texto(%s));']);
+
 	}
+
 
 	/**
 	 * Register the service provider.
@@ -33,6 +42,35 @@ class TextsServiceProvider extends ServiceProvider
 		//
 	}
 
+
+	/**
+	 * Inject model to the view.
+	 *
+	 * @return void
+	 */
+	protected function injectModel()
+	{
+		View::composer('*', function ($view) {
+		    $view->with('categorias', app('\Modules\Texts\Models\TextCategory'));
+		});
+	}
+
+	/**
+	 * Set a blade directive
+	 *
+	 * @return void
+	 */
+	protected function addToBlade($array){
+		Blade::directive($array[0], function ($data) use ($array) {	
+			if(!$data) return '<?php echo '.$array[2].' ?>';
+
+			return sprintf('<?php echo '.$array[1].' ?>',
+				null !== $data ? $data : "get_defined_vars()['__data']"
+			);
+		});  
+	}
+
+
 	/**
 	 * Register config.
 	 *
@@ -41,10 +79,10 @@ class TextsServiceProvider extends ServiceProvider
 	protected function registerConfig()
 	{
 		$this->publishes([
-		    __DIR__.'/../Config/config.php' => config_path('texts.php'),
+			__DIR__.'/../Config/config.php' => config_path('texts.php'),
 		]);
 		$this->mergeConfigFrom(
-		    __DIR__.'/../Config/config.php', 'texts'
+			__DIR__.'/../Config/config.php', 'texts'
 		);
 	}
 

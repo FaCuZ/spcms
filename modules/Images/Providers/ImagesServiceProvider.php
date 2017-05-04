@@ -2,6 +2,8 @@
 
 namespace Modules\Images\Providers;
 
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class ImagesServiceProvider extends ServiceProvider
@@ -23,6 +25,12 @@ class ImagesServiceProvider extends ServiceProvider
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
+
+		$this->injectModel();
+
+		$this->addToBlade(['image', '$albumes->imagen(%s)->url;']);
+		$this->addToBlade(['thumb', '$albumes->imagen(%s)->thumb;']);
+
 	}
 
 	/**
@@ -33,6 +41,34 @@ class ImagesServiceProvider extends ServiceProvider
 	public function register()
 	{
 		//
+	}
+
+	/**
+	 * Inject model to the view.
+	 *
+	 * @return void
+	 */
+	protected function injectModel()
+	{
+		View::composer('*', function ($view) {
+		    $view->with('albumes', app('\Modules\Images\Models\Album'));
+		});
+	}
+
+
+	/**
+	 * Set a blade directive
+	 *
+	 * @return void
+	 */
+	protected function addToBlade($array){
+		Blade::directive($array[0], function ($data) use ($array) {	
+			if(!$data) return '<?php echo '.$array[2].' ?>';
+
+			return sprintf('<?php echo '.$array[1].' ?>',
+				null !== $data ? $data : "get_defined_vars()['__data']"
+			);
+		});  
 	}
 
 	/**
