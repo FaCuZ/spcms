@@ -11,9 +11,9 @@
 				<div class="col-lg-6">
 					<h4>Imagen:</h4>
 					<p>
-						<img src="{{ $albumes->imagen("diseño", "logos", "logo")->url }}" />
+						<img src="@image('diseño', 'logos', 'logo')" />
 					</p>
-					<code>&lbrace;&lbrace; $albumes->imagen("diseño", "logos", "logo")->url &rbrace;&rbrace;</code>
+					<code>&#64;image('diseño', 'logos', 'logo')</code>
 					
 				</div>
 				<div class="col-lg-6">

@@ -50,6 +50,18 @@ class TextCategory extends Revisionable
 		return $texto->body;
 	}
 
+	public function scopeLista($query, $cat_value)
+	{
+		// Blade: {{ $categorias->lista('Diseño') }}
+		
+		$categoria = $query->categoria(strtolower($cat_value));
+
+		if($categoria === "null") return strtoupper($cat_value."?");
+
+		return $categoria->textos->keyBy('title');
+	}
+
+
 	public function setTitleAttribute($value)
 	{
 		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));

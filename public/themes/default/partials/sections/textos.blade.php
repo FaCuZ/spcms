@@ -15,8 +15,8 @@
 				<div class="col-lg-6">
 
 					<h4>Texto desde categorias:</h4>
-					<p>{{ $categorias->texto("diseño","largo") }}</p>	
-					<code>&lbrace;&lbrace; $categorias->texto("diseño","largo") &rbrace;&rbrace;</code>
+					<p>@text('diseño', 'largo')</p>	
+					<code>&#64;text('diseño', 'largo')</code>
 				</div>
 			</div>
 		</div>
