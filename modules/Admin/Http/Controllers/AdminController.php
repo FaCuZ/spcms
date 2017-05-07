@@ -36,12 +36,7 @@ class AdminController extends Controller
 
 	public function edicion()
 	{
-
-		$active = config('theme.themeActive');
-
-		$theme = Theme::uses($active)->layout('base');
-
-		return $theme->watch('index')->render();
+		return Theme::view('index');
 	}
 
 	public function borrarCache(){
