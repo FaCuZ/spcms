@@ -10,6 +10,7 @@ function urlModelo($data){
 	if($data->fieldName() == 'Borrado') return '#';
 
 	switch (getModelo($data->revisionable_type)) {
+		case 'Link': 		$ruta = 'admin.links.show'; 			break;
 		case 'Text': 		$ruta = 'admin.textos.show'; 			break;
 		case 'TextCategory':$ruta = 'admin.textos.categorias.show'; break;
 		case 'Album': 		$ruta = 'admin.albums.show'; 			break;
@@ -141,6 +142,7 @@ function getUrlButton($op){
 		case 'back': 	return URL::previous();
 		case 'images': 	return route('admin.imagenes.index');
 		case 'texts': 	return route('admin.textos.index');
+		case 'links': 	return route('admin.links.index');
 		case 'news': 	return route('admin.noticias.index');
 		case 'faq': 	return route('admin.faq.index');
 

@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFaqCategoriesTable extends Migration {
-
+class CreateLinkCategoriesTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,10 +12,10 @@ class CreateFaqCategoriesTable extends Migration {
      */
     public function up()
     {
-        Schema::create('faq_categories', function(Blueprint $table)
+        Schema::create('link_categories', function(Blueprint $table) 
         {
             $table->increments('id');
-			$table->string('title');
+            $table->string('title')->unique();
 
             $table->timestamps();
             $table->softDeletes();
@@ -29,7 +29,6 @@ class CreateFaqCategoriesTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('faq_categories');
+        Schema::dropIfExists('link_categories');        
     }
-
 }

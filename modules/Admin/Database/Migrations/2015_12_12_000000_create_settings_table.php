@@ -3,24 +3,21 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFaqCategoriesTable extends Migration {
-
+class CreateSettingsTable extends Migration {
+  
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::create('faq_categories', function(Blueprint $table)
-        {
+        Schema::create('settings', function(Blueprint $table) {
             $table->increments('id');
-			$table->string('title');
 
-            $table->timestamps();
-            $table->softDeletes();
+            $table->string('key')->index();
+            $table->text('value');
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -29,7 +26,7 @@ class CreateFaqCategoriesTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('faq_categories');
+        Schema::dropIfExists('settings');
     }
 
 }

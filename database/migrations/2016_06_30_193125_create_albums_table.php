@@ -14,7 +14,6 @@ class CreateAlbumsTable extends Migration {
 	{
 		Schema::create('albums', function(Blueprint $table) {
             $table->increments('id');
-            
             $table->string('title')->unique();
             
             $table->timestamps();

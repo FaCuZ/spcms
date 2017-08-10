@@ -1,0 +1,17 @@
+{
+    "name": "Links",
+    "alias": "links",
+    "description": "Administra un listado de links,",
+    "keywords": ["links"],
+    "active": 1,
+    "order": 2,
+    "disabled": 0,
+    "providers": [
+        "Modules\\Links\\Providers\\LinksServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

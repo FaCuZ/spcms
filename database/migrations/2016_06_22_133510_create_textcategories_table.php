@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTextcategoriesTable extends Migration {
+class CreateTextCategoriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class CreateTextcategoriesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('text_categories', function(Blueprint $table) {
+		Schema::create('text_categories', function(Blueprint $table) 
+		{
             $table->increments('id');
-            
             $table->string('title')->unique();
 
             $table->timestamps();

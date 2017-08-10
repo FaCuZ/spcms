@@ -34,7 +34,7 @@ class CreateTextsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('texts');
+		Schema::dropIfExists('texts');
 	}
 
 }

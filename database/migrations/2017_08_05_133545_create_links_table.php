@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFaqCategoriesTable extends Migration {
-
+class CreateLinksTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,10 +12,15 @@ class CreateFaqCategoriesTable extends Migration {
      */
     public function up()
     {
-        Schema::create('faq_categories', function(Blueprint $table)
+        Schema::create('links', function(Blueprint $table) 
         {
             $table->increments('id');
-			$table->string('title');
+            
+            $table->string('title');
+            $table->string('url');
+
+            $table->integer('link_category_id')->unsigned();
+            $table->foreign('link_category_id')->references('id')->on('link_categories')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();
@@ -29,7 +34,6 @@ class CreateFaqCategoriesTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('faq_categories');
+        Schema::dropIfExists('links');
     }
-
 }

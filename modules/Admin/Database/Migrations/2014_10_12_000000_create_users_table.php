@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFaqCategoriesTable extends Migration {
-
+class CreateUsersTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,13 +12,16 @@ class CreateFaqCategoriesTable extends Migration {
      */
     public function up()
     {
-        Schema::create('faq_categories', function(Blueprint $table)
-        {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('title');
 
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->enum('role', ['admin', 'client', 'none'])->default('none');
+            
+            $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,7 +32,6 @@ class CreateFaqCategoriesTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('faq_categories');
+        Schema::dropIfExists('users');
     }
-
 }

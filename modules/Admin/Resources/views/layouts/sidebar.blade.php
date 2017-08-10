@@ -38,6 +38,14 @@
 				</li>
 			@endif
 
+			@if(Module::active('Links'))
+				<li @yield('a-links')> 
+					<a href="{{ URL::route('admin.links.index') }}">
+						<i class="fa fa-link"></i> <span>Links</span>
+					</a>
+				</li>
+			@endif
+
 			@if(Module::active('Faq'))
 				<li @yield('a-faq')>
 					<a href="{{ URL::route('admin.faq.index') }}">
