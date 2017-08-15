@@ -21,7 +21,7 @@ class TextsServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		$this->registerTranslations();
-		$this->registerConfig();
+		//$this->registerConfig();
 		$this->registerViews();
 
 		$this->injectModel();

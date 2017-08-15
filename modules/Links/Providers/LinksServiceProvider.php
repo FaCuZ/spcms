@@ -1,7 +1,7 @@
-<?php
+<?php namespace Modules\Links\Providers;
 
-namespace Modules\Links\Providers;
-
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class LinksServiceProvider extends ServiceProvider
@@ -21,8 +21,12 @@ class LinksServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerTranslations();
-        $this->registerConfig();
+        //$this->registerConfig();
         $this->registerViews();
+
+        $this->injectModel();
+
+        $this->addToBlade(['links', '$links->url(%s);']);
     }
 
     /**
@@ -34,6 +38,35 @@ class LinksServiceProvider extends ServiceProvider
     {
         //
     }
+
+    /**
+     * Inject model to the view.
+     *
+     * @return void
+     */
+    protected function injectModel()
+    {
+        View::composer('*', function ($view) {
+            $view->with('links', app('\Modules\Links\Models\LinkCategory'));
+        });
+    }
+
+    /**
+     * Set a blade directive
+     *
+     * @return void
+     */
+    protected function addToBlade($array){
+        Blade::directive($array[0], function ($data) use ($array) { 
+            if(!$data) return '<?php echo '.$array[2].' ?>';
+
+            return sprintf('<?php echo '.$array[1].' ?>',
+                null !== $data ? $data : "get_defined_vars()['__data']"
+            );
+        });  
+    }
+
+
 
     /**
      * Register config.

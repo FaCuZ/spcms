@@ -47,8 +47,7 @@
 					@if(Auth::user()->isAdmin)
 						<dt>Codigo:</dt>
 						<dd>
-							<pre class="pre-codigo">&#123;&#123; $categorias->url('{{ $link_category->title }}','{{ $link->title }}') }}</pre>
-							<pre class="pre-codigo">&#123;&#123; $link->url('{{ $link->url }}') }}</pre>
+							<pre class="pre-codigo">&#123;&#123; &#64;links('{{ $link_category->title }}','{{ $link->title }}') }}</pre>
 						</dd>
 
 						<dt>Tablas:</dt>

@@ -35,7 +35,7 @@ class LinkCategory extends Revisionable
 		return $categoria;
 	}
 
-	public function scopeLink($query, $cat_value, $txt_value)
+	public function scopeUrl($query, $cat_value, $txt_value)
 	{
 		// Blade: {{ $categorias->link('Diseño', 'Logos') }}
 		
@@ -47,7 +47,7 @@ class LinkCategory extends Revisionable
 
 		if(!$link) return strtoupper($cat_value."-".$txt_value."?");
 
-		return $link->body;
+		return $link->url;
 	}
 
 	public function scopeLista($query, $cat_value)
