@@ -187,8 +187,8 @@ return [
 		Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
 		Nwidart\Modules\LaravelModulesServiceProvider::class,
 		Facuz\Theme\ThemeServiceProvider::class,
-		Arcanedev\Settings\SettingsServiceProvider::class,
-		//GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class,
+		Arcanedev\LaravelSettings\SettingsServiceProvider::class,
+		//HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
 	],
 
 	/*
@@ -244,8 +244,9 @@ return [
 		'Module'			=> Nwidart\Modules\Facades\Module::class,
 		'RevisionableTrait' => Venturecraft\Revisionable\RevisionableTrait::class,
 		'Theme' 			=> Facuz\Theme\Facades\Theme::class,
-		'Setting'			=> Arcanedev\Settings\Facades\Setting::class,
-		//'HTMLMin'			=> GrahamCampbell\HTMLMin\Facades\HTMLMin::class,
+		//'HTMLMin'			=> HTMLMin\HTMLMin\Facades\HTMLMin::class,
+		//'Setting'			=> Arcanedev\LaravelSettings\Facades\Setting::class,
+
 
 		],
 
