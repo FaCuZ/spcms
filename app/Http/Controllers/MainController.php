@@ -14,6 +14,15 @@ class MainController extends Controller
 		return Theme::view('index');
 	}
 
+    public function page($page)
+	{
+		try {
+			return Theme::view($page);
+		} catch (\InvalidArgumentException $e) {
+			abort(404);
+		}
+	}
+
 	public function showAlerta(){
 		return view('errors.sinrole');
 	}

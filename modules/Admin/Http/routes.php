@@ -31,3 +31,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modu
 	});
 
 });
+
+Route::get('/{page}', ['uses' => 'App\Http\Controllers\MainController@page']);

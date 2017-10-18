@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "arcanedev/laravel-settings": "^1.1",
-        "facuz/laravel-themes": "^3.0",
+        "facuz/laravel-themes": "^3.1",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "htmlmin/htmlmin": "^4.5",
         "intervention/image": "^2.3",
