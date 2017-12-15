@@ -36,7 +36,7 @@
 											{{ $noticia->created_at }}
 										</small>
 									</h4>
-									<p>{{ $noticia->body }}</p>
+									<p>{!! nl2br(e($noticia->body)) !!}</p>
 									<div class="nowrap btns-opciones hidden">
 										<a class="btn btn-xs btn-warning" href="{{ route('admin.noticias.edit', $noticia->id) }}"><i class="fa fa-edit"></i> Editar</a>
 										<a class="btn btn-xs btn-primary" href="{{ route('admin.noticias.show', $noticia->id) }}"><i class="fa fa-eye"></i> Ver</a>

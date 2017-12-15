@@ -1,7 +1,7 @@
-<?php
+<?php namespace Modules\News\Providers;
 
-namespace Modules\News\Providers;
-
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class NewsServiceProvider extends ServiceProvider
@@ -23,6 +23,11 @@ class NewsServiceProvider extends ServiceProvider
 		$this->registerTranslations();
 		$this->registerConfig();
 		$this->registerViews();
+
+		$this->injectModel();
+
+		//$this->addToBlade(['image', '$news->imagen(%s)->url;']);
+		//$this->addToBlade(['thumb', '$albumes->imagen(%s)->thumb;']);
 	}
 
 	/**
@@ -34,6 +39,34 @@ class NewsServiceProvider extends ServiceProvider
 	{
 		//
 	}
+
+	/**
+	 * Inject model to the view.
+	 *
+	 * @return void
+	 */
+	protected function injectModel()
+	{
+		View::composer('*', function ($view) {
+		    $view->with('noticias', app('\Modules\News\Models\News')->orderBy('created_at', 'desc')->get());
+		});
+	}
+
+	/**
+	 * Set a blade directive
+	 *
+	 * @return void
+	 */
+	protected function addToBlade($array){
+		Blade::directive($array[0], function ($data) use ($array) {	
+			if(!$data) return '<?php echo '.$array[2].' ?>';
+
+			return sprintf('<?php echo '.$array[1].' ?>',
+				null !== $data ? $data : "get_defined_vars()['__data']"
+			);
+		});  
+	}
+
 
 	/**
 	 * Register config.

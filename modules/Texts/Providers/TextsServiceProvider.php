@@ -42,7 +42,6 @@ class TextsServiceProvider extends ServiceProvider
 		//
 	}
 
-
 	/**
 	 * Inject model to the view.
 	 *

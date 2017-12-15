@@ -3,7 +3,7 @@
     "alias": "news",
     "description": "Permite publicar noticias",
     "keywords": [],
-    "active": 0,
+    "active": 1,
     "order": 3,
     "disabled": 0,
     "providers": [
