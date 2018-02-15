@@ -18,6 +18,10 @@ class CreateNewsTable extends Migration {
             
             $table->string('title');
             $table->text('body');
+            $table->boolean('important')->default(false);
+
+			$table->integer('news_category_id')->unsigned();
+			$table->foreign('news_category_id')->references('id')->on('news_categories')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

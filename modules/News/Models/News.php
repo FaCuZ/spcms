@@ -24,30 +24,32 @@ class News extends Revisionable
 	];
 
 
-	/*public function categoria(){
-		return $this->belongsTo('Modules\News\Models\TextCategory','text_category_id');
+	public function categoria(){
+		return $this->belongsTo('Modules\News\Models\NewsCategory','news_category_id');
 	}
 
 
-	public function scopeTextos($query)
+	public function scopeNoticias($query)
 	{
 		return $query->get()->keyBy('title');
 	}
 
-	public function scopeTexto($query, $value)
+	public function scopeNoticia($query, $value)
 	{
-		$texto = $query->get()->keyBy('title')->get(strtolower($value));
+		$noticia = $query->get()->keyBy('title')->get(strtolower($value));
 
-		if(!$texto)	return strtoupper($value);
+		if(!$noticia)	return strtoupper($value);
 
-		return $texto->body;
+		return $noticia->body;
 	}
 
 
 	public function setTitleAttribute($value)
 	{
 		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
-	}*/
+	}
+
+
 
 	public function identifiableName()
 	{

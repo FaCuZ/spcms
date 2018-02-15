@@ -1,9 +1,12 @@
 <?php namespace Modules\News\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+use Modules\News\Models\NewsCategory;
 use Modules\News\Models\News;
+
+use Illuminate\Http\Request;
+use Modules\News\Http\Requests\NewsRequest;
 
 use Auth, DB;
 
@@ -15,7 +18,9 @@ class NewsController extends Controller
 	 */
 	public function index()
 	{
-		$data['news'] = News::all();
+		$data['news'] = News::all()->sortByDesc('created_at');
+
+		$data['news_categories'] = NewsCategory::all();
 
 		return view('news::index', $data);
 	}
@@ -24,9 +29,13 @@ class NewsController extends Controller
 	 * Show the form for creating a new resource.
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		return view('news::create');
+		$data['selected'] = $request->input('selected');
+
+		$data['news_categories'] = NewsCategory::all();
+
+		return view('news::create', $data);
 	}
 
 	/**
@@ -40,6 +49,10 @@ class NewsController extends Controller
 
 		$news->title = $request->input("title");
 		$news->body = $request->input("body");
+		
+		if($request->input("important")) $news->important = 1;
+		
+		$news->news_category_id = $request->input("news_category_id");
 
 		$news->save();
 
@@ -55,10 +68,13 @@ class NewsController extends Controller
 	public function show($id)
 	{
 		$data['news'] = News::findOrFail($id);
+		$data['news_category'] = NewsCategory::find($data['text']->news_category_id);
 
 		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('news');
+		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('news_categories');
 		
 		$data['historial_1'] = $data['news']->revisionHistory;
+		$data['historial_2'] = $data['news_category']->revisionHistory;
 
 		return view('news::show', $data);
 	}
@@ -70,6 +86,10 @@ class NewsController extends Controller
 	public function edit($id)
 	{
 		$data['news'] = News::findOrFail($id);
+
+		$data['selected'] = $data['news']->news_category_id;
+
+		$data['news_categories'] = NewsCategory::all();
 
 		return view('news::edit', $data);
 	}
@@ -85,6 +105,13 @@ class NewsController extends Controller
 
 		$news->title = $request->input("title");
 		$news->body = $request->input("body");
+		$news->news_category_id = $request->input("news_category_id");
+
+		if($request->input("important")) {
+			$news->important = 1;
+		} else {
+			$news->important = 0;
+		}
 
 		$news->save();
 
@@ -93,6 +120,8 @@ class NewsController extends Controller
 
 	/**
 	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Texts\Http\Requests;
+namespace Modules\News\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TextRequest extends FormRequest
+class NewsRequest extends FormRequest
 {
 	/**
 	 * Get the validation rules that apply to the request.
@@ -15,8 +15,8 @@ class TextRequest extends FormRequest
 	{
 		return [
 			'title'				=> 'required',
-			//'body' 				=> 'required', 
-			'text_category_id'	=> 'required',       
+			'body' 				=> 'required', 
+			'news_category_id'	=> 'required',       
 		];
 	}
 
@@ -34,7 +34,7 @@ class TextRequest extends FormRequest
 	{
 		return [
 			'title'				=> 'Titulo',
-			'body' 				=> 'Texto', 
+			'body' 				=> 'Noticia', 
 			'text_category_id'	=> 'Categoria',
 		];
 	}

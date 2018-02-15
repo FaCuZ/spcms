@@ -40,6 +40,27 @@
 						@endif
 					</div>
 
+					<div class="form-group @if($errors->has('news_category_id')) has-error @endif">
+						<label for="body-field">Categoria</label>
+						<div>								
+							@if($news_categories->count())
+								<select name="news_category_id">
+									@foreach($news_categories as $categoria)					
+										<option value="{{ $categoria->id }}" {{ $selected == $categoria->id ? 'selected="selected"' : '' }}>{{ $categoria->title }}</option>   
+									@endforeach
+								</select> 
+							@endif
+						</div>
+					</div>
+
+					<div class="form-group @if($errors->has('important')) has-error @endif">
+						<input type="checkbox" id="important-field" name="important" value="1"  @if ($news->important == 1) checked @endif/>
+						<label for="important-field">Marcar como importante</label>
+						@if($errors->has("important"))
+							<span class="help-block">{{ $errors->first("important") }}</span>
+						@endif
+					</div>
+
 					<div class="form-group @if($errors->has('body')) has-error @endif">
 						<label for="body-field">Texto</label>
 						<textarea class="form-control" id="body-field" rows="15" style="resize: vertical;" name="body">{{ $news->body }}</textarea>

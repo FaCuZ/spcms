@@ -5,9 +5,8 @@ use App\Http\Controllers\Controller;
 use Modules\Texts\Models\TextCategory;
 use Modules\Texts\Models\Text;
 
-use Modules\Texts\Http\Requests\TextRequest;
-
 use Illuminate\Http\Request;
+use Modules\Texts\Http\Requests\TextRequest;
 
 use Auth, DB;
 
