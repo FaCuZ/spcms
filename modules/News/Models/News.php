@@ -49,13 +49,6 @@ class News extends Revisionable
 		return $query->where('important', 1);
 	}
 
-	public function setTitleAttribute($value)
-	{
-		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
-	}
-
-
-
 	public function identifiableName()
 	{
 		return $this->title;

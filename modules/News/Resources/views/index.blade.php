@@ -23,15 +23,24 @@
 				<table class="table table-striped">	
 
 					<thead><tr><th colspan="2" class="btns-padre">
-						<h4><strong>Ultimas noticias</strong></h4>
+						<h4 class="pull-left"><strong>Ultimas noticias</strong></h4>
+
+	{{-- 					<select class="pull-right">
+							<option value="">todas</option>
+							@foreach($noticias_categorias as $categoria)	
+								 <option value="$categoria->id">.{{ $categoria->title }}</option>
+							@endforeach
+						</select>  --}}
+						
 					</th></tr></thead>
+
 
 					<tbody>
 
 						@foreach($news as $noticia)	
 							<tr>
 								<td class="btns-padre">
-									<h4>
+									<h3>
 										{{ $noticia->title }}
 										<br/>
 										<small class="text-muted">
@@ -43,7 +52,7 @@
 												<i class="fa fa-star" aria-hidden="true"></i> <span>Destacado</span>
 											@endif
 										</small>
-									</h4>
+									</h3>
 									<p>{!! nl2br(e($noticia->body)) !!}</p>
 									<div class="nowrap btns-opciones hidden">
 										<a class="btn btn-xs btn-warning" href="{{ route('admin.noticias.edit', $noticia->id) }}"><i class="fa fa-edit"></i> Editar</a>
@@ -59,11 +68,18 @@
 						@endforeach
 					</tbody>
 				</table>
+
+				
 			@else
 				<p class="tabla-empty">No hay ninguna noticia creada</p>
 			@endif
 		</div>
 	</div>
+
+	@if($news->count())	
+		{{ $news->links() }}
+		<br/>
+	@endif
 
 @endsection
 		

@@ -5,7 +5,7 @@
 @section('a-contenido', 'active')
 
 @section('header')
-	<h1>{!! button('back') !!} Noticia <small>{{ $news->title }}</small>
+	<h1>{!! button('news') !!} Noticia <small>{{ $news->title }}</small>
 		
 		<div class="pull-right">
 			<form action="{{ route('admin.noticias.destroy', $news->id) }}" method="POST" style="display: inline;" onsubmit="return confirmarBorrado();">
@@ -31,7 +31,7 @@
 				<dt>Titulo:</dt>
 				<dd>{{ $news->title }}</dd>				
 				<dt>Cuerpo:</dt>
-				<dd>{{$news->body}}</dd>
+				<dd>{!! nl2br(e($news->body)) !!}</dd>
 			</dl>
 
 			<div class="box-footer">

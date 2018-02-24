@@ -48,7 +48,7 @@ class NewsServiceProvider extends ServiceProvider
 	protected function injectModel()
 	{
 		View::composer('*', function ($view) {
-		    $view->with('noticias', app('\Modules\News\Models\News')->orderBy('created_at', 'desc')->get());
+		    $view->with('noticias', app('\Modules\News\Models\News')->orderBy('created_at', 'desc')->paginate(4));
 		    $view->with('noticias_categorias', app('\Modules\News\Models\NewsCategory')->get());
 		    $view->with('noticias_destacadas', app('\Modules\News\Models\News')->where('important', 1)->get());
 		});

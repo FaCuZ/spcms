@@ -11,7 +11,7 @@ use Modules\News\Http\Requests\NewsCategoryRequest;
 use Illuminate\Http\Request;
 
 
-use Auth;
+use Auth, Theme;
 
 class NewsCategoryController extends Controller {
 
@@ -110,6 +110,21 @@ class NewsCategoryController extends Controller {
 		$news_category->delete();
 
 		return redirect()->route('admin.noticias.index')->withErrors(['good' => 'Categoria borrada correctamente.']);
+	}
+
+
+
+	public function categoria($id)
+	{
+		// Se tiene que crear en views un archivo noticias-categoria.blade.php
+		try {
+			
+			$data['categoria'] = NewsCategory::findOrFail($id);
+
+			return Theme::view(['view' => 'noticias-categoria', 'args' => $data]);
+		} catch (\InvalidArgumentException $e) {
+			abort(404);
+		}
 	}
 
 }

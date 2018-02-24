@@ -8,7 +8,7 @@ use Modules\News\Models\News;
 use Illuminate\Http\Request;
 use Modules\News\Http\Requests\NewsRequest;
 
-use Auth, DB;
+use Auth, DB, Theme;
 
 class NewsController extends Controller
 {
@@ -18,7 +18,8 @@ class NewsController extends Controller
 	 */
 	public function index()
 	{
-		$data['news'] = News::all()->sortByDesc('created_at');
+		// $data['news'] = News::paginate(3)->sortByDesc('created_at');
+		$data['news'] = News::latest()->paginate(4);
 
 		$data['news_categories'] = NewsCategory::all();
 
@@ -68,7 +69,7 @@ class NewsController extends Controller
 	public function show($id)
 	{
 		$data['news'] = News::findOrFail($id);
-		$data['news_category'] = NewsCategory::find($data['text']->news_category_id);
+		$data['news_category'] = NewsCategory::find($data['news']->news_category_id);
 
 		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('news');
 		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('news_categories');
@@ -131,4 +132,20 @@ class NewsController extends Controller
 
 		return redirect()->route('admin.noticias.index')->withErrors(['good' => 'Noticia borrada correctamente.']);
 	}
+
+
+
+	public function noticia($id)
+	{
+		// Se tiene que crear en views un archivo noticia.blade.php
+		try {
+			
+			$data['noticia'] = News::findOrFail($id);
+
+			return Theme::view(['view' => 'noticia', 'args' => $data]);
+		} catch (\InvalidArgumentException $e) {
+			abort(404);
+		}
+	}
+
 }
