@@ -17,6 +17,15 @@ class MainController extends Controller
     public function page($page)
 	{
 		try {
+
+			// if(\App::isDownForMaintenance()){
+			// 	if(!\Request::is('admin/edicion/*')) { 
+			// 		dd(redirect('/admin/edicion/'.$page));
+			// 		return redirect('/admin/edicion/'.$page);
+			// 	}
+			// }
+
+
 			return Theme::view($page);
 		} catch (\InvalidArgumentException $e) {
 			abort(404);

@@ -27,8 +27,6 @@ class CheckForMaintenanceMode extends Original
 		return false;
 	}
 
-
-
 	/**
 	 * Handle an incoming request.
 	 *
@@ -41,6 +39,7 @@ class CheckForMaintenanceMode extends Original
 	public function handle($request, Closure $next)
 	{
 		if ($this->app->isDownForMaintenance()) {
+
 			$response = $next($request);
 
 			if (in_array($request->ip(), $this->excludedIPs)) return $response;
@@ -53,9 +52,14 @@ class CheckForMaintenanceMode extends Original
 
 			if ($this->shouldPassThrough($request)) return $response;
 
+			if(!\Request::is('admin/edicion/*') && !\Request::is('/')) {
+				return redirect('/admin/edicion'.$request->getPathInfo());
+			} 
+
 			throw new HttpException(503);
 		}
 
 		return $next($request);
 	}
+
 }
