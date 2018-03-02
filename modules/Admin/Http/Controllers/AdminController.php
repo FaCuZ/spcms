@@ -1,13 +1,13 @@
 <?php namespace Modules\Admin\Http\Controllers;
 
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Venturecraft\Revisionable\Revision;
 
 use App, Artisan, Setting, File, Theme;
 
-use Venturecraft\Revisionable\Revision;
 
 class AdminController extends Controller
 {

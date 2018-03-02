@@ -28,12 +28,12 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
     }
 
+    //NOTA: Al actualizar a 5.5 no lo agrege porque utiliza la capeta de routes
     /**
      * Register the commands for the application.
      *
      * @return void
      */
-    //NOTA: Al actualizar a 5.5 no lo agrege porque utiliza la capeta de routes
     // protected function commands()
     // {
     //     $this->load(__DIR__.'/Commands');
