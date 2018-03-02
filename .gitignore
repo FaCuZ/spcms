@@ -4,8 +4,11 @@
 /storage/*.key
 /vendor
 /.idea
+/.vscode
 Homestead.json
 Homestead.yaml
+npm-debug.log
+yarn-error.log
 /public/images/uploads/
 TODO.md
 .env

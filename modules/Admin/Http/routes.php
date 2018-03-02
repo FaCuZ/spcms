@@ -32,5 +32,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'namespace' => 'Modu
 
 });
 
-Route::get('/{page}', ['uses' => 'App\Http\Controllers\MainController@page']);
-Route::get('/admin/edicion/{page}', ['middleware' => 'admin', 'uses' => 'App\Http\Controllers\MainController@page']);
+
+
+
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+	
+	Route::auth();
+	
+	Route::get('logout', ['as' => 'logout', 'middleware' => ['web'], 'uses' => 'Auth\LoginController@logout']);
+
+	Route::get('/', ['as' => 'main', 'uses' => 'MainController@index']);
+
+	Route::get('alerta', ['as' => 'alerta', 'uses' => 'MainController@showAlerta']);
+
+	Route::post('enviar/email', ['as' => 'email.send', 'uses' => 'MainController@sendEmail']);
+
+
+	Route::get('/{page}', ['uses' => 'MainController@page']);
+	Route::get('/admin/edicion/{page}', ['middleware' => 'admin', 'uses' => 'MainController@page']);
+
+});
+
+

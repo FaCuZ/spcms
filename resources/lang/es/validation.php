@@ -40,6 +40,8 @@ return array(
     "in"               => "El campo :attribute es inválido.",
     "integer"          => "El campo :attribute debe ser un número entero.",
     "ip"               => "El campo :attribute debe ser una dirección IP válida.",
+    'ipv4'             => 'El campo :attribute debe ser una dirección IPv4 válida.',
+    'ipv6'             => 'El campo :attribute debe ser una dirección IPv6 válida.',
     "max"              => array(
         "numeric" => "El campo :attribute no debe ser mayor a :max.",
         "file"    => "El campo :attribute no debe ser mayor que :max kilobytes.",

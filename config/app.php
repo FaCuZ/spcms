@@ -10,9 +10,10 @@ return [
     | This value is the name of your application. This value is used when the
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
+	|
     */
 
-    'name' => 'Spcms',
+    'name' => env('APP_NAME', 'Spcms'),
 
     'client' => [
         'name' => env('CLIENT_NAME', 'Web'),
@@ -183,7 +184,6 @@ return [
 		 * Vendor Service Providers...
 		 */
 		Intervention\Image\ImageServiceProvider::class,
-		//Barryvdh\Debugbar\ServiceProvider::class,
 		Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
 		Nwidart\Modules\LaravelModulesServiceProvider::class,
 		Facuz\Theme\ThemeServiceProvider::class,

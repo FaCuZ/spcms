@@ -27,4 +27,17 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
     }
+
+    /**
+     * Register the commands for the application.
+     *
+     * @return void
+     */
+    //NOTA: Al actualizar a 5.5 no lo agrege porque utiliza la capeta de routes
+    // protected function commands()
+    // {
+    //     $this->load(__DIR__.'/Commands');
+
+    //     require base_path('routes/console.php');
+    // }
 }
