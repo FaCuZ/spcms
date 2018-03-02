@@ -14,7 +14,7 @@
 			<i class="fa fa-angle-left pull-right"></i>
 		</a>
 		<ul class="treeview-menu">
-			@if(Module::active('News'))
+			@if(Module::enabled('News'))
 				<li @yield('a-noticias')> 
 					<a href="{{ URL::route('admin.noticias.index') }}">
 						<i class="fa fa-newspaper-o"></i> <span>Noticias</span>
@@ -22,7 +22,7 @@
 				</li>
 			@endif
 
-			@if(Module::active('Texts'))
+			@if(Module::enabled('Texts'))
 				<li @yield('a-textos')> 
 					<a href="{{ URL::route('admin.textos.index') }}">
 						<i class="fa fa-file-text-o"></i> <span>Textos</span>
@@ -30,7 +30,7 @@
 				</li>
 			@endif
 
-			@if(Module::active('Images'))
+			@if(Module::enabled('Images'))
 				<li @yield('a-imagenes')>
 					<a href="{{ URL::route('admin.imagenes.index') }}">
 						<i class="fa fa-image"></i> <span>Imágenes</span>
@@ -38,7 +38,7 @@
 				</li>
 			@endif
 
-			@if(Module::active('Links'))
+			@if(Module::enabled('Links'))
 				<li @yield('a-links')> 
 					<a href="{{ URL::route('admin.links.index') }}">
 						<i class="fa fa-link"></i> <span>Links</span>
@@ -46,7 +46,7 @@
 				</li>
 			@endif
 
-			@if(Module::active('Faq'))
+			@if(Module::enabled('Faq'))
 				<li @yield('a-faq')>
 					<a href="{{ URL::route('admin.faq.index') }}">
 						<i class="fa fa-question-circle"></i> <span>FAQ</span>
@@ -57,7 +57,7 @@
 	</li>
 
 
-	@if(Module::active('Email'))
+	@if(Module::enabled('Email'))
 		<li @yield('a-email')>  
 			<a href="{{ URL::route('admin.email.index') }}">
 				<i class="fa fa-envelope"></i> <span>Emails</span>
@@ -65,7 +65,7 @@
 		</li>
 	@endif
 	
-	@if(Module::active('Support'))
+	@if(Module::enabled('Support'))
 		<li @yield('a-soporte')>   
 			<a href="{{ URL::route('admin.soporte.index') }}">
 				<i class="fa fa-info-circle"></i> <span>Soporte</span>
@@ -85,7 +85,7 @@
 
  --}}
 
-		@if(Module::active('Pages'))
+		@if(Module::enabled('Pages'))
 			<li @yield('a-paginas')> 
 				<a href="{{ URL::route('admin.paginas.index') }}">
 					<i class="fa fa-files-o"></i> <span>Paginas</span>
