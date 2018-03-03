@@ -1,4 +1,4 @@
-<ul class="sidebar-menu">
+<ul class="sidebar-menu" data-widget="tree">
 	{{-- <li class="header">MENU</li> --}}
 
 	<li @yield('a-inicio')>  
