@@ -8,12 +8,12 @@ elixir(function(mix) {
 	 *	Pagina Offline
 	 */
 
-	mix.sass('offline.scss');
+	mix.sass('./modules/Admin/Assets/sass/offline.scss');
 
 	/*
 	 *	Sistema de administracion
 	 */
-	mix.sass('admin.scss');
+	mix.sass('./modules/Admin/Assets/sass/admin.scss');
 
 	mix.styles( [
 				'./node_modules/admin-lte/node_modules/bootstrap/dist/css/bootstrap.min.css',
@@ -30,7 +30,7 @@ elixir(function(mix) {
 				'./node_modules/admin-lte/node_modules/bootstrap/dist/js/bootstrap.min.js', 
 				'./node_modules/admin-lte/plugins/iCheck/icheck.min.js',
 				'./node_modules/admin-lte/dist/js/adminlte.min.js', 
-				'./resources/assets/js/admin.js'
+				'./modules/Admin/Assets/js/admin.js'
 				
 				], 'public/js/admin-libs.js'
 	);

@@ -1,16 +1,16 @@
 {
-	"name": "Email",
-	"alias": "email",
-	"description": "Servicio para pedido de cambios en los emails",
-	"keywords": [],
-	"active": 1,
-	"order": 0,
+    "name": "Email",
+    "alias": "email",
+    "description": "Servicio para pedido de cambios en los emails",
+    "keywords": [],
+    "active": 0,
+    "order": 0,
     "disabled": 0,
-	"providers": [
-		"Modules\\Email\\Providers\\EmailServiceProvider"
-	],
-	"aliases":{},
-	"files": [
-		"start.php"
-	]
+    "providers": [
+        "Modules\\Email\\Providers\\EmailServiceProvider"
+    ],
+    "aliases": [],
+    "files": [
+        "start.php"
+    ]
 }
