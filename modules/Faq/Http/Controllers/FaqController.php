@@ -69,14 +69,7 @@ class FaqController extends Controller {
 	public function show($id)
 	{
 		$data['faq'] = Faq::findOrFail($id);
-
 		$data['faq_category'] = FaqCategory::find($data['faq']->faq_category_id);
-
-		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('faq');
-		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('faq_categories');
-
-		$data['historial_1'] = $data['faq']->revisionHistory;
-		$data['historial_2'] = $data['faq_category']->revisionHistory;
 
 		return view('faq::show', $data);
 	}

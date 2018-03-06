@@ -70,14 +70,7 @@ class LinkController extends Controller {
 	{
 		$data['link'] = Link::findOrFail($id);
 		$data['link_category'] = LinkCategory::find($data['link']->link_category_id);
-
-
-		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('links');
-		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('link_categories');
 		
-		$data['historial_1'] = $data['link']->revisionHistory;
-		$data['historial_2'] = $data['link_category']->revisionHistory;
-
 		return view('links::show', $data);
 	}
 

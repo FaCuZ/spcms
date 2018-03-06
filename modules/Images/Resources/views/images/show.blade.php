@@ -54,52 +54,15 @@
 
 			</dl>
 
-			<div class="box-footer">
-				<div class="text-center mostrar-avanzado-div">
-					<a href="javascript:void(0)" class="mostrar-avanzado">Mostrar detalles avanzados</a>
-				</div>
-
-				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
-					@if(Auth::user()->isAdmin)
-						<dt>Codigo:</dt>
-						<dd>
-							<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}" /&gt;</pre>
-							<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->url }}</pre>
-							Miniatura:
-							<pre class="pre-codigo">&lt;img src="&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}" /&gt;</pre>
-							<pre class="pre-codigo">&#123;&#123; $albumes->imagen('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')->thumb }}</pre>
-						</dd>
-
-
-						<dt>Tablas:</dt>
-						<dd>
-							images:
-							{!! showTable($tabla_1, $image) !!}
-							
-							gallery:
-							{!! showTable($tabla_2, $gallery) !!}
-
-							album:
-							{!! showTable($tabla_3, $album) !!}
-						</dd>
-					@endif
-
-					<dt>Historial:</dt>
-					<dd>
-						images:
-						{!! showHistory($historial_1) !!}
-
-						gallery:
-						{!! showHistory($historial_2) !!}
-
-						album:
-						{!! showHistory($historial_3) !!}
-					</dd>
-				</dl>
-
-			</div>
-
-
+			@component('admin::partial.advance', ['data' => [$image, $gallery, $album]])
+				<dd>
+					<pre class="pre-codigo">&lt;img src="&#64;image('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')" /&gt;</pre>
+					<pre class="pre-codigo">&#64;image('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')</pre>
+					Miniatura:
+					<pre class="pre-codigo">&lt;img src="&#64;thumb('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')" /&gt;</pre>
+					<pre class="pre-codigo">&#64;thumb('{{ $album->title }}', '{{ $gallery->title }}', '{{ $image->title }}')</pre>
+				</dd>
+			@endcomponent
 
 		</div>
 	</div>

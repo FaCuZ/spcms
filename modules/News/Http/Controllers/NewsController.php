@@ -71,12 +71,6 @@ class NewsController extends Controller
 		$data['news'] = News::findOrFail($id);
 		$data['news_category'] = NewsCategory::find($data['news']->news_category_id);
 
-		$data['tabla_1'] = DB::getSchemaBuilder()->getColumnListing('news');
-		$data['tabla_2'] = DB::getSchemaBuilder()->getColumnListing('news_categories');
-		
-		$data['historial_1'] = $data['news']->revisionHistory;
-		$data['historial_2'] = $data['news_category']->revisionHistory;
-
 		return view('news::show', $data);
 	}
 

@@ -37,41 +37,11 @@
 				<dd>{{ $faq->answer }}</dd>
 			</dl>
 
-			<div class="box-footer">
-				<div class="text-center mostrar-avanzado-div">
-					<a href="javascript:void(0)" class="mostrar-avanzado">Mostrar detalles avanzados</a>
-				</div>
-
-				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
-					@if(Auth::user()->isAdmin)
-						<dt>Codigo:</dt>
-						<dd>
-							<pre class="pre-codigo">&#123;&#123; $faq_categorias->texto('{{ $faq_category->title }}','{{ $faq->question }}') }}</pre>
-							<pre class="pre-codigo">&#123;&#123; $faq->texto('{{ $faq->question }}') }}</pre>
-						</dd>
-
-						<dt>Tablas:</dt>
-						<dd>
-							faq:
-							{!! showTable($tabla_1, $faq) !!}
-
-							faq_category:
-							{!! showTable($tabla_2, $faq_category) !!}
-						</dd>
-					@endif
-
-					<dt>Historial:</dt>
-					<dd>
-						faq:
-						{!! showHistory($historial_1) !!}
-
-						faq_category:
-						{!! showHistory($historial_2) !!}					
-					</dd>
-
-				</dl>
-			</div>
-
+			@component('admin::partial.advance', ['data' => [$faq, $faq_category]])
+				<dd>
+					<pre class="pre-codigo">&#123;&#123; $faq_category->texto('{{ $faq_category->title }}','{{ $faq->question }}') }}</pre>
+				</dd>
+			@endcomponent
 
 		</div>
 	</div>

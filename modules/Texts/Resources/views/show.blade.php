@@ -37,39 +37,12 @@
 				<dd>{{$text->body}}</dd>
 			</dl>
 
-			<div class="box-footer">
-				<div class="text-center mostrar-avanzado-div">
-					<a href="#" class="mostrar-avanzado">Mostrar detalles avanzados</a>
-				</div>
+			@component('admin::partial.advance', ['data' => [$text, $text_category]])
+				<dd>
+					<pre class="pre-codigo">&#64;text('{{ $text_category->title }}','{{ $text->title }}')</pre>
+				</dd>
+			@endcomponent
 
-				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
-					@if(Auth::user()->isAdmin)
-						<dt>Codigo:</dt>
-						<dd>
-							<pre class="pre-codigo">&#123;&#123; $categorias->texto('{{ $text_category->title }}','{{ $text->title }}') }}</pre>
-							<pre class="pre-codigo">&#123;&#123; $textos->texto('{{ $text->title }}') }}</pre>
-						</dd>
-
-						<dt>Tablas:</dt>
-						<dd>
-							texts:
-							{!! showTable($tabla_1, $text) !!}
-
-							texts_category:
-							{!! showTable($tabla_2, $text_category) !!}					
-						</dd>
-					@endif
-
-					<dt>Historial:</dt>
-					<dd>
-						texts:
-						{!! showHistory($historial_1) !!}
-
-						texts_category:
-						{!! showHistory($historial_2) !!}
-					</dd>
-				</dl>
-			</div>
 		</div>
 	</div>
 

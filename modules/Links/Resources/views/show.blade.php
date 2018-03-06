@@ -38,38 +38,13 @@
 				<dd><a href="{{$link->url}}">{{$link->url}}</a></dd> 
 			</dl>
 
-			<div class="box-footer">
-				<div class="text-center mostrar-avanzado-div">
-					<a href="#" class="mostrar-avanzado">Mostrar detalles avanzados</a>
-				</div>
+			@component('admin::partial.advance', ['data' => [$link, $link_category]])
+				<dd>
+					<pre class="pre-codigo">&#123;&#123; &#64;links('{{ $link_category->title }}','{{ $link->title }}') }}</pre>
+				</dd>
+			@endcomponent
 
-				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
-					@if(Auth::user()->isAdmin)
-						<dt>Codigo:</dt>
-						<dd>
-							<pre class="pre-codigo">&#123;&#123; &#64;links('{{ $link_category->title }}','{{ $link->title }}') }}</pre>
-						</dd>
 
-						<dt>Tablas:</dt>
-						<dd>
-							links:
-							{!! showTable($tabla_1, $link) !!}
-
-							links_category:
-							{!! showTable($tabla_2, $link_category) !!}					
-						</dd>
-					@endif
-
-					<dt>Historial:</dt>
-					<dd>
-						links:
-						{!! showHistory($historial_1) !!}
-
-						links_category:
-						{!! showHistory($historial_2) !!}
-					</dd>
-				</dl>
-			</div>
 		</div>
 	</div>
 

@@ -34,32 +34,21 @@
 				<dd>{!! nl2br(e($news->body)) !!}</dd>
 			</dl>
 
-			<div class="box-footer">
-				<div class="text-center mostrar-avanzado-div">
-					<a href="#" class="mostrar-avanzado">Mostrar detalles avanzados</a>
-				</div>
 
-				<dl class="hidden dl-horizontal mostrar-avanzado-dl">
-					@if(Auth::user()->isAdmin)
-						<dt>Codigo:</dt>
-						<dd>
-							<pre class="pre-codigo">&#123;&#123; $news->texto('{{ $news->title }}') }}</pre>
-						</dd>
-
-						<dt>Tablas:</dt>
-						<dd>
-							news:
-							{!! showTable($tabla_1, $news) !!}
-						</dd>
-					@endif
-
-					<dt>Historial:</dt>
-					<dd>
-						news:
-						{!! showHistory($historial_1) !!}
-					</dd>
-				</dl>
-			</div>
+			@component('admin::partial.advance', ['data' => [$news, $news_category]])
+				<dd>
+					<pre class="pre-codigo">
+&#64;foreach($noticias->take(4) as $noticia)	
+  &lt;h4>&#123;&#123; $noticia->title }}&lt;/h4>
+    &lt;p>
+      &#123;&#123; mb_strimwidth($noticia->body, 0, 200, '...') }}
+    &lt;/p>
+  &lt;/div>
+&#64;endforeach</pre>
+				</dd>
+			@endcomponent
+		
+			
 		</div>
 	</div>
 

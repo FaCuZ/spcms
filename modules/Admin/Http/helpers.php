@@ -73,66 +73,6 @@ function cacheStatus(){
 	return file_exists(base_path('bootstrap/cache/CACHE'));
 }
 
-
-function showTable($tabla, $data){
-	if(!empty($tabla)){
-		$html =  '<table class="tabla_ejemplo">'.
-				 '	<tr>';
-		foreach($tabla as $col){
-			$html .= '<th>'.$col.'</th>';
-		}
-		$html .= '</tr><tr>';
-
-		foreach($tabla as $col){
-			if($data[$col]){
-				$html .= '<td>'.$data[$col].'</td>';
-			} else {
-				$html .= '<td><small class="text-muted"><em>null</em></small></td>';				
-			}
-		}
-							
-		$html .= '</tr></table>';
-	} else {
-		$html = '';
-	}
-
-	return $html;
-}
-
-function showHistory($historial){
-	if(!$historial->isEmpty()){
-		$html = '<table class="table table-striped table-historial-show">'.
-				'<thead>'.
-				'	<tr>'.
-				'		<th>Usuario</th>'.
-				'		<th>Elemento</th>'.
-				'		<th>Anterior</th>'.
-				'		<th>Nuevo</th>'.
-				'		<th>Tiempo</th>'.
-				'	</tr>'.
-				'</thead>'.
-				'<tbody>';
-
-		foreach($historial as $data){
-			$html .='<tr>'.
-					'	<td>'.$data->userResponsible()->name.'</td>'.
-					'	<td>'.$data->fieldName().'</td>'.
-					'	<td><code>'.$data->oldValue().'</code></td>'.
-					'	<td><code>'.$data->newValue().'</code></td>'.
-					'	<td class="nowrap">'.$data->created_at->diffForHumans().'</td>'.
-					'</tr>';
-		}
-		$html .= '</tbody>'.
-				'</table>';
-	} else {
-		$html = '<p><small class="text-muted"><em>Sin cambios.</em></small><br/></p>';
-
-	} 
-
-	return $html;
-}
-
-
 function button($boton){
 	return '<a class="btn btn-default btn-xs" href="'.getUrlButton($boton).'"><i class="fa fa-chevron-left"></i></a>';
 }
