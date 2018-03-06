@@ -34,8 +34,9 @@
 						<a class="btn btn-default btn-lg" href="{{ URL::route('admin.imagenes.index') }}" role="button"><i class="fa fa-image"></i> <span>Imágenes</span></a>
 					@endif
 				</p>
-				<p class="jumbotron-text">Si necesitas ayuda puedes solicitarla desde la seccion de <a href="{{ URL::route('admin.soporte.index') }}">soporte</a>.</p>
-
+				@if(Module::find('Support')->active == 1)
+					<p class="jumbotron-text">Si necesitas ayuda puedes solicitarla desde la seccion de <a href="{{ URL::route('admin.soporte.index') }}">soporte</a>.</p>
+				@endif
 			</div>
 
 			@if($down)

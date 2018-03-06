@@ -113,6 +113,8 @@
 
 </ul>
 
-<div class="app-version">
-	{{ GitVersionHelper::getVersion() }}
-</div>
+@if(Auth::user()->isAdmin)
+	<div class="app-version">
+		{{ GitVersionHelper::getVersion() }}
+	</div>
+@endif

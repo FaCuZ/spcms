@@ -9,7 +9,7 @@
     "providers": [
         "Modules\\Support\\Providers\\SupportServiceProvider"
     ],
-    "aliases":{},
+    "aliases": [],
     "files": [
         "start.php"
     ]
