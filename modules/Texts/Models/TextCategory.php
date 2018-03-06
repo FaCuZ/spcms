@@ -37,8 +37,8 @@ class TextCategory extends Revisionable
 
 	public function scopeTexto($query, $cat_value, $txt_value)
 	{
-		// Blade: {{ $categorias->texto('Diseño', 'Logos') }}
-		
+		// Blade: {{ $textos->texto('Diseño', 'Logos') }}
+
 		$categoria = $query->categoria(strtolower($cat_value));
 
 		if($categoria === "null") return strtoupper($cat_value."?-".$txt_value);

@@ -26,8 +26,8 @@ class TextsServiceProvider extends ServiceProvider
 
 		$this->injectModel();
 
-		$this->addToBlade(['text', '$categorias->texto(%s);']);
-		$this->addToBlade(['email', 'protectEmail($categorias->texto(%s));']);
+		$this->addToBlade(['text', '$textos->texto(%s);']);
+		$this->addToBlade(['email', 'protectEmail($textos->texto(%s));']);
 
 	}
 
@@ -50,7 +50,7 @@ class TextsServiceProvider extends ServiceProvider
 	protected function injectModel()
 	{
 		View::composer('*', function ($view) {
-		    $view->with('categorias', app('\Modules\Texts\Models\TextCategory'));
+		    $view->with('textos', app('\Modules\Texts\Models\TextCategory'));
 		});
 	}
 

@@ -1,6 +1,3 @@
-@inject('albumes',	 'Modules\Images\Models\Album')
-@inject('imagenes',	 'Modules\Images\Models\Image')
-
 <section id="galerias" class="galerias-section">
 	<div class="container">
 		<div class="row">

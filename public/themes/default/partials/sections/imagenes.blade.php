@@ -1,5 +1,4 @@
 @inject('imagenes',	 'Modules\Images\Models\Image')
-@inject('albumes',	 'Modules\Images\Models\Album')
 
 <section id="imagenes" class="imagenes-section">
 	<div class="container">
