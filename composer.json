@@ -2,6 +2,12 @@
     "name": "facuz/spcms",
     "description": "Sistema de administracion de paginas webs.",
     "keywords": ["web","cms", "laravel"],
+    "authors": [
+        {
+            "name": "Facundo Zaldo",
+            "email": "info@indis.com.ar"
+        }
+    ],
     "license": "MIT",
     "type": "project",
     "require": {

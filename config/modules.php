@@ -138,10 +138,10 @@ return [
     */
 
     'composer' => [
-        'vendor' => 'facuz',
+        'vendor' => '[VENDOR]',
         'author' => [
-            'name' => 'Facundo Zaldo',
-            'email' => 'fzaldo@gmail.com',
+            'name' => '[NAME]',
+            'email' => '[EMAIL]',
         ],
     ],
     /*
