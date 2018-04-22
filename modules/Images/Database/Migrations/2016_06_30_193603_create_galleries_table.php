@@ -19,6 +19,7 @@ class CreateGalleriesTable extends Migration {
 			$table->text('description')->nullable();
 			
 			$table->integer('default_image_id')->unsigned()->nullable();
+			$table->foreign('default_image_id')->references('id')->on('images');
 
 			$table->integer('album_id')->unsigned();
 			$table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');

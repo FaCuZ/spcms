@@ -30,6 +30,10 @@ class Gallery extends Revisionable
 		return $this->hasMany('Modules\Images\Models\Image');
 	}
 
+	public function cover(){
+		return $this->hasOne('Modules\Images\Models\Image', 'id', 'default_image_id');
+	}
+
 	public function setTitleAttribute($value)
 	{
 		$this->attributes['title'] = preg_replace("/[^0-9a-zñ ]/", "", strtolower($value));
@@ -42,6 +46,15 @@ class Gallery extends Revisionable
 		if(!$galeria) return 'null';
 
 		return $galeria;
+	}
+
+
+
+
+	public function getCoverAttribute()
+	{
+		// TODO: Preguntar si tiene una imagen para mostrar por default
+		return $this->imagenes->first()["thumb"];
 	}
 
 	public function getVistaAttribute()

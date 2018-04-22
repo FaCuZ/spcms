@@ -3,7 +3,7 @@
     "alias": "support",
     "description": "Facilita la comunicacion con el desarrollador.",
     "keywords": [],
-    "active": 1,
+    "active": 0,
     "order": 11,
     "disabled": 0,
     "providers": [

@@ -57,7 +57,7 @@ class Album extends Revisionable
 
 	public function scopeImagen($query, $album_value, $galeria_value, $imagen_value)
 	{
-		// Blade: {{ $albumes->galeria('diseño', 'logos'. 'imagen') }}
+		// Blade: {{ $albumes->imagen('diseño', 'logos'. 'imagen') }}
 
 		$album = $query->album(strtolower($album_value));
 
@@ -74,6 +74,31 @@ class Album extends Revisionable
 		return $imagen;
 
 
+	}
+
+
+	public function scopeCovers($query, $album_value)
+	{
+		// Blade: {{ $albumes->covers('Diseño') }}
+
+		$album = $query->album(strtolower($album_value));
+
+		if($album == 'null') return sinImagen();
+
+		$covers = [];
+
+		foreach ($album->galerias as $key => $galeria) {
+			// if(!$galeria == 'null') return sinImagen();
+			
+			$imagen = $galeria->imagenes->get($galeria->default_image_id);
+
+			if($imagen != null){
+            	$covers[$key] = $imagen;
+				
+			}
+		}
+
+		return $covers;
 	}
 
 }
