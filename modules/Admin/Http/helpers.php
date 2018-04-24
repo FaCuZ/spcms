@@ -89,3 +89,24 @@ function getUrlButton($op){
 		default: return route($boton);
 	}
 }
+
+
+function imageThumbSize($image, $size) {
+
+	$file = pathinfo($image->file);
+
+	$imageSize = $file['dirname'].'/'.$file['filename'].'-thumb_'.$size.'.'.$file['extension'];
+
+    if (!file_exists($imageSize)) {
+
+		$imageFile = ImageI::make($image->file);
+
+		$vector = explode("x", $size);
+
+		$imageFile->fit($vector[0], $vector[1]);
+		
+		$imageFile->save($imageSize);
+    }
+
+    return $imageSize;
+}

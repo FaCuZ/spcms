@@ -75,11 +75,23 @@ class ImageController extends Controller {
 		$image->description = $request->input("description");        
 		$image->gallery_id = $request->input("gallery_id");
 
+
 		$file = $request->file;		
-		$imageFile = ImageI::make($request->file);
+
+		$imageFile = ImageI::make($file);
+
+		$imageFile->resize(1280, 1280, function ($constraint) {
+			$constraint->aspectRatio();
+			$constraint->upsize();
+		});	
 
   		$path = 'images/uploads/';
-		$name = time()."-".preg_replace("/[^A-Za-z0-9-_\.]/", "", $image->title);
+		
+		$name = time();
+		if($image->title){
+			$name = $name."-".preg_replace("/[^A-Za-z0-9-_\.]/", "", $image->title);
+		}
+
 		$extension = $file->getClientOriginalExtension();
 
   		$image->file = $path.$name.".".$extension;
@@ -92,6 +104,12 @@ class ImageController extends Controller {
 		$imageFile->save($image->thumb);
 
 		$image->save();
+
+		if($request->input("default_image_id")){
+			$galeria = Gallery::find($image->gallery_id);
+			$galeria->default_image_id = $image->id;
+			$galeria->save();
+		} 
 
 
 		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Imagen creada correctamente.']);
@@ -144,11 +162,22 @@ class ImageController extends Controller {
 		$image->gallery_id = $request->input("gallery_id");
 
 		if ($request->hasFile('file')) {
+			// TODO: Borrar archivo y todos los thumbs creados
 			$file = $request->file;
-			$imageFile = ImageI::make($request->file);
+			$imageFile = ImageI::make($file);
+
+			$imageFile->resize(1280, 1280, function ($constraint) {
+				$constraint->aspectRatio();
+				$constraint->upsize();
+			});	
 
 	  		$path = 'images/uploads/';
-			$name = time()."-".preg_replace("/[^A-Za-z0-9-_\.]/", "", $image->title);
+			
+			$name = time();
+			if($image->title){
+				$name = $name."-".preg_replace("/[^A-Za-z0-9-_\.]/", "", $image->title);
+			}
+
 			$extension = $file->getClientOriginalExtension();
 
 	  		$image->file = $path.$name.".".$extension;
@@ -162,6 +191,12 @@ class ImageController extends Controller {
 		}
 
 		$image->save();
+
+		if($request->input("default_image_id")){
+			$galeria = Gallery::find($image->gallery_id);
+			$galeria->default_image_id = $image->id;
+			$galeria->save();
+		} 
 
 		return redirect()->route('admin.imagenes.index')->withErrors(['good' => 'Imagen actualizada correctamente.']);
 	}

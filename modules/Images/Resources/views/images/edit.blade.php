@@ -63,6 +63,15 @@
 						@endif
 					</div>
 
+					<div class="form-group @if($errors->has('default_image_id')) has-error @endif">
+						<label for="default_image_id-field" class="checkbox-inline">
+ 							<input type="checkbox" id="default_image_id-field" name="default_image_id" value="true"> Establecer como portada de la galeria.
+ 						</label>
+						@if($errors->has("default_image_id"))
+							<span class="help-block">{{ $errors->first("default_image_id") }}</span>
+						@endif
+					</div>
+
 				</div>
 
 				<div class="modal-footer">

@@ -7,9 +7,10 @@ class ImageRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'title'			=> 'required|unique:images,deleted_at,NULL',
+			'title'			=> 'nullable|unique:images,deleted_at,NULL',
 			'description'	=> 'nullable',
 			'gallery_id'	=> 'exists:galleries,id',
+			'default_image_id'	=> 'nullable',
 		];
 	}
 
@@ -25,6 +26,7 @@ class ImageRequest extends FormRequest
 			'file'			=> 'Imagen',
 			'description'	=> 'Descripcion',
 			'gallery_id'	=> 'Galeria',
+			'default_image_id'	=> 'Portada',
 		];
 	}
 }

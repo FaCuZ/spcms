@@ -73,7 +73,27 @@ class Album extends Revisionable
 
 		return $imagen;
 
+	}
 
+
+	public function scopeThumpSize($query, $album_value, $galeria_value, $imagen_value, $size)
+	{
+		// TODO: test
+		// Blade: {{ $albumes->imagen('diseño', 'logos'. 'imagen', '300x300') }}
+
+		$album = $query->album(strtolower($album_value));
+
+		if($album == 'null') return sinImagen();
+
+		$galeria = $album->galerias->keyBy('title')->get(strtolower($galeria_value));
+
+		if(!$galeria == 'null') return sinImagen();
+		
+		$imagen = $galeria->imagenes->keyBy('title')->get(strtolower($imagen_value));
+
+		if(!$imagen == 'null') return sinImagen();
+
+		return imageThumbSize($imagen, $size);
 	}
 
 
@@ -88,14 +108,12 @@ class Album extends Revisionable
 		$covers = [];
 
 		foreach ($album->galerias as $key => $galeria) {
-			// if(!$galeria == 'null') return sinImagen();
-			
-			$imagen = $galeria->imagenes->get($galeria->default_image_id);
+			$imagen = Image::find($galeria->default_image_id);
 
 			if($imagen != null){
-            	$covers[$key] = $imagen;
-				
-			}
+               	$covers[$key] = $imagen;
+			} 
+
 		}
 
 		return $covers;

@@ -52,6 +52,7 @@ class GalleryController extends Controller {
 		$gallery->title = $request->input("title");
 		$gallery->description = $request->input("description");
 		$gallery->album_id = $request->input("album_id");
+		$gallery->title = $request->input("title");
 
 		$gallery->save();
 
