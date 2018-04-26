@@ -19,7 +19,8 @@ class Gallery extends Revisionable
 	protected $revisionFormattedFieldNames = [
 		'title' => 'Titulo',
 		'description' => 'Descripcion',
-		'deleted_at' => 'Borrado'
+		'deleted_at' => 'Borrado',
+		'default_image_id' => 'Portada'
 	];
 
 	public function album(){
@@ -53,11 +54,10 @@ class Gallery extends Revisionable
 
 	public function getCoverAttribute()
 	{
-		// TODO: Preguntar si tiene una imagen para mostrar por default
-		return $this->imagenes->first()["thumb"];
+		return Image::find($this->attributes['default_image_id']);
 	}
 
-	public function getVistaAttribute()
+	public function getCoverThumbAttribute()
 	{
 		// TODO: Preguntar si tiene una imagen para mostrar por default
 		return $this->imagenes->first()["thumb"];
