@@ -1,3 +1,9 @@
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !public/
 RewriteRule ^(.*)$ /public/$1 [L]
+
+<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
